@@ -1,0 +1,73 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+description: GELATO configuration schema
+required:
+  - GRAPHS
+  - MGDB
+
+properties:
+
+  GRAPHS:
+    type: array
+    uniqueItems: True
+    items:
+      type: string
+      enum: [MGDB]
+  
+  MGDB:
+    type: object
+    required: [DATA_SOURCE, LANGUAGES_AND_TOOLS, QUERIES]
+    properties:
+      DATA_SOURCE:
+        type: object
+        required: [FOLDER_PATH, SQL, CYPHER, SPARQL]
+        properties:
+          FOLDER_PATH:
+            type: string
+            pattern: "data/external/*"
+          SQL:
+            type: object
+            required: [DATABASE_GROUP, LOAD_DATA]
+            properties:
+              DATABASE_GROUP:
+                type: string
+              LOAD_DATA:
+                type: boolean
+          CYPHER:
+            type: object
+            required: [DATABASE_GROUP, LOAD_DATA]
+            properties:
+              DATABASE_GROUP:
+                type: string
+              LOAD_DATA:
+                type: boolean
+          SPARQL:
+            type: object
+            required: [DATABASE_GROUP, LOAD_DATA]
+            properties:
+              DATABASE_GROUP:
+                type: string
+              LOAD_DATA:
+                type: boolean
+      LANGUAGES_AND_TOOLS:
+        type: array
+        uniqueItems: True
+        items:
+          type: string
+          enum: [PYTHON, SQL, CYPHER, SPARQL, CLINGO, BASHLOG]
+      QUERIES:
+        type: object
+        required: [RUN, SEARCH_DESCENDANTS]
+        properties:
+          RUN:
+            type: array
+            uniqueItems: True
+            items:
+              type: string
+              enum: [SEARCH_DESCENDANTS]
+          SEARCH_DESCENDANTS:
+            type: object
+            required: [PIDS]
+            properties:
+              PIDS:
+                type: array
+                uniqueItems: True

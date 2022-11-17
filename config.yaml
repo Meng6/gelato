@@ -1,0 +1,25 @@
+GRAPHS: [MGDB]
+
+MGDB:
+  DATA_SOURCE:
+    FOLDER_PATH: data/external/mgdb
+    SQL: 
+      DATABASE_GROUP: MGDB_POSTGRES
+      LOAD_DATA: False
+    CYPHER: 
+      DATABASE_GROUP: MGDB_NEO4J
+      LOAD_DATA: False
+    SPARQL: 
+      DATABASE_GROUP: MGDB_BLAZEGRAPH
+      LOAD_DATA: False
+
+  # Available languages and tools: [PYTHON, SQL, CYPHER, SPARQL, CLINGO, BASHLOG]
+  LANGUAGES_AND_TOOLS: [PYTHON, SQL] #, CYPHER, SPARQL, CLINGO, BASHLOG]
+
+  QUERIES:
+    RUN: [SEARCH_DESCENDANTS]
+
+    # Available queries
+    SEARCH_DESCENDANTS:
+      PIDS: [63244]
+
