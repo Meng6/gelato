@@ -25,6 +25,11 @@ for graph in config["GRAPHS"]:
         files_to_compute.extend(expand("data/query/mgdb/{lat}/output_search_descendants_for_{pid}.txt", lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["SEARCH_DESCENDANTS"]["PIDS"]))
         files_to_compute.extend(expand("data/query/mgdb/{lat}/benchmark_search_descendants_for_{pid}.txt", lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["SEARCH_DESCENDANTS"]["PIDS"]))
 
+    if "SEARCH_ANCESTORS" in config[graph]["QUERIES"]["RUN"]:
+        files_to_compute.extend(expand("data/query/mgdb/{lat}/output_search_ancestors_for_{pid}.txt", lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["SEARCH_ANCESTORS"]["PIDS"]))
+        files_to_compute.extend(expand("data/query/mgdb/{lat}/benchmark_search_ancestors_for_{pid}.txt", lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["SEARCH_ANCESTORS"]["PIDS"]))
+
+
 rule all:
     input:
         files_to_compute

@@ -2,6 +2,7 @@ $schema: "http://json-schema.org/draft-07/schema#"
 description: GELATO configuration schema
 required:
   - GRAPHS
+  - BENCHMARK
   - MGDB
 
 properties:
@@ -13,6 +14,14 @@ properties:
       type: string
       enum: [MGDB]
   
+  BENCHMARK:
+    type: object
+    required: [REPEAT_TIMES]
+    properties:
+      REPEAT_TIMES:
+        type: integer
+        minimum: 1
+
   MGDB:
     type: object
     required: [DATA_SOURCE, LANGUAGES_AND_TOOLS, QUERIES]
@@ -56,15 +65,22 @@ properties:
           enum: [PYTHON, SQL, CYPHER, SPARQL, CLINGO, BASHLOG]
       QUERIES:
         type: object
-        required: [RUN, SEARCH_DESCENDANTS]
+        required: [RUN, SEARCH_DESCENDANTS, SEARCH_ANCESTORS]
         properties:
           RUN:
             type: array
             uniqueItems: True
             items:
               type: string
-              enum: [SEARCH_DESCENDANTS]
+              enum: [SEARCH_DESCENDANTS, SEARCH_ANCESTORS]
           SEARCH_DESCENDANTS:
+            type: object
+            required: [PIDS]
+            properties:
+              PIDS:
+                type: array
+                uniqueItems: True
+          SEARCH_ANCESTORS:
             type: object
             required: [PIDS]
             properties:
