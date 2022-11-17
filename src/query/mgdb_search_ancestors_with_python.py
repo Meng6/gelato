@@ -17,9 +17,9 @@ advised = pd.read_csv(snakemake.input["advised"], sep="\t")
 dissertation = pd.read_csv(snakemake.input["dissertation"], sep="\t")
 person = pd.read_csv(snakemake.input["person"], sep="\t")
 
+# Search ancestors
 ancestor_pids = searchAncestorsPython(pid=pid, ancestor_pids=set())
 ancestors = person[person["pid"].isin(ancestor_pids)]
-
 
 # Save the results
 fout = open(snakemake.output[0], mode="w", encoding="utf-8")

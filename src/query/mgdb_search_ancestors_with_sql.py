@@ -30,13 +30,14 @@ conn = psycopg2.connect(database=credentials[database_group]["database"],
                         password=credentials[database_group]["password"],
                         port=credentials[database_group]["port"])
 
-
+# Search ancestors
 pid = snakemake.params["pid"]
 ancestors = searchAncestorsSQL(pid=pid)
+# Close the connection
+conn.close ()
 
 # Save the results
 fout = open(snakemake.output[0], mode="w", encoding="utf-8")
 fout.write("The ancestors of " + str(pid) + " are: (" + str(len(ancestors)) + " ancestors)\n")
 fout.write("\n".join(map(str, ancestors)))
-# Close the connection
-conn.close ()
+fout.close()

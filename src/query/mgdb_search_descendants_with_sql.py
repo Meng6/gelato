@@ -30,13 +30,14 @@ conn = psycopg2.connect(database=credentials[database_group]["database"],
                         password=credentials[database_group]["password"],
                         port=credentials[database_group]["port"])
 
-
+# Search descendants
 pid = snakemake.params["pid"]
 students = searchDescendantsSQL(pid=pid)
+# Close the connection
+conn.close ()
 
 # Save the results
 fout = open(snakemake.output[0], mode="w", encoding="utf-8")
 fout.write("The descendants of " + str(pid) + " are: (" + str(len(students)) + " descendants)\n")
 fout.write("\n".join(map(str, students)))
-# Close the connection
-conn.close ()
+fout.close()

@@ -15,6 +15,7 @@ advised = pd.read_csv(snakemake.input["advised"], sep="\t")
 dissertation = pd.read_csv(snakemake.input["dissertation"], sep="\t")
 person = pd.read_csv(snakemake.input["person"], sep="\t")
 
+# Search descendants
 student_pids = searchDescendantsPython(pid=pid, student_pids=set())
 students = person[person["pid"].isin(student_pids)]
 
