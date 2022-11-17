@@ -2,47 +2,6 @@
 
 *G*raph *E*xploration: *L*anguages *a*nd *To*ols
 
-!!! tip "Code structure"
-
-  ├── README.md
-  ├── Snakefile
-  ├── config.yaml
-  ├── credentials.yaml
-  ├── data
-  │   ├── external
-  │   │   └── mgdb
-  │   │       ├── advised.csv
-  │   │       ├── dissertation.tsv
-  │   │       └── person.csv
-  │   ├── query
-  │   │   └── mgdb
-  │   │       ├── python
-  │   │       │   ├── benchmark_search_descendants_for_63244.txt
-  │   │       │   └── output_search_descendants_for_63244.txt
-  │   │       └── sql
-  │   │           ├── benchmark_search_descendants_for_63244.txt
-  │   │           └── output_search_descendants_for_63244.txt
-  │   └── raw
-  │       └── mgdb
-  │           └── python
-  │               ├── advised.tsv
-  │               ├── dissertation.tsv
-  │               └── person.tsv
-  ├── environment.yml
-  ├── gelato
-  ├── rules
-  │   ├── common.smk
-  │   ├── preprocessing.smk
-  │   └── query.smk
-  ├── src
-  │   ├── preprocess
-  │   │   └── mgdb_preprocess_data_for_python.py
-  │   └── query
-  │       ├── mgdb_search_descendants_with_python.py
-  │       └── mgdb_search_descendants_with_sql.py
-  └── tools
-      └── config.schema.yaml
-
 ### Setup 
 
 #### Installation (For Mac)
@@ -89,8 +48,8 @@ Setup `DATABASE_GROUP` and its connection credentials.
 
   3. Notes
   
-    1. The label `[MY_GROUP]` is arbitrary but it has to match the `[DATABASE_GROUP]` attribute of the data stream you choose to use.
+  - The label `[MY_GROUP]` is arbitrary but it has to match the `[DATABASE_GROUP]` attribute of the data stream you choose to use.
 
-    2. Indentation matters
+  - Indentation matters
 
-    3. You can have more than one credentials group in `credentials.yaml`
+  - You can have more than one credentials group in `credentials.yaml`
