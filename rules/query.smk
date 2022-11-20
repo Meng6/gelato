@@ -46,6 +46,18 @@ rule mgdb_search_descendants_with_sparql:
     script:
         "../src/query/mgdb_search_descendants_with_sparql.py"
 
+rule mgdb_search_descendants_with_clingo:
+    input:
+        facts = "data/raw/mgdb/clingo/facts.tsv"
+    params:
+        pid = "{pid}"
+    output:
+        "data/query/mgdb/clingo/output_search_descendants_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/clingo/benchmark_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_search_descendants_with_clingo.py"
+
 rule mgdb_search_ancestors_with_python:
     input:
         advised = "data/raw/mgdb/python/advised.tsv",
@@ -93,3 +105,15 @@ rule mgdb_search_ancestors_with_sparql:
         repeat("data/query/mgdb/sparql/benchmark_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/mgdb_search_ancestors_with_sparql.py"
+
+rule mgdb_search_ancestors_with_clingo:
+    input:
+        facts = "data/raw/mgdb/clingo/facts.tsv"
+    params:
+        pid = "{pid}"
+    output:
+        "data/query/mgdb/clingo/output_search_ancestors_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/clingo/benchmark_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_search_ancestors_with_clingo.py"

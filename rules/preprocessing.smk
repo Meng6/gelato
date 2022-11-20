@@ -14,3 +14,12 @@ rule mgdb_preprocess_data_for_python:
 #     script:
 #         "../src/preprocess/preprocess_mgdb_data_for_sql.py"
 
+rule mgdb_preprocess_data_for_clingo:
+    input:
+        advised = "data/raw/mgdb/python/advised.tsv",
+        dissertation = "data/raw/mgdb/python/dissertation.tsv",
+        person = "data/raw/mgdb/python/person.tsv"
+    output:
+        "data/raw/mgdb/clingo/facts.tsv"
+    script:
+        "../src/preprocess/mgdb_preprocess_data_for_clingo.py"

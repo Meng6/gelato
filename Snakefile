@@ -18,7 +18,8 @@ for graph in config["GRAPHS"]:
         raise ValueError("Add at least one language or tool to [{graph}][LANGUAGES_AND_TOOLS] in config.yaml.".format(graph))
     
     # Preprocess
-    #files_to_compute.extend(expand("data/raw/{graph}/{lat}/{graph_data}.tsv", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), graph_data=["advised", "dissertation", "person"]))
+    files_to_compute.extend(expand("data/raw/mgdb/python/{graph_data}.tsv", graph_data=["advised", "dissertation", "person"]))
+    files_to_compute.extend(expand("data/raw/{graph}/clingo/facts.tsv", graph=graph.lower()))
 
     # Query
     if "SEARCH_DESCENDANTS" in config[graph]["QUERIES"]["RUN"]:
