@@ -4,6 +4,7 @@ validate(config, "tools/config.schema.yaml")
 include: "rules/common.smk"
 include: "rules/preprocessing.smk"
 include: "rules/query.smk"
+include: "rules/report.smk"
 
 import itertools
 
@@ -30,6 +31,9 @@ for graph in config["GRAPHS"]:
         files_to_compute.extend(expand("data/query/mgdb/{lat}/output_search_ancestors_for_{pid}.txt", lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["SEARCH_ANCESTORS"]["PIDS"]))
         files_to_compute.extend(expand("data/query/mgdb/{lat}/benchmark_search_ancestors_for_{pid}.txt", lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["SEARCH_ANCESTORS"]["PIDS"]))
 
+    # Report
+    if config["BENCHMARK"]["REPORT"]:
+        files_to_compute.extend(expand("data/report/{graph}_benchmarks.csv", graph=graph.lower()))
 
 rule all:
     input:

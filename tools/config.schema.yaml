@@ -16,11 +16,13 @@ properties:
   
   BENCHMARK:
     type: object
-    required: [REPEAT_TIMES]
+    required: [REPEAT_TIMES, REPORT]
     properties:
       REPEAT_TIMES:
         type: integer
         minimum: 1
+      REPORT:
+        type: boolean
 
   MGDB:
     type: object
