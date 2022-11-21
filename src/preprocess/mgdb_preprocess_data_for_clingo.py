@@ -1,5 +1,4 @@
 import pandas as pd
-import re
 
 # Preprocess string: 
 # 1) Replace \ with a space

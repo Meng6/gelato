@@ -91,6 +91,9 @@ packrat/*
 !packrat/packrat.opts
 .snakemake/
 
+# temp folder created by Bashlog automatically
+tmp/
+
 # exclude data from source control by default
 data/*
 !/data/external/*

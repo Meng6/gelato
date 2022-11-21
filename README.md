@@ -5,26 +5,32 @@
 ### Setup 
 
 #### Installation (For Mac)
+1. Install [brew](https://brew.sh/)
 
-1. Install miniconda (restart your terminal afterwards)
+2. Install MAWK to run Bashlog
+```
+brew install mawk
+```
+
+3. Install miniconda (restart your terminal afterwards)
 ```
 brew install --cask miniconda
 conda init zsh # (or conda init bash)
 ```
 
-2. Create a Python virtual environment
+4. Create a Python virtual environment
 ```
 cd gelato
 conda env create -f environment.yml -n gelato
 conda activate gelato
 ```
 
-3. Make `GELATO` script executable
+5. Make `GELATO` script executable
 ```
 chmod +x gelato
 ```
 
-4. Check that `GELATO` is working
+6. Check that `GELATO` is working
 ```
 ./gelato -j1
 ```
