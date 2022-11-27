@@ -65,6 +65,8 @@ rule mgdb_search_ancestors_with_sql:
         "../src/query/mgdb_search_ancestors_with_sql.py"
 
 rule mgdb_search_ancestors_with_cypher:
+    input:
+        optional_mgdb_cypher_input
     params:
         pid = "{pid}",
         database_group = config["MGDB"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"]
@@ -101,9 +103,9 @@ rule mgdb_search_ancestors_with_clingo:
 
 rule mgdb_search_ancestors_with_bashlog:
     input:
-        advised = "data/raw/mgdb/tsv/advised.tsv",
-        dissertation = "data/raw/mgdb/tsv/dissertation.tsv",
-        person = "data/raw/mgdb/tsv/person.tsv",
+        advised = "data/raw/mgdb/bashlog/advised.tsv",
+        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
+        person = "data/raw/mgdb/bashlog/person.tsv",
         bashlog = "data/query/mgdb/bashlog/search_ancestors_for_{pid}.sh"
     params:
         pid = "{pid}"
@@ -142,6 +144,8 @@ rule mgdb_search_descendants_with_sql:
         "../src/query/mgdb_search_descendants_with_sql.py"
 
 rule mgdb_search_descendants_with_cypher:
+    input:
+        optional_mgdb_cypher_input
     params:
         pid = "{pid}",
         database_group = config["MGDB"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"]
@@ -178,10 +182,11 @@ rule mgdb_search_descendants_with_clingo:
 
 rule mgdb_search_descendants_with_bashlog:
     input:
-        advised = "data/raw/mgdb/tsv/advised.tsv",
-        dissertation = "data/raw/mgdb/tsv/dissertation.tsv",
-        person = "data/raw/mgdb/tsv/person.tsv",
-        bashlog = "data/query/mgdb/bashlog/search_descendants_for_{pid}.sh"
+        advised = "data/raw/mgdb/bashlog/advised.tsv",
+        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
+        person = "data/raw/mgdb/bashlog/person.tsv",
+        bashlog = "data/query/mgdb/bashlog/search_descendants_for_{pid}.sh",
+        optional_file = optional_mgdb_search_descendants_with_bashlog_input
     params:
         pid = "{pid}"
     output:

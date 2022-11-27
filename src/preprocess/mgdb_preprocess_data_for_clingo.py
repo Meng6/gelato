@@ -1,11 +1,8 @@
 import pandas as pd
 
-# Preprocess string: 
-# 1) Replace \ with a space
-# 2) Replace consecutive spaces with one space
-# 3) Replace " with '
+# Preprocess string: replace () with []
 def pstr(text):
-    return text.replace('\\', ' ').replace('  ', ' ').replace('"', "'").replace('(', '[').replace(')', ']')
+    return text.replace('(', '[').replace(')', ']')
 
 # Load data
 advised = pd.read_csv(snakemake.input["advised"], sep="\t").astype(str)

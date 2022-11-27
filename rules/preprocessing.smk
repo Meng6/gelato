@@ -37,3 +37,11 @@ rule load_mgdb_data_to_sqlite:
         "data/raw/mgdb/sql/mgdb.db"
     script:
         "../src/preprocess/load_mgdb_data_to_sqlite.py"
+
+rule load_mgdb_data_to_neo4j:
+    params:
+        database_group = config["MGDB"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"]
+    output:
+        touch("data/raw/mgdb/cypher/load_mgdb_data_to_neo4j.done")
+    script:
+        "../src/preprocess/load_mgdb_data_to_neo4j.py"

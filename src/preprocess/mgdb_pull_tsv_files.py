@@ -1,8 +1,12 @@
 import pandas as pd
 
-# Preprocess string: replace tab with space
+# Preprocess string: 
+# 1) Replace tab with space
+# 2) Replace \ with a space
+# 3) Replace consecutive spaces with one space
+# 4) Replace " with '
 def pstr(text):
-    return text.replace('\t', ' ')
+    return text.replace('\t', ' ').replace('\\', ' ').replace('  ', ' ').replace('"', "'")
 
 FORMAT2SEP = {"csv": ",", "tsv": "\t"}
 
