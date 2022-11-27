@@ -53,9 +53,10 @@ rule mgdb_search_ancestors_with_python:
         "../src/query/mgdb_search_ancestors_with_python.py"
 
 rule mgdb_search_ancestors_with_sql:
+    input:
+        database = "data/raw/mgdb/sql/mgdb.db"
     params:
-        pid = "{pid}",
-        database_group = config["MGDB"]["DATA_SOURCE"]["SQL"]["DATABASE_GROUP"]
+        pid = "{pid}"
     output:
         "data/query/mgdb/sql/output_search_ancestors_for_{pid}.txt"
     benchmark:
@@ -129,9 +130,10 @@ rule mgdb_search_descendants_with_python:
         "../src/query/mgdb_search_descendants_with_python.py"
 
 rule mgdb_search_descendants_with_sql:
+    input:
+        database = "data/raw/mgdb/sql/mgdb.db"
     params:
-        pid = "{pid}",
-        database_group = config["MGDB"]["DATA_SOURCE"]["SQL"]["DATABASE_GROUP"]
+        pid = "{pid}"
     output:
         "data/query/mgdb/sql/output_search_descendants_for_{pid}.txt"
     benchmark:

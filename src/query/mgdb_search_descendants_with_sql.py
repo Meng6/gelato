@@ -1,4 +1,4 @@
-import psycopg2, yaml
+import sqlite3
 
 def searchDescendantsSQL(pid):
 
@@ -7,10 +7,10 @@ def searchDescendantsSQL(pid):
     # Recursive CTE
     sql_query = """
     WITH RECURSIVE descendants AS (
-        ( select author from dissertation d, advised a where a.did=d.did and advisor = """ + str(pid) + """)
-        UNION (
+        select author from dissertation d, advised a where a.did=d.did and advisor = """ + str(pid) + """
+        UNION
         select di.author from dissertation di, advised a, descendants d where a.did=di.did and a.advisor=d.author
-        ))
+        )
     SELECT author, name from descendants left join person p on p.pid = author
     """
 
@@ -19,16 +19,8 @@ def searchDescendantsSQL(pid):
     cursor.close()
     return students
 
-# Load credentials
-database_group = snakemake.params["database_group"]
-with open("./credentials.yaml", "r", encoding="utf-8") as f:
-    credentials = yaml.safe_load(f)
-# Connect to PostgreSQL DB
-conn = psycopg2.connect(database=credentials[database_group]["database"],
-                        host=credentials[database_group]["host"],
-                        user=credentials[database_group]["user"],
-                        password=credentials[database_group]["password"],
-                        port=credentials[database_group]["port"])
+# Connect to SQLite DB
+conn = sqlite3.connect(snakemake.input["database"])
 
 # Search descendants
 pid = snakemake.params["pid"]

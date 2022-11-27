@@ -37,10 +37,8 @@ properties:
             pattern: "data/external/*"
           SQL:
             type: object
-            required: [DATABASE_GROUP, LOAD_DATA]
+            required: [LOAD_DATA]
             properties:
-              DATABASE_GROUP:
-                type: string
               LOAD_DATA:
                 type: boolean
           CYPHER:

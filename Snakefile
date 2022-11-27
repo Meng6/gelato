@@ -25,6 +25,9 @@ for graph in config["GRAPHS"]:
         files_to_compute.extend(expand("data/raw/{graph}/clingo/facts.tsv", graph=graph.lower()))
     if (graph == "MGDB") and ("BASHLOG" in config[graph]["LANGUAGES_AND_TOOLS"]):
         files_to_compute.extend(expand("data/raw/{graph}/bashlog/{graph_data}.tsv", graph=graph.lower(), graph_data=["advised", "dissertation", "person"]))
+    # Load data into SQLite or Neo4j or Blazegraph DB
+    if config[graph]["DATA_SOURCE"]["SQL"]["LOAD_DATA"]:
+        files_to_compute.extend(expand("data/raw/mgdb/sql/{graph}.db", graph=graph.lower()))
 
     # Query
     if "SEARCH_ANCESTORS" in config[graph]["QUERIES"]["RUN"]:

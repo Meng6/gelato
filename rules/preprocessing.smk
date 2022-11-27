@@ -6,14 +6,6 @@ rule mgdb_pull_tsv_files:
     script:
         "../src/preprocess/mgdb_pull_tsv_files.py"
 
-# rule preprocess_mgdb_data_for_sql:
-#     input:
-#         get_external_data
-#     output:
-#         "data/raw/{graph}/python/{graph_data}.tsv"
-#     script:
-#         "../src/preprocess/preprocess_mgdb_data_for_sql.py"
-
 rule mgdb_preprocess_data_for_clingo:
     input:
         advised = "data/raw/mgdb/tsv/advised.tsv",
@@ -35,3 +27,13 @@ rule mgdb_preprocess_data_for_bashlog:
         person = "data/raw/mgdb/bashlog/person.tsv"
     script:
         "../src/preprocess/mgdb_preprocess_data_for_bashlog.py"
+
+rule load_mgdb_data_to_sqlite:
+    input:
+        advised = "data/raw/mgdb/tsv/advised.tsv",
+        dissertation = "data/raw/mgdb/tsv/dissertation.tsv",
+        person = "data/raw/mgdb/tsv/person.tsv"
+    output:
+        "data/raw/mgdb/sql/mgdb.db"
+    script:
+        "../src/preprocess/load_mgdb_data_to_sqlite.py"
