@@ -7,8 +7,6 @@ BENCHMARK:
 MGDB:
   DATA_SOURCE:
     FOLDER_PATH: data/external/mgdb
-    SQL: 
-      LOAD_DATA: False
     CYPHER: 
       DATABASE_GROUP: MGDB_NEO4J
       LOAD_DATA: False

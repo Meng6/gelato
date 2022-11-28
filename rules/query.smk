@@ -54,7 +54,7 @@ rule mgdb_search_ancestors_with_python:
 
 rule mgdb_search_ancestors_with_sql:
     input:
-        database = "data/raw/mgdb/sql/mgdb.db"
+        database = "data/external/mgdb/mgdb.db"
     params:
         pid = "{pid}"
     output:
@@ -135,7 +135,7 @@ rule mgdb_search_descendants_with_python:
 
 rule mgdb_search_descendants_with_sql:
     input:
-        database = "data/raw/mgdb/sql/mgdb.db"
+        database = "data/external/mgdb/mgdb.db"
     params:
         pid = "{pid}"
     output:

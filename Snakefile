@@ -26,8 +26,7 @@ for graph in config["GRAPHS"]:
     if (graph == "MGDB") and ("BASHLOG" in config[graph]["LANGUAGES_AND_TOOLS"]):
         files_to_compute.extend(expand("data/raw/{graph}/bashlog/{graph_data}.tsv", graph=graph.lower(), graph_data=["advised", "dissertation", "person"]))
     # Load data into SQLite or Neo4j or Blazegraph DB
-    if config[graph]["DATA_SOURCE"]["SQL"]["LOAD_DATA"]:
-        files_to_compute.extend(expand("data/raw/{graph}/sql/{graph}.db", graph=graph.lower()))
+    files_to_compute.extend(expand("data/external/{graph}/{graph}.db", graph=graph.lower()))
     if config[graph]["DATA_SOURCE"]["CYPHER"]["LOAD_DATA"]:
         files_to_compute.extend(expand("data/raw/{graph}/cypher/load_{graph}_data_to_neo4j.done", graph=graph.lower()))
     if config[graph]["DATA_SOURCE"]["SPARQL"]["LOAD_DATA"]:

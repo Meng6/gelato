@@ -37,6 +37,48 @@ chmod +x gelato
 
 #### Configuration
 
+##### SQLite Database
+
+A database in SQLite is a single disk file. Instead of loading data to database, we need to run `sqlite3.connect({graph}.db)` before every query. Therefore, the `LOAD_DATA` option is not available for SQLite. In addition, username / password is not suppported by SQLite, the `DATABASE_GROUP` field is also discarded in the `config.yaml` file.
+
+##### Neo4j Database
+
+> If you already have data stored in local Neo4j database, start the database before running `GELATO`. Otherwise, please set `{graph}[CYPHER][LOAD_DATA]=True` in `credentials.yaml` file and follow the steps below.
+
+  1. Download and install [Neo4j Desktop](https://neo4j.com/download-neo4j-now/)
+
+  2. Create an empty Database
+
+  - Open Neo4j Desktop and click `Add`, then select `Local DBMS`
+
+  - Fill in `Name` and `Password` fields. Please make sure `Password` field is consistent with `[MY_PASSWORD]` field of `credentials.yaml` file
+
+  - Click `...` at the end of the database you just created and select `Settings`. Then update `dbms.memory.heap.max_size=10G` to get enough memory
+
+  - Start the database you just created
+
+  3. Put the relavant TSV files under the `import` folder
+
+  - In Neo4j Desktop, click `...` at the end of the database you just created, select `Open folder` > `Import`
+
+  - Copy the `data/raw/{graph}/tsv` folder and paste it under the `import` folder
+
+##### Blazegraph Database
+
+> If you already have data stored in local Blazegraph database, start the database before running `GELATO`. Otherwise, please set `{graph}[SPARQL][LOAD_DATA]=True` in `credentials.yaml` file and follow the steps below.
+
+  1. Download the [blazegraph.jar](https://github.com/blazegraph/database/releases/latest)
+
+  2. Start the Blazegraph server via terminal
+
+  ```
+  java -server -Xmx4g -jar blazegraph.jar
+  ```
+
+  3. Go to `http://localhost:9999/blazegraph/#namespaces` website and create a namespace named `{graph}` (e.g., MGDB) with `rdr` Mode.
+
+##### Credentials
+
 Setup `DATABASE_GROUP` and its connection credentials.
 
   1. Only Neo4j and Blazegraph Databases need the credentials.
@@ -63,41 +105,3 @@ Setup `DATABASE_GROUP` and its connection credentials.
     port: MY_PORT
   ```
   Usually, we set `MY_HOST=localhost` and `MY_PORT=9999`.
-
-#### DATABASES
-
-Neo4j Database
-
-> If you already have data stored in local Neo4j database, start the database before running `GELATO`. Otherwise, please set `{graph}[CYPHER][LOAD_DATA]=True` in `credentials.yaml` file and follow the steps below.
-
-  1. Download and install [Neo4j Desktop](https://neo4j.com/download-neo4j-now/)
-
-  2. Create an empty Database
-
-  - Open Neo4j Desktop and click `Add`, then select `Local DBMS`
-
-  - Fill in `Name` and `Password` fields. Please make sure `Password` field is consistent with `[MY_PASSWORD]` field of `credentials.yaml` file
-
-  - Click `...` at the end of the database you just created and select `Settings`. Then update `dbms.memory.heap.max_size=10G` to get enough memory
-
-  - Start the database you just created
-
-  3. Put the relavant TSV files under the `import` folder
-
-  - In Neo4j Desktop, click `...` at the end of the database you just created, select `Open folder` > `Import`
-
-  - Copy the `data/raw/{graph}/tsv` folder and paste it under the `import` folder
-
-Blazegraph Database
-
-> If you already have data stored in local Blazegraph database, start the database before running `GELATO`. Otherwise, please set `{graph}[SPARQL][LOAD_DATA]=True` in `credentials.yaml` file and follow the steps below.
-
-  1. Download the [blazegraph.jar](https://github.com/blazegraph/database/releases/latest)
-
-  2. Start the Blazegraph server via terminal
-
-  ```
-  java -server -Xmx4g -jar blazegraph.jar
-  ```
-
-  3. Go to `http://localhost:9999/blazegraph/#namespaces` website and create a namespace named `{graph}` (e.g., MGDB) with `rdr` Mode.

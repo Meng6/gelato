@@ -44,7 +44,7 @@ rule load_mgdb_data_to_sqlite:
         dissertation = "data/raw/mgdb/tsv/dissertation.tsv",
         person = "data/raw/mgdb/tsv/person.tsv"
     output:
-        "data/raw/mgdb/sql/mgdb.db"
+        "data/external/mgdb/mgdb.db"
     script:
         "../src/preprocess/load_mgdb_data_to_sqlite.py"
 

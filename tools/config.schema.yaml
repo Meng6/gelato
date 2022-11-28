@@ -30,17 +30,11 @@ properties:
     properties:
       DATA_SOURCE:
         type: object
-        required: [FOLDER_PATH, SQL, CYPHER, SPARQL]
+        required: [FOLDER_PATH, CYPHER, SPARQL]
         properties:
           FOLDER_PATH:
             type: string
             pattern: "data/external/*"
-          SQL:
-            type: object
-            required: [LOAD_DATA]
-            properties:
-              LOAD_DATA:
-                type: boolean
           CYPHER:
             type: object
             required: [DATABASE_GROUP, LOAD_DATA]
