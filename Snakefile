@@ -29,7 +29,10 @@ for graph in config["GRAPHS"]:
     if config[graph]["DATA_SOURCE"]["SQL"]["LOAD_DATA"]:
         files_to_compute.extend(expand("data/raw/{graph}/sql/{graph}.db", graph=graph.lower()))
     if config[graph]["DATA_SOURCE"]["CYPHER"]["LOAD_DATA"]:
-        files_to_compute.extend(expand("data/raw/{graph}/cypher/load_mgdb_data_to_neo4j.done", graph=graph.lower()))
+        files_to_compute.extend(expand("data/raw/{graph}/cypher/load_{graph}_data_to_neo4j.done", graph=graph.lower()))
+    if config[graph]["DATA_SOURCE"]["SPARQL"]["LOAD_DATA"]:
+        files_to_compute.extend(expand("data/raw/{graph}/sparql/{graph}-ttl.txt", graph=graph.lower()))
+        files_to_compute.extend(expand("data/raw/{graph}/sparql/load_{graph}_data_to_blazegraph.done", graph=graph.lower()))
 
     # Query
     if "SEARCH_ANCESTORS" in config[graph]["QUERIES"]["RUN"]:

@@ -78,6 +78,8 @@ rule mgdb_search_ancestors_with_cypher:
         "../src/query/mgdb_search_ancestors_with_cypher.py"
 
 rule mgdb_search_ancestors_with_sparql:
+    input:
+        optional_mgdb_sparql_input
     params:
         pid = "{pid}",
         namespace="MGDB",
@@ -157,6 +159,8 @@ rule mgdb_search_descendants_with_cypher:
         "../src/query/mgdb_search_descendants_with_cypher.py"
 
 rule mgdb_search_descendants_with_sparql:
+    input:
+        optional_mgdb_sparql_input
     params:
         pid = "{pid}",
         namespace="MGDB",

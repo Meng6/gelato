@@ -87,3 +87,17 @@ Neo4j Database
   - In Neo4j Desktop, click `...` at the end of the database you just created, select `Open folder` > `Import`
 
   - Copy the `data/raw/{graph}/tsv` folder and paste it under the `import` folder
+
+Blazegraph Database
+
+> If you already have data stored in local Blazegraph database, start the database before running `GELATO`. Otherwise, please set `{graph}[SPARQL][LOAD_DATA]=True` in `credentials.yaml` file and follow the steps below.
+
+  1. Download the [blazegraph.jar](https://github.com/blazegraph/database/releases/latest)
+
+  2. Start the Blazegraph server via terminal
+
+  ```
+  java -server -Xmx4g -jar blazegraph.jar
+  ```
+
+  3. Go to `http://localhost:9999/blazegraph/#namespaces` website and create a namespace named `{graph}` (e.g., MGDB) with `rdr` Mode.

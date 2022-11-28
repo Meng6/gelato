@@ -20,6 +20,11 @@ def optional_mgdb_cypher_input(wildcards):
         return "data/raw/mgdb/cypher/load_mgdb_data_to_neo4j.done"
     return []
 
+def optional_mgdb_sparql_input(wildcards):
+    if config["MGDB"]["DATA_SOURCE"]["SPARQL"]["LOAD_DATA"]:
+        return "data/raw/mgdb/sparql/load_mgdb_data_to_blazegraph.done"
+    return []
+
 def optional_mgdb_search_descendants_with_bashlog_input(wildcards):
     if "SEARCH_ANCESTORS" in config["MGDB"]["QUERIES"]["RUN"]:
         return "data/query/mgdb/bashlog/output_search_ancestors_for_{pid}.txt"
