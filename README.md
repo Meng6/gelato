@@ -105,3 +105,10 @@ Setup `DATABASE_GROUP` and its connection credentials.
     port: MY_PORT
   ```
   Usually, we set `MY_HOST=localhost` and `MY_PORT=9999`.
+
+### Workflow Visualization 
+Get the [directed acyclic graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) of the workflow, where nodes denote rules, edges indicate the order of executing these rules. The following code will create a file named `data/report/dag.svg` to visualize the workflow of computing the `data/report/mgdb_benchmarks.csv` file.
+
+```
+snakemake --dag "data/report/mgdb_benchmarks.csv" | dot -Tsvg > data/report/dag.svg
+```
