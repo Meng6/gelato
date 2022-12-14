@@ -17,7 +17,7 @@ def save_descendants(descendants, pid, output_file):
     return
 
 # Modules to be loaded to mgdb_entry.py script
-def search_ancestors(pid, conn, output_file):
+def unary_search_ancestors(pid, conn, output_file):
 
     sparql_query = """
     PREFIX : <http://MGDB.com/>
@@ -42,7 +42,7 @@ def search_ancestors(pid, conn, output_file):
 
     return
 
-def search_descendants(pid, conn, output_file):
+def unary_search_descendants(pid, conn, output_file):
     sparql_query = """
     PREFIX : <http://MGDB.com/>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>

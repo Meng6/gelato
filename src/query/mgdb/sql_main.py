@@ -13,7 +13,7 @@ def save_descendants(descendants, pid, output_file):
     return
 
 # Modules to be loaded to mgdb_entry.py script
-def search_ancestors(pid, conn, output_file):
+def unary_search_ancestors(pid, conn, output_file):
 
     cursor = conn.cursor()
     
@@ -34,7 +34,7 @@ def search_ancestors(pid, conn, output_file):
     save_ancestors(ancestors, pid, output_file)
     return
 
-def search_descendants(pid, conn, output_file):
+def unary_search_descendants(pid, conn, output_file):
     cursor = conn.cursor()
     
     # Recursive CTE

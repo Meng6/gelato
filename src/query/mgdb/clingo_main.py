@@ -9,7 +9,7 @@ def on_model_descendants(m):
     return descendants
 
 # Modules to be loaded to mgdb_entry.py script
-def search_ancestors(pid, ctl, output_file):
+def unary_search_ancestors(pid, ctl, output_file):
     
     rules =  """
     ancestors_of_pid(X, {pid}) :- advise(X, {pid}, _).
@@ -36,7 +36,7 @@ def search_ancestors(pid, ctl, output_file):
 
     return
 
-def search_descendants(pid, ctl, output_file):
+def unary_search_descendants(pid, ctl, output_file):
 
     rules =  """
     descendants_of_pid({pid}, Y) :- advise({pid}, Y, _).

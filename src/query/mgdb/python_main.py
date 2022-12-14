@@ -29,13 +29,13 @@ def save_descendants(descendants, pid, output_file):
     return
 
 # Modules to be loaded to mgdb_entry.py script
-def search_ancestors(pid, advised, dissertation, person, output_file):
+def unary_search_ancestors(pid, advised, dissertation, person, output_file):
     ancestor_pids = extract_ancestor_pids(pid, set(), advised, dissertation)
     ancestors = person[person["pid"].isin(ancestor_pids)]
     save_ancestors(ancestors, pid, output_file)
     return
 
-def search_descendants(pid, advised, dissertation, person, output_file):
+def unary_search_descendants(pid, advised, dissertation, person, output_file):
     descendant_pids = extract_descendant_pids(pid, set(), advised, dissertation)
     descendants = person[person["pid"].isin(descendant_pids)]
     save_descendants(descendants, pid, output_file)

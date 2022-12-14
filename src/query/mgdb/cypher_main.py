@@ -13,7 +13,7 @@ def save_descendants(descendants, pid, output_file):
     return
 
 # Modules to be loaded to mgdb_entry.py script
-def search_ancestors(pid, neo4j_driver, output_file):
+def unary_search_ancestors(pid, neo4j_driver, output_file):
 
     cypher_query = """
                     MATCH (p2:Person)-[*]->(d:Dissertation)-[:ADVISED_BY]->(p1:Person)
@@ -28,7 +28,7 @@ def search_ancestors(pid, neo4j_driver, output_file):
 
     return
 
-def search_descendants(pid, neo4j_driver, output_file):
+def unary_search_descendants(pid, neo4j_driver, output_file):
 
     cypher_query = """
                     MATCH (p2:Person)-[:WRITES]->(d:Dissertation)-[*]->(p1:Person)

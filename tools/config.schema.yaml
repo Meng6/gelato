@@ -59,22 +59,22 @@ properties:
           enum: [PYTHON, SQL, CYPHER, SPARQL, CLINGO, BASHLOG]
       QUERIES:
         type: object
-        required: [RUN, SEARCH_DESCENDANTS, SEARCH_ANCESTORS]
+        required: [RUN, UNARY_SEARCH_ANCESTORS, UNARY_SEARCH_DESCENDANTS]
         properties:
           RUN:
             type: array
             uniqueItems: True
             items:
               type: string
-              enum: [SEARCH_DESCENDANTS, SEARCH_ANCESTORS]
-          SEARCH_DESCENDANTS:
+              enum: [UNARY_SEARCH_ANCESTORS, UNARY_SEARCH_DESCENDANTS]
+          UNARY_SEARCH_ANCESTORS:
             type: object
             required: [PIDS]
             properties:
               PIDS:
                 type: array
                 uniqueItems: True
-          SEARCH_ANCESTORS:
+          UNARY_SEARCH_DESCENDANTS:
             type: object
             required: [PIDS]
             properties:
