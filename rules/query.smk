@@ -54,6 +54,22 @@ rule mgdb_unary_search_ancestors_with_python:
     script:
         "../src/query/mgdb_entry.py"
 
+rule mgdb_binary_search_ancestors_with_python:
+    input:
+        advised = "data/raw/mgdb/tsv/advised.tsv",
+        dissertation = "data/raw/mgdb/tsv/dissertation.tsv",
+        person = "data/raw/mgdb/tsv/person.tsv"
+    params:
+        pid = "{pid}",
+        lat = "python",
+        query = "binary_search_ancestors"
+    output:
+        "data/query/mgdb/python/output_binary_search_ancestors_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/python/benchmark_binary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
 rule mgdb_unary_search_ancestors_with_sql:
     input:
         database = "data/external/mgdb/mgdb.db"
@@ -65,6 +81,20 @@ rule mgdb_unary_search_ancestors_with_sql:
         "data/query/mgdb/sql/output_unary_search_ancestors_for_{pid}.txt"
     benchmark:
         repeat("data/query/mgdb/sql/benchmark_unary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+rule mgdb_binary_search_ancestors_with_sql:
+    input:
+        database = "data/external/mgdb/mgdb.db"
+    params:
+        pid = "{pid}",
+        lat = "sql",
+        query = "binary_search_ancestors"
+    output:
+        "data/query/mgdb/sql/output_binary_search_ancestors_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/sql/benchmark_binary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/mgdb_entry.py"
 
@@ -145,6 +175,22 @@ rule mgdb_unary_search_descendants_with_python:
     script:
         "../src/query/mgdb_entry.py"
 
+rule mgdb_binary_search_descendants_with_python:
+    input:
+        advised = "data/raw/mgdb/tsv/advised.tsv",
+        dissertation = "data/raw/mgdb/tsv/dissertation.tsv",
+        person = "data/raw/mgdb/tsv/person.tsv"
+    params:
+        pid = "{pid}",
+        lat = "python",
+        query = "binary_search_descendants"
+    output:
+        "data/query/mgdb/python/output_binary_search_descendants_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/python/benchmark_binary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
 rule mgdb_unary_search_descendants_with_sql:
     input:
         database = "data/external/mgdb/mgdb.db"
@@ -156,6 +202,20 @@ rule mgdb_unary_search_descendants_with_sql:
         "data/query/mgdb/sql/output_unary_search_descendants_for_{pid}.txt"
     benchmark:
         repeat("data/query/mgdb/sql/benchmark_unary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+rule mgdb_binary_search_descendants_with_sql:
+    input:
+        database = "data/external/mgdb/mgdb.db"
+    params:
+        pid = "{pid}",
+        lat = "sql",
+        query = "binary_search_descendants"
+    output:
+        "data/query/mgdb/sql/output_binary_search_descendants_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/sql/benchmark_binary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/mgdb_entry.py"
 

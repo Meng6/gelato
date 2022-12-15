@@ -40,12 +40,24 @@ for graph in config["GRAPHS"]:
             files_to_compute.extend(expand("data/query/{graph}/bashlog/unary_search_ancestors_for_{pid}.sh", graph=graph.lower(), pid=config[graph]["QUERIES"]["UNARY_SEARCH_ANCESTORS"]["PIDS"]))
         files_to_compute.extend(expand("data/query/{graph}/{lat}/output_unary_search_ancestors_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["UNARY_SEARCH_ANCESTORS"]["PIDS"]))
         files_to_compute.extend(expand("data/query/{graph}/{lat}/benchmark_unary_search_ancestors_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["UNARY_SEARCH_ANCESTORS"]["PIDS"]))
+    if "BINARY_SEARCH_ANCESTORS" in config[graph]["QUERIES"]["RUN"]:
+        if "BASHLOG" in config[graph]["LANGUAGES_AND_TOOLS"]:
+            files_to_compute.extend(expand("data/query/{graph}/bashlog/binary_search_ancestors_for_{pid}.dlog", graph=graph.lower(), pid=config[graph]["QUERIES"]["BINARY_SEARCH_ANCESTORS"]["PIDS"]))
+            files_to_compute.extend(expand("data/query/{graph}/bashlog/binary_search_ancestors_for_{pid}.sh", graph=graph.lower(), pid=config[graph]["QUERIES"]["BINARY_SEARCH_ANCESTORS"]["PIDS"]))
+        files_to_compute.extend(expand("data/query/{graph}/{lat}/output_binary_search_ancestors_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["BINARY_SEARCH_ANCESTORS"]["PIDS"]))
+        files_to_compute.extend(expand("data/query/{graph}/{lat}/benchmark_binary_search_ancestors_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["BINARY_SEARCH_ANCESTORS"]["PIDS"]))
     if "UNARY_SEARCH_DESCENDANTS" in config[graph]["QUERIES"]["RUN"]:
         if "BASHLOG" in config[graph]["LANGUAGES_AND_TOOLS"]:
             files_to_compute.extend(expand("data/query/{graph}/bashlog/unary_search_descendants_for_{pid}.dlog", graph=graph.lower(), pid=config[graph]["QUERIES"]["UNARY_SEARCH_DESCENDANTS"]["PIDS"]))
             files_to_compute.extend(expand("data/query/{graph}/bashlog/unary_search_descendants_for_{pid}.sh", graph=graph.lower(), pid=config[graph]["QUERIES"]["UNARY_SEARCH_DESCENDANTS"]["PIDS"]))
         files_to_compute.extend(expand("data/query/{graph}/{lat}/output_unary_search_descendants_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["UNARY_SEARCH_DESCENDANTS"]["PIDS"]))
         files_to_compute.extend(expand("data/query/{graph}/{lat}/benchmark_unary_search_descendants_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["UNARY_SEARCH_DESCENDANTS"]["PIDS"]))
+    if "BINARY_SEARCH_DESCENDANTS" in config[graph]["QUERIES"]["RUN"]:
+        if "BASHLOG" in config[graph]["LANGUAGES_AND_TOOLS"]:
+            files_to_compute.extend(expand("data/query/{graph}/bashlog/binary_search_descendants_for_{pid}.dlog", graph=graph.lower(), pid=config[graph]["QUERIES"]["BINARY_SEARCH_DESCENDANTS"]["PIDS"]))
+            files_to_compute.extend(expand("data/query/{graph}/bashlog/binary_search_descendants_for_{pid}.sh", graph=graph.lower(), pid=config[graph]["QUERIES"]["BINARY_SEARCH_DESCENDANTS"]["PIDS"]))
+        files_to_compute.extend(expand("data/query/{graph}/{lat}/output_binary_search_descendants_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["BINARY_SEARCH_DESCENDANTS"]["PIDS"]))
+        files_to_compute.extend(expand("data/query/{graph}/{lat}/benchmark_binary_search_descendants_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["BINARY_SEARCH_DESCENDANTS"]["PIDS"]))
 
     # Report
     if config["BENCHMARK"]["REPORT"]:

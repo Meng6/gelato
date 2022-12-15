@@ -1,6 +1,6 @@
 # GELATO
 
-**G**raph **E**xploration: **L**anguages **a**nd **To**ols
+**G**raph **E**xplorations: **L**anguages **a**nd **To**ols
 
 ### Setup 
 
