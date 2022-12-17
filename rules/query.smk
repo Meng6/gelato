@@ -113,6 +113,21 @@ rule mgdb_unary_search_ancestors_with_cypher:
     script:
         "../src/query/mgdb_entry.py"
 
+rule mgdb_binary_search_ancestors_with_cypher:
+    input:
+        optional_mgdb_cypher_input
+    params:
+        pid = "{pid}",
+        database_group = config["MGDB"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"],
+        lat = "cypher",
+        query = "binary_search_ancestors"
+    output:
+        "data/query/mgdb/cypher/output_binary_search_ancestors_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/cypher/benchmark_binary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
 rule mgdb_unary_search_ancestors_with_sparql:
     input:
         optional_mgdb_sparql_input
@@ -231,6 +246,21 @@ rule mgdb_unary_search_descendants_with_cypher:
         "data/query/mgdb/cypher/output_unary_search_descendants_for_{pid}.txt"
     benchmark:
         repeat("data/query/mgdb/cypher/benchmark_unary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+rule mgdb_binary_search_descendants_with_cypher:
+    input:
+        optional_mgdb_cypher_input
+    params:
+        pid = "{pid}",
+        database_group = config["MGDB"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"],
+        lat = "cypher",
+        query = "binary_search_descendants"
+    output:
+        "data/query/mgdb/cypher/output_binary_search_descendants_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/cypher/benchmark_binary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/mgdb_entry.py"
 

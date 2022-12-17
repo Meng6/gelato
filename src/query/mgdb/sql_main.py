@@ -98,8 +98,8 @@ def binary_search_descendants(pid, conn, output_file):
     SELECT author, p1.name, advisor, p2.name
     FROM
     	descendants 
-    	LEFT JOIN person p1 on p1.pid = author
-    	LEFT JOIN person p2 on p2.pid = advisor
+    	LEFT JOIN person p1 ON p1.pid = author
+    	LEFT JOIN person p2 ON p2.pid = advisor
     """
 
     cursor.execute(sql_query)
