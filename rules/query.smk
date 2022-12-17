@@ -144,6 +144,22 @@ rule mgdb_unary_search_ancestors_with_sparql:
     script:
         "../src/query/mgdb_entry.py"
 
+rule mgdb_binary_search_ancestors_with_sparql:
+    input:
+        optional_mgdb_sparql_input
+    params:
+        pid = "{pid}",
+        namespace="MGDB",
+        database_group = config["MGDB"]["DATA_SOURCE"]["SPARQL"]["DATABASE_GROUP"],
+        lat = "sparql",
+        query = "binary_search_ancestors"
+    output:
+        "data/query/mgdb/sparql/output_binary_search_ancestors_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/sparql/benchmark_binary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
 rule mgdb_unary_search_ancestors_with_clingo:
     input:
         facts = "data/raw/mgdb/clingo/facts.tsv"
@@ -277,6 +293,22 @@ rule mgdb_unary_search_descendants_with_sparql:
         "data/query/mgdb/sparql/output_unary_search_descendants_for_{pid}.txt"
     benchmark:
         repeat("data/query/mgdb/sparql/benchmark_unary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+rule mgdb_binary_search_descendants_with_sparql:
+    input:
+        optional_mgdb_sparql_input
+    params:
+        pid = "{pid}",
+        namespace="MGDB",
+        database_group = config["MGDB"]["DATA_SOURCE"]["SPARQL"]["DATABASE_GROUP"],
+        lat = "sparql",
+        query = "binary_search_descendants"
+    output:
+        "data/query/mgdb/sparql/output_binary_search_descendants_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/sparql/benchmark_binary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/mgdb_entry.py"
 
