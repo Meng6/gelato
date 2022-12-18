@@ -9,10 +9,9 @@ def get_mgdb_external_data(wildcards):
 
 def get_mgdb_merge_benchmarks_input(wildcards):
     input = []
-    if "UNARY_SEARCH_DESCENDANTS" in config["MGDB"]["QUERIES"]["RUN"]:
-        input.extend(expand("data/query/mgdb/{lat}/benchmark_unary_search_descendants_for_{pid}.txt", lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["UNARY_SEARCH_DESCENDANTS"]["PIDS"]))
-    if "UNARY_SEARCH_ANCESTORS" in config["MGDB"]["QUERIES"]["RUN"]:
-        input.extend(expand("data/query/mgdb/{lat}/benchmark_unary_search_ancestors_for_{pid}.txt", lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), pid=config[graph]["QUERIES"]["UNARY_SEARCH_ANCESTORS"]["PIDS"]))
+    for query in config["MGDB"]["QUERIES"]["RUN"]:
+        if query in ["UNARY_SEARCH_ANCESTORS", "BINARY_SEARCH_ANCESTORS", "UNARY_SEARCH_DESCENDANTS", "BINARY_SEARCH_DESCENDANTS"]:
+            input.extend(expand("data/query/mgdb/{lat}/benchmark_{query}_for_{pid}.txt", lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid=config[graph]["QUERIES"][query]["PIDS"]))
     return input
 
 def optional_mgdb_cypher_input(wildcards):
@@ -23,9 +22,4 @@ def optional_mgdb_cypher_input(wildcards):
 def optional_mgdb_sparql_input(wildcards):
     if config["MGDB"]["DATA_SOURCE"]["SPARQL"]["LOAD_DATA"]:
         return "data/raw/mgdb/sparql/load_mgdb_data_to_blazegraph.done"
-    return []
-
-def optional_mgdb_unary_search_descendants_with_bashlog_input(wildcards):
-    if "UNARY_SEARCH_ANCESTORS" in config["MGDB"]["QUERIES"]["RUN"]:
-        return "data/query/mgdb/bashlog/output_unary_search_ancestors_for_{pid}.txt"
     return []

@@ -14,7 +14,7 @@ advise(A, S) :-
 descendants_for_pid({pid}, Y) :- advise({pid}, Y).
 descendants_for_pid({pid}, Z) :- descendants_for_pid({pid}, Y), advise(Y, Z).
 
-main(NAME) :-
+main(PID, NAME) :-
    descendants_for_pid({pid}, PID),
    facts_p(PID, "<name>", NAME).
 """.format(person_file_path=snakemake.input["person"],
