@@ -36,6 +36,33 @@ def unary_search_ancestors(pid, ctl, output_file):
 
     return
 
+def binary_search_ancestors(pid, ctl, output_file):
+    
+    rules =  """
+    ancestors_of_pid(X, {pid}, {pid}) :- advise(X, {pid}, _).
+    ancestors_of_pid(X, {pid}, Y):- advise(X, Y, _), ancestors_of_pid(Y, {pid}, _).
+    ancestors_of_pid_with_name(PID2, NAME2, PID1, NAME1) :- ancestors_of_pid(PID1, {pid}, PID2), person(PID1, NAME1, _, _), person(PID2, NAME2, _, _).
+    
+    #show ancestors_of_pid_with_name/4.
+    """.format(pid=str(pid))
+
+    ctl.add("rule", [], rules)
+    ctl.ground([("base", []), ("rule", [])])
+    ctl.configuration.solve.models="0"
+
+    ancestors = ""
+    with ctl.solve(yield_=True) as handle:
+        for model in handle:
+            ancestors = ancestors + on_model_ancestors(model)
+    
+    # Save the results
+    fout = open(output_file, mode="w", encoding="utf-8")
+    fout.write("The ancestor pairs (student, advisor) of " + str(pid) + " are:")
+    fout.write(ancestors.replace("ancestors", "ancestor pairs"))
+    fout.close()
+
+    return
+
 def unary_search_descendants(pid, ctl, output_file):
 
     rules =  """
@@ -59,6 +86,33 @@ def unary_search_descendants(pid, ctl, output_file):
     fout = open(output_file, mode="w", encoding="utf-8")
     fout.write("The descendants of " + str(pid) + " are:")
     fout.write(descendants)
+    fout.close()
+
+    return
+
+def binary_search_descendants(pid, ctl, output_file):
+
+    rules =  """
+    descendants_of_pid({pid}, Y, {pid}) :- advise({pid}, Y, _).
+    descendants_of_pid({pid}, Z, Y) :- descendants_of_pid({pid}, Y, _), advise(Y, Z, _).
+    descendants_of_pid_with_name(PID1, NAME1, PID2, NAME2) :- descendants_of_pid({pid}, PID1, PID2), person(PID1, NAME1, _, _), person(PID2, NAME2, _, _).
+    
+    #show descendants_of_pid_with_name/4.
+    """.format(pid=str(pid))
+
+    ctl.add("rule", [], rules)
+    ctl.ground([("base", []), ("rule", [])])
+    ctl.configuration.solve.models="0"
+
+    descendants = ""
+    with ctl.solve(yield_=True) as handle:
+        for model in handle:
+            descendants = descendants + on_model_descendants(model)
+
+    # Save the results
+    fout = open(output_file, mode="w", encoding="utf-8")
+    fout.write("The descendant pairs (student, advisor) of " + str(pid) + " are:")
+    fout.write(descendants.replace("descendants", "descendant pairs"))
     fout.close()
 
     return

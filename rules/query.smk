@@ -174,6 +174,20 @@ rule mgdb_unary_search_ancestors_with_clingo:
     script:
         "../src/query/mgdb_entry.py"
 
+rule mgdb_binary_search_ancestors_with_clingo:
+    input:
+        facts = "data/raw/mgdb/clingo/facts.tsv"
+    params:
+        pid = "{pid}",
+        lat = "clingo",
+        query = "binary_search_ancestors"
+    output:
+        "data/query/mgdb/clingo/output_binary_search_ancestors_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/clingo/benchmark_binary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
 rule mgdb_unary_search_ancestors_with_bashlog:
     input:
         advised = "data/raw/mgdb/bashlog/advised.tsv",
@@ -323,6 +337,20 @@ rule mgdb_unary_search_descendants_with_clingo:
         "data/query/mgdb/clingo/output_unary_search_descendants_for_{pid}.txt"
     benchmark:
         repeat("data/query/mgdb/clingo/benchmark_unary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+rule mgdb_binary_search_descendants_with_clingo:
+    input:
+        facts = "data/raw/mgdb/clingo/facts.tsv"
+    params:
+        pid = "{pid}",
+        lat = "clingo",
+        query = "binary_search_descendants"
+    output:
+        "data/query/mgdb/clingo/output_binary_search_descendants_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/clingo/benchmark_binary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/mgdb_entry.py"
 
