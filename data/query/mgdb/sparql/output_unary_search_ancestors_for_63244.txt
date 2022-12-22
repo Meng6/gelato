@@ -1,0 +1,244 @@
+The ancestors of 63244 are: (243 ancestors)
+234, Wolfgang Krull
+5119, Alfred Loewy
+7298, David Hilbert
+7379, Erich Hecke
+7402, Julius Plücker
+17864, Joseph Louis Lagrange
+17865, Siméon Denis Poisson
+17946, Gustav Peter Lejeune Dirichlet
+17981, Jean-Baptiste Joseph Fourier
+18230, Johann Friedrich Pfaff
+19950, Friedrich Karl Schmidt
+19964, Rudolf Otto Sigismund Lipschitz
+20296, Robert W. Berger
+21235, Otto Mencke
+29642, Christian Ludwig Gerling
+38586, Leonhard Euler
+47025, Karl Christian von Langsdorf
+47064, Martin Ohm
+50689, Wilfried Brauer
+53410, Johann Bernoulli
+54440, Jacob Bernoulli
+57670, Christian August Hausen
+60782, Johann Andreas Segner
+61850, Gustav Conrad Bauer
+63188, Georg Lausen
+66006, Bernhard Nebel
+66476, Abraham Gotthelf Kästner
+95822, Wolfgang Wahlster
+108266, Jean Le Rond d'Alembert
+108295, Pierre-Simon Laplace
+127668, Johann Georg Büsch
+127710, Johann Elert Bode
+128046, Johann Pasch
+128938, Rudolf Jakob Camerarius
+128986, Johann Andreas Planer
+129628, Nikolaus Eglinger
+146035, Christian Benedict Michaelis
+146036, Giovanni Battista (Giambattista) Beccaria
+208259, Siegmund Jakob Baumgarten
+7401, C. Felix (Christian) Klein
+21668, Günter Hotz
+58560, Wolffried Stucky
+143011, Nicolas Malebranche
+143084, Peter Werenfels
+15252, Kurt Reidemeister
+18231, Carl Friedrich Gauß
+72669, Johann Christoph Wichmannshausen
+7404, C. L. Ferdinand (Carl Louis) Lindemann
+60984, Erhard Weigel
+60985, Gottfried Wilhelm Leibniz
+76481, Elias Rudolph Camerarius, Sr.
+125048, Johannes Nicolaus Stupanus
+125154, Werner Rolfinck
+125408, Jacobus Golius
+125488, Georg Wolffgang Wedel
+125561, Christiaan Huygens
+125846, Johann Adolph Wedel
+125886, Georg Erhard Hamberger
+125971, Simon Paul Hilscher
+127424, Erasmus Schmidt
+127724, Christoph Nottnagel
+127734, Nicolaus Zapf
+127801, Aegidius Strauch
+127956, Johann Andreas Quenstedt
+127962, Michael d. J. Walther
+128097, Georg Calixt
+128104, Johannes Caselius
+128105, Cornelius Martini
+129708, Johann Caspar Bauhin
+130248, Petrus Ryff
+137705, Jakob Thomasius
+143082, Sebastian Beck
+143083, Theodor Zwinger, Jr.
+143630, Friedrich Leibniz
+143859, Bartholomäus Leonhard Schwendendörffer
+144221, Philipp Müller
+145707, Constantijn l’Empereur van Oppyck
+145708, Hiob Ludolf
+145770, Johann Heinrich Michaelis
+146034, August Hermann Francke
+146374, Johann Möller
+182089, Gottfried Möbius
+182090, Felix Plater
+191279, Anton Bernhard Lauterbach
+208258, Gerardus Leonardus Blasius
+230796, Constantin Ziegra
+101860, Franciscus de le Boë Sylvius
+123974, Georg Balthasar Metzger
+124000, Rudolf Wilhelm Krause
+125125, Emmanuel Stupanus
+127606, Ambrosius Rhodius
+182088, Johann Jakob von Brunn
+114992, Gilbert Jacchaeus
+119159, Johannes Winter von Andernach
+125006, Adriaan van den Spieghel
+125023, Adolph Vorstius
+125047, Petrus (Pierre de La Ramée) Ramus
+125109, Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius
+125379, Tycho (Tyge Ottesen) Brahe
+125434, Marin Mersenne
+125450, Frans van Schooten, Jr.
+126956, Philipp Melanchthon
+127049, Michael Maestlin
+127061, Valentin (Valentinus Otho) Otto
+127092, Valentin Thau
+127098, Johannes Kepler
+127252, Salomon Alberti
+127275, Andreas Schato
+127278, Jan Jessenius
+127459, Melchior Jöstel
+127461, Ernestus Hettenbach
+127848, Jacobus Martini
+127898, Sethus Calvisius
+127942, Petrus Otto
+128122, Duncan Liddel
+128305, John Craig
+128348, Paul Wittich
+130913, Johannes (van den Driesche) Drusius
+144220, Christoph Meurer
+152905, Vittore Trincavelli
+152906, Bassiano Landi
+158329, Guillaume Rondelet
+189659, Abraham Heinecke
+200006, Albert Clampius
+221100, Leonhard Etzler
+221101, Anton Euonymus
+224249, Reinhard Bachoff von Echt
+125142, Gabriele Falloppio
+125148, Theodor Zwinger
+125302, Willebrord (Snel van Royen) Snellius
+125378, Thomas Erpenius
+125416, Jan Jansz Stampioen, Jr.
+126111, Daniel Sennert
+126875, Caspar Peucer
+143044, Jacob Andreae
+143045, Johann Jacob Grynaeus
+182092, Simon Sulzer
+125159, Immanuel Tremellius
+125160, Valentine Naibod
+125303, Matteo Realdo (Renaldus Columbus) Colombo
+125658, Nicolas (Nicolaes Cleynaerts) Clénard
+125665, Johannes (Johann Sturm) Sturmius
+125755, Jacob ben Jehiel Loans
+125760, Johann (Johannes Kapnion) Reuchlin
+125938, Desiderius Erasmus
+126489, Jacobus (Jacob Harmensz.) Arminius
+126736, Erasmus Reinhold
+126827, Georg Joachim von Leuchen Rheticus
+126957, Sebastian (Theodoricus) Dietrich
+127011, Johannes Hommel
+127020, Samuel Heyland
+127039, Philipp Apian
+127107, Johannes Stöffler
+127245, Antonio Musa Brasavola
+127790, Moritz Valentin Steinmetz
+127864, Nikolaus Selnecker
+128921, Jean Tagault
+130995, Raoul (Rodolphus Cavellerius) le Chevalier
+131235, François Vatable
+131236, Paul (Paul Büchlein) Fagius
+131444, Johannes Argyropoulos
+136726, Pietro Roccabonella
+152648, Jakob Beuerlin
+152904, Giovanni Battista della Monte
+184935, Johann Hoffmann
+125181, Rudolph (Snel van Royen) Snellius
+125232, Ludolph van Ceulen
+125422, Jacobus (Jacques Dubois) Sylvius
+126571, Rutger Rescius
+126659, Ulrich Zasius
+127166, Niccolò Leoniceno
+127181, Girolamo (Hieronymus Aleander) Aleandro
+128987, François Dubois
+131399, Wolfgang Fabricius Capito
+131517, Guillaume Budé
+131546, Jacques Toussain
+131577, Joseph Justus Scaliger
+131606, Adrien Turnèbe
+152647, Balthasar Kaeuffelin
+152901, Marco Musuro
+152902, Nicoletto Vernia
+152903, Pietro Pomponazzi
+182045, Simon Grynaeus
+119178, Andreas (Andries van Wesel) Vesalius
+125888, Jan Standonck
+125898, Alexander Hegius
+126730, Johannes Volmar
+126888, Luca Pacioli
+128012, Rudolf Agricola
+131443, Georgius Hermonymus
+134780, Demetrios Kydones
+134873, Vittorino da Feltre
+140181, Thomas von Kempen à Kempis
+141571, Thomas Cranmer
+149192, Ognibene (Omnibonus Leonicenus) Bonisoli da Lonigo
+179836, Geert Gerardus Magnus Groote
+232227, Paolo (Nicoletti) da Venezia
+119097, Gemma (Jemme Reinerszoon) Frisius
+125681, Jacobus (Jacques Masson) Latomus
+125682, Jan (Johannes Campensis) van Campen
+125794, Matthaeus Adrianus
+125892, Petrus (Pieter de Corte) Curtius
+126109, Johannes Müller Regiomontanus
+126112, Domenico Maria Novara da Ferrara
+126113, Leonhard (Leonard Vitreatoris z Dobczyc) von Dobschütz
+126177, Nicolaus (Mikołaj Kopernik) Copernicus
+126667, Jakob Milich
+126724, Bonifazius Erasmi
+127110, Michael Beuther
+127144, Pelope
+131398, Jacques (Jacobus Faber) Lefèvre d'Étaples
+131400, Elijah ben Asher Levita
+131446, Moses Perez
+131447, Scipione Fortiguerra
+131535, Angelo Poliziano
+131539, Marsilio Ficino
+131540, Cristoforo Landino
+131541, Janus Lascaris
+131561, Basilios Bessarion
+131575, Georgios Plethon Gemistos
+131576, Demetrios Chalcocondyles
+131584, Theodoros Gazes
+134781, Elissaeus Judaeus
+134931, Guarino da Verona
+148882, Gaetano da Thiene
+164338, Sigismondo Polcastro
+179837, Florens Florentius Radwyn Radewyns
+125897, Leo Outers
+127264, Heinrich von Langenstein
+135185, Manuel Chrysoloras
+146365, Nilos Kabasilas
+176844, Gregory Palamas
+184631, Theodore Metochites
+184632, Manuel Bryennios
+199357, Nicole Oresme
+201288, Gregory Chioniadis
+204293, Shams al‐Dīn al‐Bukhārī
+217509, Nasir al-Dīn al-Ṭūsī
+223724, Kamāl al-Dīn Ibn Yūnus
+230926, Sharaf al-Dīn al-Ṭūsī
+125894, Maarten (Martinus Dorpius) van Dorp
+126087, Georg von Peuerbach
+126887, Johannes von Gmunden

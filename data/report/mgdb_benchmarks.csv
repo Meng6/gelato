@@ -1,0 +1,7 @@
+language_or_tool,unary_search_ancestors_for_63244,binary_search_ancestors_for_63244,unary_search_descendants_for_63188,binary_search_descendants_for_63188,lowest_common_ancestors_of_63244_and_119280
+python,2.49(0.07),2.68(0.05),1.88(0.09),2.08(0.03),3.41(0.12)
+sql,0.95(0.03),1.1(0.02),1.1(0.02),1.23(0.05),4.92(0.57)
+cypher,2.0(2.29),2.04(2.29),1.84(2.07),1.94(2.34)
+sparql,1.99(0.86),1.29(0.03),0.44(0.03),1.8(0.82)
+clingo,213.02(77.14),402.92(27.67),286.17(33.95),265.27(119.73),408.97(74.56)
+bashlog,3.17(0.01),3.37(0.11),1.11(0.01),1.19(0.01)

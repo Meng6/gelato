@@ -1,0 +1,306 @@
+The ancestor pairs (student, advisor) of 63244 are: (305 ancestor pairs)
+126736                                        Erasmus Reinhold 126667                                            Jakob Milich
+152902                                        Nicoletto Vernia 148882                                       Gaetano da Thiene
+126827                      Georg Joachim von Leuchen Rheticus 126730                                         Johannes Volmar
+143082                                          Sebastian Beck 143045                                   Johann Jacob Grynaeus
+119097                       Gemma (Jemme Reinerszoon) Frisius 125892                        Petrus (Pieter de Corte) Curtius
+125665                        Johannes (Johann Sturm) Sturmius 119159                           Johannes Winter von Andernach
+125682                     Jan (Johannes Campensis) van Campen 125794                                      Matthaeus Adrianus
+131535                                        Angelo Poliziano 131540                                      Cristoforo Landino
+ 18231                                     Carl Friedrich Gauß  18230                                  Johann Friedrich Pfaff
+125148                                         Theodor Zwinger 125047                       Petrus (Pierre de La Ramée) Ramus
+182089                                        Gottfried Möbius 125154                                         Werner Rolfinck
+ 60782                                   Johann Andreas Segner 125886                                  Georg Erhard Hamberger
+119178                    Andreas (Andries van Wesel) Vesalius 119097                       Gemma (Jemme Reinerszoon) Frisius
+ 17865                                    Siméon Denis Poisson  17864                                   Joseph Louis Lagrange
+143044                                           Jacob Andreae 152648                                          Jakob Beuerlin
+146365                                         Nilos Kabasilas 176844                                         Gregory Palamas
+  7379                                             Erich Hecke   7298                                           David Hilbert
+127275                                          Andreas Schato 127252                                         Salomon Alberti
+128986                                   Johann Andreas Planer 128938                                 Rudolf Jakob Camerarius
+125450                                 Frans van Schooten, Jr. 125408                                          Jacobus Golius
+125408                                          Jacobus Golius 125378                                         Thomas Erpenius
+127039                                           Philipp Apian 125665                        Johannes (Johann Sturm) Sturmius
+127181                 Girolamo (Hieronymus Aleander) Aleandro 131446                                             Moses Perez
+128986                                   Johann Andreas Planer 128046                                            Johann Pasch
+125142                                      Gabriele Falloppio 125303               Matteo Realdo (Renaldus Columbus) Colombo
+127962                                   Michael d. J. Walther 127956                                Johann Andreas Quenstedt
+127424                                         Erasmus Schmidt 127898                                        Sethus Calvisius
+217509                                    Nasir al-Dīn al-Ṭūsī 223724                                  Kamāl al-Dīn Ibn Yūnus
+ 60985                               Gottfried Wilhelm Leibniz  60984                                           Erhard Weigel
+ 60985                               Gottfried Wilhelm Leibniz 143859                  Bartholomäus Leonhard Schwendendörffer
+  7401                              C. Felix (Christian) Klein  19964                         Rudolf Otto Sigismund Lipschitz
+ 63188                                            Georg Lausen  58560                                        Wolffried Stucky
+127166                                       Niccolò Leoniceno 136726                                     Pietro Roccabonella
+152904                           Giovanni Battista della Monte 127166                                       Niccolò Leoniceno
+128097                                            Georg Calixt 128104                                       Johannes Caselius
+127459                                         Melchior Jöstel 127061                         Valentin (Valentinus Otho) Otto
+126875                                           Caspar Peucer 126736                                        Erasmus Reinhold
+145770                               Johann Heinrich Michaelis 146034                                  August Hermann Francke
+128122                                           Duncan Liddel 128305                                              John Craig
+127245                                  Antonio Musa Brasavola 127166                                       Niccolò Leoniceno
+119178                    Andreas (Andries van Wesel) Vesalius 119159                           Johannes Winter von Andernach
+ 17864                                   Joseph Louis Lagrange  38586                                          Leonhard Euler
+152906                                          Bassiano Landi 152905                                     Vittore Trincavelli
+149192      Ognibene (Omnibonus Leonicenus) Bonisoli da Lonigo 134873                                     Vittorino da Feltre
+ 20296                                        Robert W. Berger  19950                                  Friedrich Karl Schmidt
+182088                                  Johann Jakob von Brunn 125048                              Johannes Nicolaus Stupanus
+ 60984                                           Erhard Weigel 144221                                          Philipp Müller
+ 53410                                        Johann Bernoulli 129628                                       Nikolaus Eglinger
+135185                                      Manuel Chrysoloras 134780                                       Demetrios Kydones
+127092                                           Valentin Thau 127011                                         Johannes Hommel
+125422                        Jacobus (Jacques Dubois) Sylvius 128921                                            Jean Tagault
+182092                                            Simon Sulzer 131399                               Wolfgang Fabricius Capito
+127098                                         Johannes Kepler 125379                              Tycho (Tyge Ottesen) Brahe
+ 38586                                          Leonhard Euler  53410                                        Johann Bernoulli
+136726                                     Pietro Roccabonella 164338                                    Sigismondo Polcastro
+125378                                         Thomas Erpenius 131577                                  Joseph Justus Scaliger
+125302                    Willebrord (Snel van Royen) Snellius 125181                       Rudolph (Snel van Royen) Snellius
+114992                                       Gilbert Jacchaeus 126489                      Jacobus (Jacob Harmensz.) Arminius
+143084                                         Peter Werenfels 143083                                    Theodor Zwinger, Jr.
+126667                                            Jakob Milich 125938                                      Desiderius Erasmus
+ 57670                                 Christian August Hausen 128986                                   Johann Andreas Planer
+184631                                     Theodore Metochites 184632                                        Manuel Bryennios
+201288                                      Gregory Chioniadis 204293                                 Shams al‐Dīn al‐Bukhārī
+125886                                  Georg Erhard Hamberger 191279                               Anton Bernhard Lauterbach
+ 18230                                  Johann Friedrich Pfaff 127710                                       Johann Elert Bode
+119178                    Andreas (Andries van Wesel) Vesalius 152904                           Giovanni Battista della Monte
+131236                             Paul (Paul Büchlein) Fagius 131399                               Wolfgang Fabricius Capito
+ 54440                                         Jacob Bernoulli 143011                                     Nicolas Malebranche
+127011                                         Johannes Hommel 126956                                     Philipp Melanchthon
+125892                        Petrus (Pieter de Corte) Curtius 125894                     Maarten (Martinus Dorpius) van Dorp
+101860                            Franciscus de le Boë Sylvius 125125                                       Emmanuel Stupanus
+ 18230                                  Johann Friedrich Pfaff  66476                                Abraham Gotthelf Kästner
+125023                                         Adolph Vorstius 125006                                Adriaan van den Spieghel
+127790                               Moritz Valentin Steinmetz 184935                                         Johann Hoffmann
+125898                                        Alexander Hegius 128012                                         Rudolf Agricola
+125302                    Willebrord (Snel van Royen) Snellius 125232                                      Ludolph van Ceulen
+131561                                      Basilios Bessarion 131575                               Georgios Plethon Gemistos
+  5119                                            Alfred Loewy   7404                  C. L. Ferdinand (Carl Louis) Lindemann
+ 95822                                       Wolfgang Wahlster  50689                                         Wilfried Brauer
+145707                       Constantijn l’Empereur van Oppyck 130913                     Johannes (van den Driesche) Drusius
+144220                                        Christoph Meurer 127790                               Moritz Valentin Steinmetz
+127061                         Valentin (Valentinus Otho) Otto 126827                      Georg Joachim von Leuchen Rheticus
+125971                                     Simon Paul Hilscher 124000                                   Rudolf Wilhelm Krause
+128105                                       Cornelius Martini 200006                                         Albert Clampius
+127962                                   Michael d. J. Walther 230796                                       Constantin Ziegra
+127734                                           Nicolaus Zapf 127424                                         Erasmus Schmidt
+ 19964                         Rudolf Otto Sigismund Lipschitz  47064                                              Martin Ohm
+128105                                       Cornelius Martini 128122                                           Duncan Liddel
+125408                                          Jacobus Golius 125302                    Willebrord (Snel van Royen) Snellius
+123974                                 Georg Balthasar Metzger 182089                                        Gottfried Möbius
+125894                     Maarten (Martinus Dorpius) van Dorp 125897                                              Leo Outers
+131399                               Wolfgang Fabricius Capito 126659                                           Ulrich Zasius
+ 17865                                    Siméon Denis Poisson 108295                                    Pierre-Simon Laplace
+ 60985                               Gottfried Wilhelm Leibniz 137705                                         Jakob Thomasius
+  7402                                          Julius Plücker  29642                                Christian Ludwig Gerling
+131584                                         Theodoros Gazes 134873                                     Vittorino da Feltre
+131517                                          Guillaume Budé 131443                                     Georgius Hermonymus
+130995              Raoul (Rodolphus Cavellerius) le Chevalier 131236                             Paul (Paul Büchlein) Fagius
+125488                                   Georg Wolffgang Wedel 125154                                         Werner Rolfinck
+125561                                      Christiaan Huygens 125450                                 Frans van Schooten, Jr.
+127848                                         Jacobus Martini 128105                                       Cornelius Martini
+200006                                         Albert Clampius 224249                               Reinhard Bachoff von Echt
+ 76481                           Elias Rudolph Camerarius, Sr. 123974                                 Georg Balthasar Metzger
+126956                                     Philipp Melanchthon 127107                                       Johannes Stöffler
+127039                                           Philipp Apian 127110                                         Michael Beuther
+ 57670                                 Christian August Hausen  72669                        Johann Christoph Wichmannshausen
+127668                                      Johann Georg Büsch 208259                               Siegmund Jakob Baumgarten
+ 54440                                         Jacob Bernoulli 143084                                         Peter Werenfels
+126109                           Johannes Müller Regiomontanus 131561                                      Basilios Bessarion
+ 19964                         Rudolf Otto Sigismund Lipschitz  17946                          Gustav Peter Lejeune Dirichlet
+131399                               Wolfgang Fabricius Capito 125938                                      Desiderius Erasmus
+131541                                          Janus Lascaris 131561                                      Basilios Bessarion
+126827                      Georg Joachim von Leuchen Rheticus 126177                  Nicolaus (Mikołaj Kopernik) Copernicus
+130995              Raoul (Rodolphus Cavellerius) le Chevalier 131235                                        François Vatable
+125047                       Petrus (Pierre de La Ramée) Ramus 131546                                        Jacques Toussain
+ 47025                            Karl Christian von Langsdorf  66476                                Abraham Gotthelf Kästner
+126730                                         Johannes Volmar 126724                                       Bonifazius Erasmi
+127461                                     Ernestus Hettenbach 127275                                          Andreas Schato
+125488                                   Georg Wolffgang Wedel 101860                            Franciscus de le Boë Sylvius
+131575                               Georgios Plethon Gemistos 134781                                       Elissaeus Judaeus
+127166                                       Niccolò Leoniceno 127144                                                  Pelope
+140181                              Thomas von Kempen à Kempis 179837                      Florens Florentius Radwyn Radewyns
+125846                                     Johann Adolph Wedel 125488                                   Georg Wolffgang Wedel
+ 60985                               Gottfried Wilhelm Leibniz 125561                                      Christiaan Huygens
+131398               Jacques (Jacobus Faber) Lefèvre d'Étaples 131444                                   Johannes Argyropoulos
+125898                                        Alexander Hegius 140181                              Thomas von Kempen à Kempis
+152901                                            Marco Musuro 131541                                          Janus Lascaris
+152904                           Giovanni Battista della Monte 152903                                       Pietro Pomponazzi
+ 58560                                        Wolffried Stucky  21668                                             Günter Hotz
+131447                                    Scipione Fortiguerra 131535                                        Angelo Poliziano
+152648                                          Jakob Beuerlin 152647                                    Balthasar Kaeuffelin
+125561                                      Christiaan Huygens 125416                                Jan Jansz Stampioen, Jr.
+ 58560                                        Wolffried Stucky  20296                                        Robert W. Berger
+127264                                Heinrich von Langenstein 199357                                           Nicole Oresme
+127724                                     Christoph Nottnagel 127606                                       Ambrosius Rhodius
+108295                                    Pierre-Simon Laplace 108266                                 Jean Le Rond d'Alembert
+126571                                          Rutger Rescius 127181                 Girolamo (Hieronymus Aleander) Aleandro
+ 17981                            Jean-Baptiste Joseph Fourier  17864                                   Joseph Louis Lagrange
+126489                      Jacobus (Jacob Harmensz.) Arminius 125181                       Rudolph (Snel van Royen) Snellius
+127898                                        Sethus Calvisius 127790                               Moritz Valentin Steinmetz
+125181                       Rudolph (Snel van Royen) Snellius 125160                                        Valentine Naibod
+128104                                       Johannes Caselius 126956                                     Philipp Melanchthon
+127956                                Johann Andreas Quenstedt 128097                                            Georg Calixt
+126667                                            Jakob Milich 126659                                           Ulrich Zasius
+  5119                                            Alfred Loewy  61850                                     Gustav Conrad Bauer
+127424                                         Erasmus Schmidt 127942                                             Petrus Otto
+125154                                         Werner Rolfinck 125006                                Adriaan van den Spieghel
+ 21668                                             Günter Hotz  15252                                       Kurt Reidemeister
+127110                                         Michael Beuther 126736                                        Erasmus Reinhold
+125938                                      Desiderius Erasmus 125898                                        Alexander Hegius
+144221                                          Philipp Müller 144220                                        Christoph Meurer
+204293                                 Shams al‐Dīn al‐Bukhārī 217509                                    Nasir al-Dīn al-Ṭūsī
+128305                                              John Craig 125148                                         Theodor Zwinger
+ 17946                          Gustav Peter Lejeune Dirichlet  17981                            Jean-Baptiste Joseph Fourier
+125023                                         Adolph Vorstius 114992                                       Gilbert Jacchaeus
+127459                                         Melchior Jöstel 127275                                          Andreas Schato
+182090                                            Felix Plater 158329                                      Guillaume Rondelet
+ 17946                          Gustav Peter Lejeune Dirichlet  17865                                    Siméon Denis Poisson
+131235                                        François Vatable 131398               Jacques (Jacobus Faber) Lefèvre d'Étaples
+ 15252                                       Kurt Reidemeister   7379                                             Erich Hecke
+182092                                            Simon Sulzer 182045                                          Simon Grynaeus
+131535                                        Angelo Poliziano 131539                                         Marsilio Ficino
+125160                                        Valentine Naibod 126736                                        Erasmus Reinhold
+  7404                  C. L. Ferdinand (Carl Louis) Lindemann   7401                              C. Felix (Christian) Klein
+127668                                      Johann Georg Büsch  60782                                   Johann Andreas Segner
+131541                                          Janus Lascaris 131576                                Demetrios Chalcocondyles
+125125                                       Emmanuel Stupanus 130248                                             Petrus Ryff
+125938                                      Desiderius Erasmus 125888                                           Jan Standonck
+125760                      Johann (Johannes Kapnion) Reuchlin 125755                                  Jacob ben Jehiel Loans
+143083                                    Theodor Zwinger, Jr. 143082                                          Sebastian Beck
+137705                                         Jakob Thomasius 143630                                       Friedrich Leibniz
+223724                                  Kamāl al-Dīn Ibn Yūnus 230926                                   Sharaf al-Dīn al-Ṭūsī
+125303               Matteo Realdo (Renaldus Columbus) Colombo 119178                    Andreas (Andries van Wesel) Vesalius
+145708                                             Hiob Ludolf 125408                                          Jacobus Golius
+125665                        Johannes (Johann Sturm) Sturmius 125658                   Nicolas (Nicolaes Cleynaerts) Clénard
+119159                           Johannes Winter von Andernach 126571                                          Rutger Rescius
+152903                                       Pietro Pomponazzi 152902                                        Nicoletto Vernia
+125154                                         Werner Rolfinck 126111                                          Daniel Sennert
+125148                                         Theodor Zwinger 152905                                     Vittore Trincavelli
+131517                                          Guillaume Budé 131541                                          Janus Lascaris
+ 60782                                   Johann Andreas Segner 125971                                     Simon Paul Hilscher
+130248                                             Petrus Ryff 182090                                            Felix Plater
+143045                                   Johann Jacob Grynaeus 182092                                            Simon Sulzer
+ 66006                                          Bernhard Nebel  95822                                       Wolfgang Wahlster
+126875                                           Caspar Peucer 126827                      Georg Joachim von Leuchen Rheticus
+146035                            Christian Benedict Michaelis 145770                               Johann Heinrich Michaelis
+101860                            Franciscus de le Boë Sylvius 125023                                         Adolph Vorstius
+127801                                        Aegidius Strauch 127734                                           Nicolaus Zapf
+126177                  Nicolaus (Mikołaj Kopernik) Copernicus 126113  Leonhard (Leonard Vitreatoris z Dobczyc) von Dobschütz
+127962                                   Michael d. J. Walther 127801                                        Aegidius Strauch
+   234                                          Wolfgang Krull   5119                                            Alfred Loewy
+127956                                Johann Andreas Quenstedt 127724                                     Christoph Nottnagel
+127606                                       Ambrosius Rhodius 221101                                          Anton Euonymus
+125109 Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius 125142                                      Gabriele Falloppio
+131546                                        Jacques Toussain 131517                                          Guillaume Budé
+ 17864                                   Joseph Louis Lagrange 146036               Giovanni Battista (Giambattista) Beccaria
+  7401                              C. Felix (Christian) Klein   7402                                          Julius Plücker
+182045                                          Simon Grynaeus 126956                                     Philipp Melanchthon
+130913                     Johannes (van den Driesche) Drusius 130995              Raoul (Rodolphus Cavellerius) le Chevalier
+114992                                       Gilbert Jacchaeus 128122                                           Duncan Liddel
+125047                       Petrus (Pierre de La Ramée) Ramus 125665                        Johannes (Johann Sturm) Sturmius
+127011                                         Johannes Hommel 126736                                        Erasmus Reinhold
+176844                                         Gregory Palamas 184631                                     Theodore Metochites
+127049                                        Michael Maestlin 127020                                          Samuel Heyland
+143011                                     Nicolas Malebranche  60985                               Gottfried Wilhelm Leibniz
+127606                                       Ambrosius Rhodius 125379                              Tycho (Tyge Ottesen) Brahe
+ 63244                                       Bertram Ludäscher  63188                                            Georg Lausen
+184632                                        Manuel Bryennios 201288                                      Gregory Chioniadis
+ 21235                                             Otto Mencke 137705                                         Jakob Thomasius
+128012                                         Rudolf Agricola 131584                                         Theodoros Gazes
+131575                               Georgios Plethon Gemistos 134780                                       Demetrios Kydones
+127710                                       Johann Elert Bode 127668                                      Johann Georg Büsch
+140181                              Thomas von Kempen à Kempis 179836                            Geert Gerardus Magnus Groote
+134873                                     Vittorino da Feltre 134931                                       Guarino da Verona
+145770                               Johann Heinrich Michaelis 145708                                             Hiob Ludolf
+127606                                       Ambrosius Rhodius 127461                                     Ernestus Hettenbach
+129708                                    Johann Caspar Bauhin 125125                                       Emmanuel Stupanus
+127734                                           Nicolaus Zapf 127848                                         Jacobus Martini
+124000                                   Rudolf Wilhelm Krause 101860                            Franciscus de le Boë Sylvius
+131576                                Demetrios Chalcocondyles 131584                                         Theodoros Gazes
+127275                                          Andreas Schato 126957                        Sebastian (Theodoricus) Dietrich
+127181                 Girolamo (Hieronymus Aleander) Aleandro 131447                                    Scipione Fortiguerra
+125181                       Rudolph (Snel van Royen) Snellius 125159                                     Immanuel Tremellius
+126956                                     Philipp Melanchthon 125760                      Johann (Johannes Kapnion) Reuchlin
+134780                                       Demetrios Kydones 146365                                         Nilos Kabasilas
+125681                        Jacobus (Jacques Masson) Latomus 125888                                           Jan Standonck
+127606                                       Ambrosius Rhodius 127098                                         Johannes Kepler
+125379                              Tycho (Tyge Ottesen) Brahe 127092                                           Valentin Thau
+ 66476                                Abraham Gotthelf Kästner  57670                                 Christian August Hausen
+126957                        Sebastian (Theodoricus) Dietrich 126736                                        Erasmus Reinhold
+145708                                             Hiob Ludolf 146374                                           Johann Möller
+128097                                            Georg Calixt 128105                                       Cornelius Martini
+125658                   Nicolas (Nicolaes Cleynaerts) Clénard 125681                        Jacobus (Jacques Masson) Latomus
+125006                                Adriaan van den Spieghel 125109 Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius
+152903                                       Pietro Pomponazzi 136726                                     Pietro Roccabonella
+126112                        Domenico Maria Novara da Ferrara 126888                                            Luca Pacioli
+152904                           Giovanni Battista della Monte 152901                                            Marco Musuro
+ 63244                                       Bertram Ludäscher  66006                                          Bernhard Nebel
+131577                                  Joseph Justus Scaliger 131606                                          Adrien Turnèbe
+129628                                       Nikolaus Eglinger 125125                                       Emmanuel Stupanus
+152906                                          Bassiano Landi 152904                           Giovanni Battista della Monte
+125682                     Jan (Johannes Campensis) van Campen 125760                      Johann (Johannes Kapnion) Reuchlin
+127898                                        Sethus Calvisius 127864                                      Nikolaus Selnecker
+126887                                    Johannes von Gmunden 127264                                Heinrich von Langenstein
+221101                                          Anton Euonymus 221100                                         Leonhard Etzler
+131235                                        François Vatable 127181                 Girolamo (Hieronymus Aleander) Aleandro
+ 47064                                              Martin Ohm  47025                            Karl Christian von Langsdorf
+128122                                           Duncan Liddel 128348                                            Paul Wittich
+131398               Jacques (Jacobus Faber) Lefèvre d'Étaples 131443                                     Georgius Hermonymus
+125886                                  Georg Erhard Hamberger 125846                                     Johann Adolph Wedel
+128348                                            Paul Wittich 127092                                           Valentin Thau
+131444                                   Johannes Argyropoulos 131561                                      Basilios Bessarion
+  7298                                           David Hilbert   7404                  C. L. Ferdinand (Carl Louis) Lindemann
+128938                                 Rudolf Jakob Camerarius  76481                           Elias Rudolph Camerarius, Sr.
+127278                                           Jan Jessenius 125109 Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius
+ 29642                                Christian Ludwig Gerling  18231                                     Carl Friedrich Gauß
+127049                                        Michael Maestlin 127039                                           Philipp Apian
+129628                                       Nikolaus Eglinger 129708                                    Johann Caspar Bauhin
+127252                                         Salomon Alberti 126875                                           Caspar Peucer
+152905                                     Vittore Trincavelli 152903                                       Pietro Pomponazzi
+125658                   Nicolas (Nicolaes Cleynaerts) Clénard 125682                     Jan (Johannes Campensis) van Campen
+127606                                       Ambrosius Rhodius 127459                                         Melchior Jöstel
+126957                        Sebastian (Theodoricus) Dietrich 126827                      Georg Joachim von Leuchen Rheticus
+126109                           Johannes Müller Regiomontanus 126087                                     Georg von Peuerbach
+148882                                       Gaetano da Thiene 232227                            Paolo (Nicoletti) da Venezia
+126111                                          Daniel Sennert 127848                                         Jacobus Martini
+125142                                      Gabriele Falloppio 127245                                  Antonio Musa Brasavola
+127020                                          Samuel Heyland 125665                        Johannes (Johann Sturm) Sturmius
+127734                                           Nicolaus Zapf 189659                                        Abraham Heinecke
+125148                                         Theodor Zwinger 152906                                          Bassiano Landi
+126111                                          Daniel Sennert 127278                                           Jan Jessenius
+134931                                       Guarino da Verona 135185                                      Manuel Chrysoloras
+127252                                         Salomon Alberti 125109 Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius
+131606                                          Adrien Turnèbe 131546                                        Jacques Toussain
+ 53410                                        Johann Bernoulli  54440                                         Jacob Bernoulli
+143045                                   Johann Jacob Grynaeus 143044                                           Jacob Andreae
+125422                        Jacobus (Jacques Dubois) Sylvius 128987                                         François Dubois
+182045                                          Simon Grynaeus 125760                      Johann (Johannes Kapnion) Reuchlin
+119159                           Johannes Winter von Andernach 125422                        Jacobus (Jacques Dubois) Sylvius
+127461                                     Ernestus Hettenbach 127252                                         Salomon Alberti
+145708                                             Hiob Ludolf 145707                       Constantijn l’Empereur van Oppyck
+ 50689                                         Wilfried Brauer    234                                          Wolfgang Krull
+126177                  Nicolaus (Mikołaj Kopernik) Copernicus 126112                        Domenico Maria Novara da Ferrara
+126112                        Domenico Maria Novara da Ferrara 126109                           Johannes Müller Regiomontanus
+124000                                   Rudolf Wilhelm Krause 208258                              Gerardus Leonardus Blasius
+158329                                      Guillaume Rondelet 119159                           Johannes Winter von Andernach
+127790                               Moritz Valentin Steinmetz 126827                      Georg Joachim von Leuchen Rheticus
+125159                                     Immanuel Tremellius 141571                                          Thomas Cranmer
+ 19950                                  Friedrich Karl Schmidt   5119                                            Alfred Loewy
+123974                                 Georg Balthasar Metzger 182088                                  Johann Jakob von Brunn
+125048                              Johannes Nicolaus Stupanus 125148                                         Theodor Zwinger
+125760                      Johann (Johannes Kapnion) Reuchlin 131444                                   Johannes Argyropoulos
+ 72669                        Johann Christoph Wichmannshausen  21235                                             Otto Mencke
+131236                             Paul (Paul Büchlein) Fagius 131400                                 Elijah ben Asher Levita
+128938                                 Rudolf Jakob Camerarius 123974                                 Georg Balthasar Metzger
+127166                                       Niccolò Leoniceno 149192      Ognibene (Omnibonus Leonicenus) Bonisoli da Lonigo
+126087                                     Georg von Peuerbach 126887                                    Johannes von Gmunden
+127098                                         Johannes Kepler 127049                                        Michael Maestlin
+136726                                     Pietro Roccabonella 148882                                       Gaetano da Thiene
+128046                                            Johann Pasch 127962                                   Michael d. J. Walther
+208259                               Siegmund Jakob Baumgarten 146035                            Christian Benedict Michaelis
+125450                                 Frans van Schooten, Jr. 125434                                          Marin Mersenne
+127110                                         Michael Beuther 126956                                     Philipp Melanchthon
+131539                                         Marsilio Ficino 131444                                   Johannes Argyropoulos
+125379                              Tycho (Tyge Ottesen) Brahe 126875                                           Caspar Peucer

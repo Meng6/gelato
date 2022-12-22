@@ -95,8 +95,8 @@ packrat/*
 tmp/
 
 # exclude data from source control by default
-data/*
-!/data/external/*
+data/bak.*
+
 
 .Rproj.user
 *.Rproj

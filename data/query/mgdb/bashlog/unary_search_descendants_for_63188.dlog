@@ -1,0 +1,17 @@
+
+facts_p(S, P, O) :~ cat ./data/raw/mgdb/bashlog/person.tsv
+facts_d(S, P, O) :~ cat ./data/raw/mgdb/bashlog/dissertation.tsv
+facts_a(S, P1, O1, P2, O2) :~ cat ./data/raw/mgdb/bashlog/advised.tsv
+
+% advise(advisor, student).
+advise(A, S) :-
+   facts_a(DID, "<advised_by>", A, _, _),
+   facts_d(DID, "<author>", S).
+
+% descendants_for_pid(PID, descendants).
+descendants_for_pid(63188, Y) :- advise(63188, Y).
+descendants_for_pid(63188, Z) :- descendants_for_pid(63188, Y), advise(Y, Z).
+
+main(PID, NAME) :-
+   descendants_for_pid(63188, PID),
+   facts_p(PID, "<name>", NAME).
