@@ -75,6 +75,9 @@ for graph in config["GRAPHS"]:
         if config["BENCHMARK"]["REPORT"]:
             files_to_compute.extend(expand("data/report/{graph}_{max_hamming_number}_benchmarks.csv", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"]))
 
+# Stats of the graphs
+files_to_compute.append("data/report/overall_stats_of_graphs.csv")
+
 rule all:
     input:
         files_to_compute
