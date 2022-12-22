@@ -10,7 +10,7 @@ def python_entry(*args, **kwargs):
 
     # Query
     query_function = getattr(python_main, snakemake.params["query"])
-    query_function(int(snakemake.params["pid"]), advised, dissertation, person, snakemake.output[0])
+    query_function(snakemake.params, advised, dissertation, person, snakemake.output[0])
     
     return
 
@@ -24,7 +24,7 @@ def sql_entry(*args, **kwargs):
 
     # Query
     query_function = getattr(sql_main, snakemake.params["query"])
-    query_function(snakemake.params["pid"], conn, snakemake.output[0])
+    query_function(snakemake.params, conn, snakemake.output[0])
 
     # Close the connection
     conn.close ()
@@ -84,7 +84,7 @@ def clingo_entry(*args, **kwargs):
 
     # Query
     query_function = getattr(clingo_main, snakemake.params["query"])
-    query_function(snakemake.params["pid"], ctl, snakemake.output[0])
+    query_function(snakemake.params, ctl, snakemake.output[0])
 
     ctl.cleanup()
 

@@ -18,9 +18,16 @@ def save_descendants(descendants, pid, output_file, pairs_flag):
     fout.close()
     return
 
-# Modules to be loaded to mgdb_entry.py script
-def unary_search_ancestors(pid, conn, output_file):
+def save_lowest_common_ancestors(lowest_common_ancestors, pid1, pid2, output_file):
+    fout = open(output_file, mode="w", encoding="utf-8")
+    fout.write("The lowest common ancestor(s) of " + str(pid1) + " and " + str(pid2) + ": \n")
+    fout.write("\n".join(map(str, lowest_common_ancestors)))
+    fout.close()
+    return
 
+# Modules to be loaded to mgdb_entry.py script
+def unary_search_ancestors(params, conn, output_file):
+    pid = params["pid"]
     cursor = conn.cursor()
     
     # Recursive CTE
@@ -40,8 +47,8 @@ def unary_search_ancestors(pid, conn, output_file):
     save_ancestors(ancestors, pid, output_file, False)
     return
 
-def binary_search_ancestors(pid, conn, output_file):
-
+def binary_search_ancestors(params, conn, output_file):
+    pid = params["pid"]
     cursor = conn.cursor()
     
     # Recursive CTE
@@ -65,7 +72,8 @@ def binary_search_ancestors(pid, conn, output_file):
     save_ancestors(ancestors, pid, output_file, True)
     return
 
-def unary_search_descendants(pid, conn, output_file):
+def unary_search_descendants(params, conn, output_file):
+    pid = params["pid"]
     cursor = conn.cursor()
     
     # Recursive CTE
@@ -85,7 +93,8 @@ def unary_search_descendants(pid, conn, output_file):
     save_descendants(descendants, pid, output_file, False)
     return
 
-def binary_search_descendants(pid, conn, output_file):
+def binary_search_descendants(params, conn, output_file):
+    pid = params["pid"]
     cursor = conn.cursor()
     
     # Recursive CTE
@@ -107,4 +116,79 @@ def binary_search_descendants(pid, conn, output_file):
     cursor.close()
 
     save_descendants(descendants, pid, output_file, True)
+    return
+
+def lowest_common_ancestors(params, conn, output_file):
+    pid1 = params["pid1"]
+    pid2 = params["pid2"]
+    cursor = conn.cursor()
+
+    # Recursive CTE: ancestors of pid1
+    sql_query1 = """
+    CREATE VIEW ancestors_of_pid1 AS 
+        WITH RECURSIVE ancestors AS (
+            SELECT advisor FROM advised a, dissertation d WHERE a.did=d.did AND author = """ + str(pid1) + """
+            UNION
+            SELECT a.advisor FROM ancestors an, advised a, dissertation d WHERE a.did=d.did AND d.author=an.advisor
+            )
+        SELECT advisor FROM ancestors;
+    """
+    cursor.execute(sql_query1)
+    
+    # Recursive CTE: ancestors of pid2
+    sql_query2 = """
+    CREATE VIEW ancestors_of_pid2 AS 
+        WITH RECURSIVE ancestors AS (
+            SELECT advisor FROM advised a, dissertation d WHERE a.did=d.did AND author = """ + str(pid2) + """
+            UNION
+            SELECT a.advisor FROM ancestors an, advised a, dissertation d WHERE a.did=d.did AND d.author=an.advisor
+            )
+        SELECT advisor FROM ancestors;
+    """
+    cursor.execute(sql_query2)
+
+    # Common ancestors of pid1 and pid2
+    sql_query3 = """
+    CREATE VIEW common_ancestors AS
+    SELECT advisor FROM ancestors_of_pid1
+    INTERSECT
+    SELECT advisor FROM ancestors_of_pid2;
+    """
+    cursor.execute(sql_query3)
+
+
+    # Common ancestors with their closest descendants
+    sql_query4 = """
+    CREATE VIEW common_ancestors_with_their_students AS
+    SELECT d.author, ca.advisor
+    FROM common_ancestors ca, advised a, dissertation d 
+    WHERE ca.advisor=a.advisor AND a.did=d.did;
+    """
+    cursor.execute(sql_query4)
+
+    # Lowest common ancestors of pid1 and pid2
+    sql_query5 = """
+
+    SELECT advisor, name FROM
+    
+        (SELECT DISTINCT advisor FROM common_ancestors_with_their_students
+
+        EXCEPT
+
+        SELECT DISTINCT advisor FROM common_ancestors_with_their_students
+        WHERE author IN (SELECT advisor FROM common_ancestors))
+
+    LEFT JOIN person p ON p.pid = advisor
+    """
+    cursor.execute(sql_query5)
+    lowest_common_ancestors = cursor.fetchall()
+
+    # Drop the views
+    cursor.execute("DROP VIEW ancestors_of_pid1;")
+    cursor.execute("DROP VIEW ancestors_of_pid2;")
+    cursor.execute("DROP VIEW common_ancestors;")
+    cursor.execute("DROP VIEW common_ancestors_with_their_students;")
+    cursor.close()
+
+    save_lowest_common_ancestors(lowest_common_ancestors, pid1, pid2, output_file)
     return

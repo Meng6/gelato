@@ -66,7 +66,7 @@ properties:
             uniqueItems: True
             items:
               type: string
-              enum: [UNARY_SEARCH_ANCESTORS, BINARY_SEARCH_ANCESTORS, UNARY_SEARCH_DESCENDANTS, BINARY_SEARCH_DESCENDANTS]
+              enum: [UNARY_SEARCH_ANCESTORS, BINARY_SEARCH_ANCESTORS, UNARY_SEARCH_DESCENDANTS, BINARY_SEARCH_DESCENDANTS, LOWEST_COMMON_ANCESTORS]
           UNARY_SEARCH_ANCESTORS:
             type: object
             required: [PIDS]
@@ -95,3 +95,11 @@ properties:
               PIDS:
                 type: array
                 uniqueItems: True
+          LOWEST_COMMON_ANCESTORS:
+            type: object
+            required: [PID1, PID2]
+            properties:
+              PID1: 
+                type: integer
+              PID2:
+                type: integer
