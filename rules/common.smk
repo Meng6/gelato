@@ -26,6 +26,13 @@ def optional_mgdb_sparql_input(wildcards):
         return "data/raw/mgdb/sparql/load_mgdb_data_to_blazegraph.done"
     return []
 
+def get_mgdb_prepare_bashscript_for_bashlog_2_input(wildcards):
+    if wildcards.query.startswith("interim"):
+        input = ["data/raw/mgdb/bashlog/advised.tsv", "data/raw/mgdb/bashlog/dissertation.tsv", "data/raw/mgdb/bashlog/person.tsv"]
+    else:
+        input = ["data/query/mgdb/bashlog/interim_advise.tsv", "data/query/mgdb/bashlog/interim_common_ancestors_of_{pid1}_and_{pid2}.tsv"]
+    return input
+
 def get_fish_merge_benchmarks_input(wildcards):
     input = []
     for query in config["FISH"]["QUERIES"]["RUN"]:

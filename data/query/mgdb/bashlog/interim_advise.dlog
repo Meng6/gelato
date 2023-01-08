@@ -1,0 +1,9 @@
+
+facts_d(S, P, O) :~ cat ./data/raw/mgdb/bashlog/dissertation.tsv
+facts_a(S, P1, O1, P2, O2) :~ cat ./data/raw/mgdb/bashlog/advised.tsv
+
+% advise(advisor, student).
+main(A, S) :- 
+   facts_a(DID, "<advised_by>", A, _, _),
+   facts_d(DID, "<author>", S).
+

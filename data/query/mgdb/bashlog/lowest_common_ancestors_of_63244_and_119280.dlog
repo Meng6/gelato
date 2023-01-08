@@ -1,31 +1,17 @@
 
 facts_p(S, P, O) :~ cat ./data/raw/mgdb/bashlog/person.tsv
-facts_d(S, P, O) :~ cat ./data/raw/mgdb/bashlog/dissertation.tsv
-facts_a(S, P1, O1, P2, O2) :~ cat ./data/raw/mgdb/bashlog/advised.tsv
-
 % advise(advisor, student).
-advise(A, S) :-
-   facts_a(DID, "<advised_by>", A, _, _),
-   facts_d(DID, "<author>", S).
-
-% ancestor_of_pid(ancestors, PID1).
-ancestor_of_pid(X, 63244) :- advise(X, 63244).
-ancestor_of_pid(X, 63244) :- advise(X, Y), ancestor_of_pid(Y, 63244).
-
-% ancestor_of_pid(ancestors, PID2).
-ancestor_of_pid(X, 119280) :- advise(X, 119280).
-ancestor_of_pid(X, 119280) :- advise(X, Y), ancestor_of_pid(Y, 119280).
-
+advise(A, S) :~ cat ./data/query/mgdb/bashlog/interim_advise.tsv
 % common_ancestors(PID1, PID2, common_ancestor).
-common_ancestors(63244, 119280, X) :- ancestor_of_pid(X, 63244), ancestor_of_pid(X, 119280).
+common_ancestors(PID1, PID2, X) :~ cat ./data/query/mgdb/bashlog/interim_common_ancestors_of_63244_and_119280.tsv
 
-not_lowest_common_ancestors(63244, 119280, X) :- 
+nlowest_common_ancestors(63244, 119280, X) :- 
    common_ancestors(63244, 119280, X), 
-   common_ancestors(63244, 119280, Y), 
+   common_ancestors(63244, 119280, Y),
    advise(X, Y).
 
 main(PID, NAME) :- 
    common_ancestors(63244, 119280, PID),
-   not not_lowest_common_ancestors(63244, 119280, PID),
+   not nlowest_common_ancestors(63244, 119280, PID), 
    facts_p(PID, "<name>", NAME).
 

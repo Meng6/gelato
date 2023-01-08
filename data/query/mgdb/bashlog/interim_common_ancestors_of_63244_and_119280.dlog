@@ -1,0 +1,16 @@
+
+% advise(advisor, student).
+advise(A, S) :~ cat ./data/query/mgdb/bashlog/interim_advise.tsv
+
+% ancestor_of_pid(ancestors, PID1).
+ancestor_of_pid(X, 63244) :- advise(X, 63244).
+ancestor_of_pid(X, 63244) :- advise(X, Y), ancestor_of_pid(Y, 63244).
+
+% ancestor_of_pid(ancestors, PID2).
+ancestor_of_pid(X, 119280) :- advise(X, 119280).
+ancestor_of_pid(X, 119280) :- advise(X, Y), ancestor_of_pid(Y, 119280).
+
+% common_ancestors(PID1, PID2, common_ancestor).
+main(63244, 119280, X) :- 
+   ancestor_of_pid(X, 63244), ancestor_of_pid(X, 119280).
+
