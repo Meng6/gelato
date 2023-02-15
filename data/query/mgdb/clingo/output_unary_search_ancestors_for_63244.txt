@@ -1,244 +1,244 @@
-The ancestors of 63244 are: (243 ancestors)
-(234,"Wolfgang Krull") 
-(5119,"Alfred Loewy") 
-(7298,"David Hilbert") 
-(7402,"Julius Plücker") 
-(7379,"Erich Hecke") 
-(17946,"Gustav Peter Lejeune Dirichlet") 
-(17865,"Siméon Denis Poisson") 
-(17864,"Joseph Louis Lagrange") 
-(17981,"Jean-Baptiste Joseph Fourier") 
-(18230,"Johann Friedrich Pfaff") 
-(19964,"Rudolf Otto Sigismund Lipschitz") 
-(19950,"Friedrich Karl Schmidt") 
-(20296,"Robert W. Berger") 
-(21235,"Otto Mencke") 
-(29642,"Christian Ludwig Gerling") 
-(38586,"Leonhard Euler") 
-(47064,"Martin Ohm") 
-(47025,"Karl Christian von Langsdorf") 
-(50689,"Wilfried Brauer") 
-(53410,"Johann Bernoulli") 
-(54440,"Jacob Bernoulli") 
-(57670,"Christian August Hausen") 
-(60782,"Johann Andreas Segner") 
-(60984,"Erhard Weigel") 
-(60985,"Gottfried Wilhelm Leibniz") 
-(61850,"Gustav Conrad Bauer") 
-(63188,"Georg Lausen") 
-(66006,"Bernhard Nebel") 
-(66476,"Abraham Gotthelf Kästner") 
-(76481,"Elias Rudolph Camerarius, Sr.") 
-(95822,"Wolfgang Wahlster") 
-(108295,"Pierre-Simon Laplace") 
-(108266,"Jean Le Rond d'Alembert") 
-(114992,"Gilbert Jacchaeus") 
-(119178,"Andreas [Andries van Wesel] Vesalius") 
-(119159,"Johannes Winter von Andernach") 
-(125006,"Adriaan van den Spieghel") 
-(125023,"Adolph Vorstius") 
-(125109,"Hieronymus [Girolamo Fabrici d'Acquapendente] Fabricius") 
-(125154,"Werner Rolfinck") 
-(125047,"Petrus [Pierre de La Ramée] Ramus") 
-(125048,"Johannes Nicolaus Stupanus") 
-(125160,"Valentine Naibod") 
-(125159,"Immanuel Tremellius") 
-(125379,"Tycho [Tyge Ottesen] Brahe") 
-(125408,"Jacobus Golius") 
-(125303,"Matteo Realdo [Renaldus Columbus] Colombo") 
-(125488,"Georg Wolffgang Wedel") 
-(125434,"Marin Mersenne") 
-(125450,"Frans van Schooten, Jr.") 
-(125561,"Christiaan Huygens") 
-(125665,"Johannes [Johann Sturm] Sturmius") 
-(125658,"Nicolas [Nicolaes Cleynaerts] Clénard") 
-(125760,"Johann [Johannes Kapnion] Reuchlin") 
-(125755,"Jacob ben Jehiel Loans") 
-(125886,"Georg Erhard Hamberger") 
-(125846,"Johann Adolph Wedel") 
-(125888,"Jan Standonck") 
-(125898,"Alexander Hegius") 
-(125897,"Leo Outers") 
-(125971,"Simon Paul Hilscher") 
-(125938,"Desiderius Erasmus") 
-(126489,"Jacobus [Jacob Harmensz.] Arminius") 
-(126736,"Erasmus Reinhold") 
-(126730,"Johannes Volmar") 
-(126827,"Georg Joachim von Leuchen Rheticus") 
-(126888,"Luca Pacioli") 
-(127049,"Michael Maestlin") 
-(126956,"Philipp Melanchthon") 
-(126957,"Sebastian [Theodoricus] Dietrich") 
-(127020,"Samuel Heyland") 
-(127039,"Philipp Apian") 
-(127011,"Johannes Hommel") 
-(127098,"Johannes Kepler") 
-(127061,"Valentin [Valentinus Otho] Otto") 
-(127092,"Valentin Thau") 
-(127107,"Johannes Stöffler") 
-(127275,"Andreas Schato") 
-(127252,"Salomon Alberti") 
-(127245,"Antonio Musa Brasavola") 
-(127278,"Jan Jessenius") 
-(127264,"Heinrich von Langenstein") 
-(127424,"Erasmus Schmidt") 
-(127459,"Melchior Jöstel") 
-(127461,"Ernestus Hettenbach") 
-(127668,"Johann Georg Büsch") 
-(127710,"Johann Elert Bode") 
-(127724,"Christoph Nottnagel") 
-(127801,"Aegidius Strauch") 
-(127734,"Nicolaus Zapf") 
-(127790,"Moritz Valentin Steinmetz") 
-(127848,"Jacobus Martini") 
-(127962,"Michael d. J. Walther") 
-(127956,"Johann Andreas Quenstedt") 
-(127898,"Sethus Calvisius") 
-(127942,"Petrus Otto") 
-(127864,"Nikolaus Selnecker") 
-(128046,"Johann Pasch") 
-(128012,"Rudolf Agricola") 
-(128097,"Georg Calixt") 
-(128122,"Duncan Liddel") 
-(128105,"Cornelius Martini") 
-(128104,"Johannes Caselius") 
-(128305,"John Craig") 
-(128348,"Paul Wittich") 
-(128986,"Johann Andreas Planer") 
-(128938,"Rudolf Jakob Camerarius") 
-(128921,"Jean Tagault") 
-(129628,"Nikolaus Eglinger") 
-(129708,"Johann Caspar Bauhin") 
-(130248,"Petrus Ryff") 
-(130913,"Johannes [van den Driesche] Drusius") 
-(130995,"Raoul [Rodolphus Cavellerius] le Chevalier") 
-(131235,"François Vatable") 
-(131236,"Paul [Paul Büchlein] Fagius") 
-(131444,"Johannes Argyropoulos") 
-(131443,"Georgius Hermonymus") 
-(134780,"Demetrios Kydones") 
-(134873,"Vittorino da Feltre") 
-(135185,"Manuel Chrysoloras") 
-(136726,"Pietro Roccabonella") 
-(137705,"Jakob Thomasius") 
-(140181,"Thomas von Kempen à Kempis") 
-(141571,"Thomas Cranmer") 
-(143083,"Theodor Zwinger, Jr.") 
-(143082,"Sebastian Beck") 
-(143630,"Friedrich Leibniz") 
-(143859,"Bartholomäus Leonhard Schwendendörffer") 
-(144221,"Philipp Müller") 
-(144220,"Christoph Meurer") 
-(145708,"Hiob Ludolf") 
-(145707,"Constantijn l’Empereur van Oppyck") 
-(145770,"Johann Heinrich Michaelis") 
-(146035,"Christian Benedict Michaelis") 
-(146034,"August Hermann Francke") 
-(146036,"Giovanni Battista [Giambattista] Beccaria") 
-(146374,"Johann Möller") 
-(146365,"Nilos Kabasilas") 
-(149192,"Ognibene [Omnibonus Leonicenus] Bonisoli da Lonigo") 
-(152648,"Jakob Beuerlin") 
-(152906,"Bassiano Landi") 
-(152905,"Vittore Trincavelli") 
-(152904,"Giovanni Battista della Monte") 
-(158329,"Guillaume Rondelet") 
-(176844,"Gregory Palamas") 
-(179836,"Geert Gerardus Magnus Groote") 
-(182089,"Gottfried Möbius") 
-(182090,"Felix Plater") 
-(184631,"Theodore Metochites") 
-(184632,"Manuel Bryennios") 
-(184935,"Johann Hoffmann") 
-(189659,"Abraham Heinecke") 
-(191279,"Anton Bernhard Lauterbach") 
-(199357,"Nicole Oresme") 
-(200006,"Albert Clampius") 
-(201288,"Gregory Chioniadis") 
-(204293,"Shams al‐Dīn al‐Bukhārī") 
-(208258,"Gerardus Leonardus Blasius") 
-(208259,"Siegmund Jakob Baumgarten") 
-(217509,"Nasir al-Dīn al-Ṭūsī") 
-(221100,"Leonhard Etzler") 
-(221101,"Anton Euonymus") 
-(223724,"Kamāl al-Dīn Ibn Yūnus") 
-(224249,"Reinhard Bachoff von Echt") 
-(230796,"Constantin Ziegra") 
-(230926,"Sharaf al-Dīn al-Ṭūsī") 
-(232227,"Paolo [Nicoletti] da Venezia") 
-(7401,"C. Felix [Christian] Klein") 
-(58560,"Wolffried Stucky") 
-(21668,"Günter Hotz") 
-(18231,"Carl Friedrich Gauß") 
-(127606,"Ambrosius Rhodius") 
-(15252,"Kurt Reidemeister") 
-(72669,"Johann Christoph Wichmannshausen") 
-(7404,"C. L. Ferdinand [Carl Louis] Lindemann") 
-(126875,"Caspar Peucer") 
-(125142,"Gabriele Falloppio") 
-(125148,"Theodor Zwinger") 
-(143084,"Peter Werenfels") 
-(143011,"Nicolas Malebranche") 
-(125125,"Emmanuel Stupanus") 
-(101860,"Franciscus de le Boë Sylvius") 
-(123974,"Georg Balthasar Metzger") 
-(125416,"Jan Jansz Stampioen, Jr.") 
-(182088,"Johann Jakob von Brunn") 
-(126111,"Daniel Sennert") 
-(124000,"Rudolf Wilhelm Krause") 
-(125302,"Willebrord [Snel van Royen] Snellius") 
-(125378,"Thomas Erpenius") 
-(126177,"Nicolaus [Mikołaj Kopernik] Copernicus") 
-(127110,"Michael Beuther") 
-(126667,"Jakob Milich") 
-(127166,"Niccolò Leoniceno") 
-(131546,"Jacques Toussain") 
-(152903,"Pietro Pomponazzi") 
-(125232,"Ludolph van Ceulen") 
-(125181,"Rudolph [Snel van Royen] Snellius") 
-(131577,"Joseph Justus Scaliger") 
-(126724,"Bonifazius Erasmi") 
-(126113,"Leonhard [Leonard Vitreatoris z Dobczyc] von Dobschütz") 
-(126112,"Domenico Maria Novara da Ferrara") 
-(126659,"Ulrich Zasius") 
-(131561,"Basilios Bessarion") 
-(127144,"Pelope") 
-(119097,"Gemma [Jemme Reinerszoon] Frisius") 
-(131606,"Adrien Turnèbe") 
-(131517,"Guillaume Budé") 
-(152901,"Marco Musuro") 
-(152902,"Nicoletto Vernia") 
-(143045,"Johann Jacob Grynaeus") 
-(126109,"Johannes Müller Regiomontanus") 
-(125681,"Jacobus [Jacques Masson] Latomus") 
-(125682,"Jan [Johannes Campensis] van Campen") 
-(126571,"Rutger Rescius") 
-(125422,"Jacobus [Jacques Dubois] Sylvius") 
-(131575,"Georgios Plethon Gemistos") 
-(148882,"Gaetano da Thiene") 
-(164338,"Sigismondo Polcastro") 
-(125892,"Petrus [Pieter de Corte] Curtius") 
-(131398,"Jacques [Jacobus Faber] Lefèvre d'Étaples") 
-(131541,"Janus Lascaris") 
-(182092,"Simon Sulzer") 
-(143044,"Jacob Andreae") 
-(127181,"Girolamo [Hieronymus Aleander] Aleandro") 
-(131399,"Wolfgang Fabricius Capito") 
-(131400,"Elijah ben Asher Levita") 
-(126087,"Georg von Peuerbach") 
-(125794,"Matthaeus Adrianus") 
-(128987,"François Dubois") 
-(134781,"Elissaeus Judaeus") 
-(134931,"Guarino da Verona") 
-(125894,"Maarten [Martinus Dorpius] van Dorp") 
-(131576,"Demetrios Chalcocondyles") 
-(182045,"Simon Grynaeus") 
-(131446,"Moses Perez") 
-(131447,"Scipione Fortiguerra") 
-(126887,"Johannes von Gmunden") 
-(131584,"Theodoros Gazes") 
-(179837,"Florens Florentius Radwyn Radewyns") 
-(152647,"Balthasar Kaeuffelin") 
-(131535,"Angelo Poliziano") 
-(131539,"Marsilio Ficino") 
-(131540,"Cristoforo Landino")
+pid,name
+234,Wolfgang Krull
+5119,Alfred Loewy
+7298,David Hilbert
+7402,Julius Plücker
+7379,Erich Hecke
+17946,Gustav Peter Lejeune Dirichlet
+17865,Siméon Denis Poisson
+17864,Joseph Louis Lagrange
+17981,Jean-Baptiste Joseph Fourier
+18230,Johann Friedrich Pfaff
+19964,Rudolf Otto Sigismund Lipschitz
+19950,Friedrich Karl Schmidt
+20296,Robert W. Berger
+21235,Otto Mencke
+29642,Christian Ludwig Gerling
+38586,Leonhard Euler
+47064,Martin Ohm
+47025,Karl Christian von Langsdorf
+50689,Wilfried Brauer
+53410,Johann Bernoulli
+54440,Jacob Bernoulli
+57670,Christian August Hausen
+60782,Johann Andreas Segner
+60984,Erhard Weigel
+60985,Gottfried Wilhelm Leibniz
+61850,Gustav Conrad Bauer
+63188,Georg Lausen
+66006,Bernhard Nebel
+66476,Abraham Gotthelf Kästner
+76481,"Elias Rudolph Camerarius, Sr."
+95822,Wolfgang Wahlster
+108295,Pierre-Simon Laplace
+108266,Jean Le Rond d'Alembert
+114992,Gilbert Jacchaeus
+119178,Andreas [Andries van Wesel] Vesalius
+119159,Johannes Winter von Andernach
+125006,Adriaan van den Spieghel
+125023,Adolph Vorstius
+125109,Hieronymus [Girolamo Fabrici d'Acquapendente] Fabricius
+125154,Werner Rolfinck
+125047,Petrus [Pierre de La Ramée] Ramus
+125048,Johannes Nicolaus Stupanus
+125160,Valentine Naibod
+125159,Immanuel Tremellius
+125379,Tycho [Tyge Ottesen] Brahe
+125408,Jacobus Golius
+125303,Matteo Realdo [Renaldus Columbus] Colombo
+125488,Georg Wolffgang Wedel
+125434,Marin Mersenne
+125450,"Frans van Schooten, Jr."
+125561,Christiaan Huygens
+125665,Johannes [Johann Sturm] Sturmius
+125658,Nicolas [Nicolaes Cleynaerts] Clénard
+125760,Johann [Johannes Kapnion] Reuchlin
+125755,Jacob ben Jehiel Loans
+125886,Georg Erhard Hamberger
+125846,Johann Adolph Wedel
+125888,Jan Standonck
+125898,Alexander Hegius
+125897,Leo Outers
+125971,Simon Paul Hilscher
+125938,Desiderius Erasmus
+126489,Jacobus [Jacob Harmensz.] Arminius
+126736,Erasmus Reinhold
+126730,Johannes Volmar
+126827,Georg Joachim von Leuchen Rheticus
+126888,Luca Pacioli
+127049,Michael Maestlin
+126956,Philipp Melanchthon
+126957,Sebastian [Theodoricus] Dietrich
+127020,Samuel Heyland
+127039,Philipp Apian
+127011,Johannes Hommel
+127098,Johannes Kepler
+127061,Valentin [Valentinus Otho] Otto
+127092,Valentin Thau
+127107,Johannes Stöffler
+127275,Andreas Schato
+127252,Salomon Alberti
+127245,Antonio Musa Brasavola
+127278,Jan Jessenius
+127264,Heinrich von Langenstein
+127424,Erasmus Schmidt
+127459,Melchior Jöstel
+127461,Ernestus Hettenbach
+127668,Johann Georg Büsch
+127710,Johann Elert Bode
+127724,Christoph Nottnagel
+127801,Aegidius Strauch
+127734,Nicolaus Zapf
+127790,Moritz Valentin Steinmetz
+127848,Jacobus Martini
+127962,Michael d. J. Walther
+127956,Johann Andreas Quenstedt
+127898,Sethus Calvisius
+127942,Petrus Otto
+127864,Nikolaus Selnecker
+128046,Johann Pasch
+128012,Rudolf Agricola
+128097,Georg Calixt
+128122,Duncan Liddel
+128105,Cornelius Martini
+128104,Johannes Caselius
+128305,John Craig
+128348,Paul Wittich
+128986,Johann Andreas Planer
+128938,Rudolf Jakob Camerarius
+128921,Jean Tagault
+129628,Nikolaus Eglinger
+129708,Johann Caspar Bauhin
+130248,Petrus Ryff
+130913,Johannes [van den Driesche] Drusius
+130995,Raoul [Rodolphus Cavellerius] le Chevalier
+131235,François Vatable
+131236,Paul [Paul Büchlein] Fagius
+131444,Johannes Argyropoulos
+131443,Georgius Hermonymus
+134780,Demetrios Kydones
+134873,Vittorino da Feltre
+135185,Manuel Chrysoloras
+136726,Pietro Roccabonella
+137705,Jakob Thomasius
+140181,Thomas von Kempen à Kempis
+141571,Thomas Cranmer
+143083,"Theodor Zwinger, Jr."
+143082,Sebastian Beck
+143630,Friedrich Leibniz
+143859,Bartholomäus Leonhard Schwendendörffer
+144221,Philipp Müller
+144220,Christoph Meurer
+145708,Hiob Ludolf
+145707,Constantijn l’Empereur van Oppyck
+145770,Johann Heinrich Michaelis
+146035,Christian Benedict Michaelis
+146034,August Hermann Francke
+146036,Giovanni Battista [Giambattista] Beccaria
+146374,Johann Möller
+146365,Nilos Kabasilas
+149192,Ognibene [Omnibonus Leonicenus] Bonisoli da Lonigo
+152648,Jakob Beuerlin
+152906,Bassiano Landi
+152905,Vittore Trincavelli
+152904,Giovanni Battista della Monte
+158329,Guillaume Rondelet
+176844,Gregory Palamas
+179836,Geert Gerardus Magnus Groote
+182089,Gottfried Möbius
+182090,Felix Plater
+184631,Theodore Metochites
+184632,Manuel Bryennios
+184935,Johann Hoffmann
+189659,Abraham Heinecke
+191279,Anton Bernhard Lauterbach
+199357,Nicole Oresme
+200006,Albert Clampius
+201288,Gregory Chioniadis
+204293,Shams al‐Dīn al‐Bukhārī
+208258,Gerardus Leonardus Blasius
+208259,Siegmund Jakob Baumgarten
+217509,Nasir al-Dīn al-Ṭūsī
+221100,Leonhard Etzler
+221101,Anton Euonymus
+223724,Kamāl al-Dīn Ibn Yūnus
+224249,Reinhard Bachoff von Echt
+230796,Constantin Ziegra
+230926,Sharaf al-Dīn al-Ṭūsī
+232227,Paolo [Nicoletti] da Venezia
+7401,C. Felix [Christian] Klein
+58560,Wolffried Stucky
+21668,Günter Hotz
+18231,Carl Friedrich Gauß
+127606,Ambrosius Rhodius
+15252,Kurt Reidemeister
+72669,Johann Christoph Wichmannshausen
+7404,C. L. Ferdinand [Carl Louis] Lindemann
+126875,Caspar Peucer
+125142,Gabriele Falloppio
+125148,Theodor Zwinger
+143084,Peter Werenfels
+143011,Nicolas Malebranche
+125125,Emmanuel Stupanus
+101860,Franciscus de le Boë Sylvius
+123974,Georg Balthasar Metzger
+125416,"Jan Jansz Stampioen, Jr."
+182088,Johann Jakob von Brunn
+126111,Daniel Sennert
+124000,Rudolf Wilhelm Krause
+125302,Willebrord [Snel van Royen] Snellius
+125378,Thomas Erpenius
+126177,Nicolaus [Mikołaj Kopernik] Copernicus
+127110,Michael Beuther
+126667,Jakob Milich
+127166,Niccolò Leoniceno
+131546,Jacques Toussain
+152903,Pietro Pomponazzi
+125232,Ludolph van Ceulen
+125181,Rudolph [Snel van Royen] Snellius
+131577,Joseph Justus Scaliger
+126724,Bonifazius Erasmi
+126113,Leonhard [Leonard Vitreatoris z Dobczyc] von Dobschütz
+126112,Domenico Maria Novara da Ferrara
+126659,Ulrich Zasius
+131561,Basilios Bessarion
+127144,Pelope
+119097,Gemma [Jemme Reinerszoon] Frisius
+131606,Adrien Turnèbe
+131517,Guillaume Budé
+152901,Marco Musuro
+152902,Nicoletto Vernia
+143045,Johann Jacob Grynaeus
+126109,Johannes Müller Regiomontanus
+125681,Jacobus [Jacques Masson] Latomus
+125682,Jan [Johannes Campensis] van Campen
+126571,Rutger Rescius
+125422,Jacobus [Jacques Dubois] Sylvius
+131575,Georgios Plethon Gemistos
+148882,Gaetano da Thiene
+164338,Sigismondo Polcastro
+125892,Petrus [Pieter de Corte] Curtius
+131398,Jacques [Jacobus Faber] Lefèvre d'Étaples
+131541,Janus Lascaris
+182092,Simon Sulzer
+143044,Jacob Andreae
+127181,Girolamo [Hieronymus Aleander] Aleandro
+131399,Wolfgang Fabricius Capito
+131400,Elijah ben Asher Levita
+126087,Georg von Peuerbach
+125794,Matthaeus Adrianus
+128987,François Dubois
+134781,Elissaeus Judaeus
+134931,Guarino da Verona
+125894,Maarten [Martinus Dorpius] van Dorp
+131576,Demetrios Chalcocondyles
+182045,Simon Grynaeus
+131446,Moses Perez
+131447,Scipione Fortiguerra
+126887,Johannes von Gmunden
+131584,Theodoros Gazes
+179837,Florens Florentius Radwyn Radewyns
+152647,Balthasar Kaeuffelin
+131535,Angelo Poliziano
+131539,Marsilio Ficino
+131540,Cristoforo Landino

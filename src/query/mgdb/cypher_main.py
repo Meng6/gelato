@@ -1,25 +1,7 @@
-def save_ancestors(ancestors, pid, output_file, pairs_flag):
-    fout = open(output_file, mode="w", encoding="utf-8")
-    if pairs_flag:
-        fout.write("The ancestor pairs (student, advisor) of " + str(pid) + " are: (" + str(len(ancestors)) + " ancestor pairs)\n")
-    else:
-        fout.write("The ancestors of " + str(pid) + " are: (" + str(len(ancestors)) + " ancestors)\n")
-    fout.write("\n".join(map(str, ancestors)))
-    fout.close()
-    return
-
-def save_descendants(descendants, pid, output_file, pairs_flag):
-    fout = open(output_file, mode="w", encoding="utf-8")
-    if pairs_flag:
-        fout.write("The descendant pairs (student, advisor) of " + str(pid) + " are: (" + str(len(descendants)) + " descendant pairs)\n")
-    else:
-        fout.write("The descendants of " + str(pid) + " are: (" + str(len(descendants)) + " descendants)\n")
-    fout.write("\n".join(map(str, descendants)))
-    fout.close()
-    return
-
 # Modules to be loaded to mgdb_entry.py script
-def unary_search_ancestors(pid, neo4j_driver, output_file):
+def unary_search_ancestors(params, neo4j_driver):
+
+    pid = params["pid"]
 
     # Slow: around 7 sec
     # Ref: https://hub.packtpub.com/advanced-cypher-tricks
@@ -33,62 +15,83 @@ def unary_search_ancestors(pid, neo4j_driver, output_file):
                     MATCH (p2:Person {pid: '""" + str(pid) + """'})-[*]->(d:Dissertation)
                     WITH DISTINCT d
                     MATCH (d)-[:ADVISED_BY]-(p1:Person)
-                    RETURN DISTINCT p1.pid, p1.name;
+                    RETURN DISTINCT p1.pid AS pid, p1.name AS name;
                 """
 
     with neo4j_driver.session() as sess:
-        nodes = sess.run(cypher_query)
-        ancestors = [node.values() for node in nodes]
+        ancestors = sess.run(cypher_query).to_df()
 
-    save_ancestors(ancestors, pid, output_file, False)
+    return ancestors
 
-    return
+def binary_search_ancestors(params, neo4j_driver):
 
-def binary_search_ancestors(pid, neo4j_driver, output_file):
     # Ref: https://stackoverflow.com/questions/16611723/using-multiple-match-clauses-doesnt-return-any-result-in-neo4j-cypher-query
+
+    pid = params["pid"]
+    
     cypher_query = """
                     MATCH (p3:Person {pid: '""" + str(pid) + """'})-[*]->(d:Dissertation)
                     WITH DISTINCT d
                     MATCH (p2:Person)-[:WRITES]->(d)-[:ADVISED_BY]->(p1:Person)
-                    RETURN DISTINCT p2.pid, p2.name, p1.pid, p1.name
+                    RETURN DISTINCT p2.pid AS student_pid, p2.name AS student_name, p1.pid AS advisor_pid, p1.name AS advisor_name
                 """
+    
     with neo4j_driver.session() as sess:
-        nodes = sess.run(cypher_query)
-        ancestors = [node.values() for node in nodes]
-    save_ancestors(ancestors, pid, output_file, True)
+        ancestors = sess.run(cypher_query).to_df()
 
-    return
+    return ancestors
 
-def unary_search_descendants(pid, neo4j_driver, output_file):
+def unary_search_descendants(params, neo4j_driver):
+
+    pid = params["pid"]
 
     cypher_query = """
                     MATCH (d:Dissertation)-[*]->(p1:Person {pid: '""" + str(pid) + """'})
                     WITH DISTINCT d
                     MATCH (p2:Person)-[:WRITES]-(d)
-                    RETURN DISTINCT p2.pid, p2.name;
+                    RETURN DISTINCT p2.pid AS pid, p2.name AS name;
                 """
 
     with neo4j_driver.session() as sess:
-        nodes = sess.run(cypher_query)
-        descendants = [node.values() for node in nodes]
-    
-    save_descendants(descendants, pid, output_file, False)
+        descendants = sess.run(cypher_query).to_df()
 
-    return
+    return descendants
 
-def binary_search_descendants(pid, neo4j_driver, output_file):
+def binary_search_descendants(params, neo4j_driver):
+
+    pid = params["pid"]
 
     cypher_query = """
                     MATCH (p1:Person)-[*]->(p3:Person {pid: '""" + str(pid) + """'})
                     WITH DISTINCT p1.pid AS de_pid
                     MATCH (p2:Person)-[:WRITES]->(d:Dissertation)-[:ADVISED_BY]->(p:Person)
                     WHERE p.pid=de_pid OR p.pid='""" + str(pid) + """'
-                    RETURN DISTINCT p2.pid, p2.name, p.pid, p.name
+                    RETURN DISTINCT p2.pid AS student_pid, p2.name AS student_name, p.pid AS advisor_pid, p.name AS advisor_name
                 """
-    with neo4j_driver.session() as sess:
-        nodes = sess.run(cypher_query)
-        descendants = [node.values() for node in nodes]
     
-    save_descendants(descendants, pid, output_file, True)
+    with neo4j_driver.session() as sess:
+        descendants = sess.run(cypher_query).to_df()
 
-    return
+    return descendants
+
+def lowest_common_ancestors(params, neo4j_driver):
+
+    pid1, pid2 = str(params["pid1"]), str(params["pid2"])
+
+    cypher_query = """
+                    MATCH (p1:Person {pid: '""" + str(pid1) + """'})-[*]->(ca:Person)
+                    WITH DISTINCT ca
+                    MATCH (p2:Person {pid: '""" + str(pid2) + """'})-[*]->(ca)
+                    WITH DISTINCT COLLECT(ca.pid) AS ca_pids
+                    MATCH (p3:Person)-[*]->(p4:Person)
+                    WHERE p3.pid IN ca_pids AND p4.pid IN ca_pids
+                    WITH COLLECT(DISTINCT p3.pid) AS student_pids, COLLECT(DISTINCT p4.pid) AS advisor_pids
+                    MATCH (lca:Person)
+                    WHERE lca.pid IN [x IN student_pids WHERE NOT(x IN advisor_pids)]
+                    RETURN lca.pid AS pid, lca.name AS name
+                """
+    
+    with neo4j_driver.session() as sess:
+        lowest_common_ancestors = sess.run(cypher_query).to_df()
+
+    return lowest_common_ancestors

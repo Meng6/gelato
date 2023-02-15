@@ -1,3 +1,7 @@
+import sys
+sys.path.append('.')
+from tools.template import format_output
+
 def python_entry(*args, **kwargs):
 
     import pandas as pd
@@ -10,9 +14,9 @@ def python_entry(*args, **kwargs):
 
     # Query
     query_function = getattr(python_main, snakemake.params["query"])
-    query_function(snakemake.params, advised, dissertation, person, snakemake.output[0])
+    data = query_function(snakemake.params, advised, dissertation, person)
     
-    return
+    return data, None
 
 def sql_entry(*args, **kwargs):
 
@@ -24,12 +28,12 @@ def sql_entry(*args, **kwargs):
 
     # Query
     query_function = getattr(sql_main, snakemake.params["query"])
-    query_function(snakemake.params, conn, snakemake.output[0])
+    data, columns = query_function(snakemake.params, conn)
 
     # Close the connection
     conn.close ()
 
-    return
+    return data, columns
 
 def cypher_entry(credentials, database_group):
 
@@ -48,12 +52,12 @@ def cypher_entry(credentials, database_group):
 
     # Query
     query_function = getattr(cypher_main, snakemake.params["query"])
-    query_function(snakemake.params["pid"], neo4j_driver, snakemake.output[0])
+    data = query_function(snakemake.params, neo4j_driver)
 
     # Close the connection
     neo4j_driver.close()
 
-    return
+    return data, None
 
 def sparql_entry(credentials, database_group):
 
@@ -67,9 +71,9 @@ def sparql_entry(credentials, database_group):
 
     # Query
     query_function = getattr(sparql_main, snakemake.params["query"])
-    query_function(snakemake.params["pid"], conn, snakemake.output[0])
+    data = query_function(snakemake.params, conn)
 
-    return
+    return data, None
 
 def clingo_entry(*args, **kwargs):
 
@@ -84,11 +88,11 @@ def clingo_entry(*args, **kwargs):
 
     # Query
     query_function = getattr(clingo_main, snakemake.params["query"])
-    query_function(snakemake.params, ctl, snakemake.output[0])
+    data, columns = query_function(snakemake.params, ctl)
 
     ctl.cleanup()
 
-    return
+    return data, columns
 
 
 # Load credentials
@@ -99,4 +103,6 @@ if "database_group" in snakemake.params.keys():
         credentials = yaml.safe_load(f)
 else:
     credentials, database_group = None, None
-locals()[snakemake.params["lat"] + "_entry"](credentials, database_group)
+data, columns = locals()[snakemake.params["lat"] + "_entry"](credentials, database_group)
+formated_data = format_output(data=data, columns=columns, lat=snakemake.params["lat"])
+formated_data.to_csv(snakemake.output[0], index=False)

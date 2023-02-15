@@ -1,33 +1,33 @@
-The descendant pairs (student, advisor) of 63188 are: (32 descendant pairs)
- 89014          Lule Ahmedi 63188      Georg Lausen
- 89013             Fang Wei 63188      Georg Lausen
- 63249       Torsten Zimmer 63240  Andreas Oberweis
-285677 Yi-Yun Jessica Cheng 63244 Bertram Ludäscher
-195636           Saumen Dey 63244 Bertram Ludäscher
- 63241          Jürgen Seib 63188      Georg Lausen
-248097        Tianhong Song 63244 Bertram Ludäscher
- 63247         Wolfgang May 63188      Georg Lausen
-263486       Richard Figura 84323 Pedro Jose Marron
- 84323    Pedro Jose Marron 63188      Georg Lausen
- 63246  Paul-Thomas Kandzia 63188      Georg Lausen
-182342          Sven Köhler 63244 Bertram Ludäscher
- 75008     Konstantin Knorr 63240  Andreas Oberweis
- 91091  Cai-Nicolas Ziegler 63188      Georg Lausen
-148828          Daniel Zinn 63244 Bertram Ludäscher
-195637     Anandarup Sarkar 63244 Bertram Ludäscher
-215836       İlkay Altıntaş 63244 Bertram Ludäscher
-187066         Mingmin Chen 63244 Bertram Ludäscher
- 63244    Bertram Ludäscher 63188      Georg Lausen
-120050       Oliver Fritzen 63247      Wolfgang May
-248901     Christopher Tuot 63244 Bertram Ludäscher
-173881   David Michael Thau 63244 Bertram Ludäscher
- 63240     Andreas Oberweis 63188      Georg Lausen
-174176   Manish Kumar Anand 63244 Bertram Ludäscher
-224736        Peter Reimann 63244 Bertram Ludäscher
-243684           Shizhuo Yu 63244 Bertram Ludäscher
- 63243         Heinz Uphoff 63188      Georg Lausen
- 63242           Beate Marx 63188      Georg Lausen
-248098      Parisa Kianmajd 63244 Bertram Ludäscher
- 63248    Rainer Himmeröder 63188      Georg Lausen
-105943        Erik Behrends 63247      Wolfgang May
- 63245         Jürgen Frohn 63188      Georg Lausen
+student_pid,student_name,advisor_pid,advisor_name
+89014,Lule Ahmedi,63188,Georg Lausen
+89013,Fang Wei,63188,Georg Lausen
+63249,Torsten Zimmer,63240,Andreas Oberweis
+285677,Yi-Yun Jessica Cheng,63244,Bertram Ludäscher
+195636,Saumen Dey,63244,Bertram Ludäscher
+63241,Jürgen Seib,63188,Georg Lausen
+248097,Tianhong Song,63244,Bertram Ludäscher
+63247,Wolfgang May,63188,Georg Lausen
+263486,Richard Figura,84323,Pedro Jose Marron
+84323,Pedro Jose Marron,63188,Georg Lausen
+63246,Paul-Thomas Kandzia,63188,Georg Lausen
+182342,Sven Köhler,63244,Bertram Ludäscher
+75008,Konstantin Knorr,63240,Andreas Oberweis
+91091,Cai-Nicolas Ziegler,63188,Georg Lausen
+148828,Daniel Zinn,63244,Bertram Ludäscher
+195637,Anandarup Sarkar,63244,Bertram Ludäscher
+215836,İlkay Altıntaş,63244,Bertram Ludäscher
+187066,Mingmin Chen,63244,Bertram Ludäscher
+63244,Bertram Ludäscher,63188,Georg Lausen
+120050,Oliver Fritzen,63247,Wolfgang May
+248901,Christopher Tuot,63244,Bertram Ludäscher
+173881,David Michael Thau,63244,Bertram Ludäscher
+63240,Andreas Oberweis,63188,Georg Lausen
+174176,Manish Kumar Anand,63244,Bertram Ludäscher
+224736,Peter Reimann,63244,Bertram Ludäscher
+243684,Shizhuo Yu,63244,Bertram Ludäscher
+63243,Heinz Uphoff,63188,Georg Lausen
+63242,Beate Marx,63188,Georg Lausen
+248098,Parisa Kianmajd,63244,Bertram Ludäscher
+63248,Rainer Himmeröder,63188,Georg Lausen
+105943,Erik Behrends,63247,Wolfgang May
+63245,Jürgen Frohn,63188,Georg Lausen

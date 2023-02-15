@@ -570,6 +570,39 @@ rule mgdb_lowest_common_ancestors_with_sql:
     script:
         "../src/query/mgdb_entry.py"
 
+rule mgdb_lowest_common_ancestors_with_cypher:
+    input:
+        optional_mgdb_cypher_input
+    params:
+        pid1 = "{pid1}",
+        pid2 = "{pid2}",
+        database_group = config["MGDB"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"],
+        lat = "cypher",
+        query = "lowest_common_ancestors"
+    output:
+        "data/query/mgdb/cypher/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+    benchmark:
+        repeat("data/query/mgdb/cypher/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+rule mgdb_lowest_common_ancestors_with_sparql:
+    input:
+        optional_mgdb_sparql_input
+    params:
+        pid1 = "{pid1}",
+        pid2 = "{pid2}",
+        namespace="MGDB",
+        database_group = config["MGDB"]["DATA_SOURCE"]["SPARQL"]["DATABASE_GROUP"],
+        lat = "sparql",
+        query = "lowest_common_ancestors"
+    output:
+        "data/query/mgdb/sparql/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+    benchmark:
+        repeat("data/query/mgdb/sparql/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
 rule mgdb_lowest_common_ancestors_with_clingo:
     input:
         facts = "data/raw/mgdb/clingo/facts.tsv"

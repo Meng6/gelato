@@ -1,32 +1,5 @@
-def save_ancestors(ancestors, pid, output_file, pairs_flag):
-    fout = open(output_file, mode="w", encoding="utf-8")
-    if pairs_flag:
-        fout.write("The ancestor pairs (student, advisor) of " + str(pid) + " are: (" + str(len(ancestors)) + " ancestor pairs)\n")
-    else:
-        fout.write("The ancestors of " + str(pid) + " are: (" + str(len(ancestors)) + " ancestors)\n")
-    fout.write("\n".join(map(str, ancestors)))
-    fout.close()
-    return
-
-def save_descendants(descendants, pid, output_file, pairs_flag):
-    fout = open(output_file, mode="w", encoding="utf-8")
-    if pairs_flag:
-        fout.write("The descendant pairs (student, advisor) of " + str(pid) + " are: (" + str(len(descendants)) + " descendant pairs)\n")
-    else:
-        fout.write("The descendants of " + str(pid) + " are: (" + str(len(descendants)) + " descendants)\n")
-    fout.write("\n".join(map(str, descendants)))
-    fout.close()
-    return
-
-def save_lowest_common_ancestors(lowest_common_ancestors, pid1, pid2, output_file):
-    fout = open(output_file, mode="w", encoding="utf-8")
-    fout.write("The lowest common ancestor(s) of " + str(pid1) + " and " + str(pid2) + ": \n")
-    fout.write("\n".join(map(str, lowest_common_ancestors)))
-    fout.close()
-    return
-
 # Modules to be loaded to mgdb_entry.py script
-def unary_search_ancestors(params, conn, output_file):
+def unary_search_ancestors(params, conn):
     pid = params["pid"]
     cursor = conn.cursor()
     
@@ -37,17 +10,17 @@ def unary_search_ancestors(params, conn, output_file):
 	    UNION
 	    SELECT a.advisor FROM ancestors an, advised a, dissertation d WHERE a.did=d.did AND d.author=an.advisor
 	    )
-    SELECT advisor, name FROM ancestors LEFT JOIN person p ON p.pid = advisor
+    SELECT advisor AS pid, name FROM ancestors LEFT JOIN person p ON p.pid = advisor
     """
 
     cursor.execute(sql_query)
     ancestors = cursor.fetchall()
+    columns = [x[0] for x in cursor.description]
     cursor.close()
     
-    save_ancestors(ancestors, pid, output_file, False)
-    return
+    return ancestors, columns
 
-def binary_search_ancestors(params, conn, output_file):
+def binary_search_ancestors(params, conn):
     pid = params["pid"]
     cursor = conn.cursor()
     
@@ -58,7 +31,7 @@ def binary_search_ancestors(params, conn, output_file):
     	UNION
     	SELECT d.author, a.advisor FROM ancestors an, advised a, dissertation d WHERE a.did=d.did AND d.author=an.advisor
         )
-    SELECT author, p1.name, advisor, p2.name
+    SELECT author AS student_pid, p1.name AS student_name, advisor AS advisor_pid, p2.name AS advisor_name
     FROM
     	ancestors 
     	LEFT JOIN person p1 ON p1.pid = author
@@ -67,12 +40,12 @@ def binary_search_ancestors(params, conn, output_file):
 
     cursor.execute(sql_query)
     ancestors = cursor.fetchall()
+    columns = [x[0] for x in cursor.description]
     cursor.close()
     
-    save_ancestors(ancestors, pid, output_file, True)
-    return
+    return ancestors, columns
 
-def unary_search_descendants(params, conn, output_file):
+def unary_search_descendants(params, conn):
     pid = params["pid"]
     cursor = conn.cursor()
     
@@ -83,17 +56,17 @@ def unary_search_descendants(params, conn, output_file):
         UNION
         SELECT d.author FROM dissertation d, advised a, descendants de WHERE a.did=d.did AND a.advisor=de.author
         )
-    SELECT author, name FROM descendants LEFT JOIN person p ON p.pid = author
+    SELECT author AS pid, name FROM descendants LEFT JOIN person p ON p.pid = author
     """
 
     cursor.execute(sql_query)
     descendants = cursor.fetchall()
+    columns = [x[0] for x in cursor.description]
     cursor.close()
 
-    save_descendants(descendants, pid, output_file, False)
-    return
+    return descendants, columns
 
-def binary_search_descendants(params, conn, output_file):
+def binary_search_descendants(params, conn):
     pid = params["pid"]
     cursor = conn.cursor()
     
@@ -104,7 +77,7 @@ def binary_search_descendants(params, conn, output_file):
         UNION
         SELECT d.author, a.advisor FROM dissertation d, advised a, descendants de WHERE a.did=d.did AND a.advisor=de.author
         )
-    SELECT author, p1.name, advisor, p2.name
+    SELECT author AS student_pid, p1.name AS student_name, advisor AS advisor_pid, p2.name AS advisor_name
     FROM
     	descendants 
     	LEFT JOIN person p1 ON p1.pid = author
@@ -113,12 +86,12 @@ def binary_search_descendants(params, conn, output_file):
 
     cursor.execute(sql_query)
     descendants = cursor.fetchall()
+    columns = [x[0] for x in cursor.description]
     cursor.close()
 
-    save_descendants(descendants, pid, output_file, True)
-    return
+    return descendants, columns
 
-def lowest_common_ancestors(params, conn, output_file):
+def lowest_common_ancestors(params, conn):
     pid1 = params["pid1"]
     pid2 = params["pid2"]
     cursor = conn.cursor()
@@ -169,7 +142,7 @@ def lowest_common_ancestors(params, conn, output_file):
     # Lowest common ancestors of pid1 and pid2
     sql_query5 = """
 
-    SELECT advisor, name FROM
+    SELECT advisor AS pid, name FROM
     
         (SELECT DISTINCT advisor FROM common_ancestors_with_their_students
 
@@ -182,6 +155,7 @@ def lowest_common_ancestors(params, conn, output_file):
     """
     cursor.execute(sql_query5)
     lowest_common_ancestors = cursor.fetchall()
+    columns = [x[0] for x in cursor.description]
 
     # Drop the views
     cursor.execute("DROP VIEW ancestors_of_pid1;")
@@ -190,5 +164,4 @@ def lowest_common_ancestors(params, conn, output_file):
     cursor.execute("DROP VIEW common_ancestors_with_their_students;")
     cursor.close()
 
-    save_lowest_common_ancestors(lowest_common_ancestors, pid1, pid2, output_file)
-    return
+    return lowest_common_ancestors, columns

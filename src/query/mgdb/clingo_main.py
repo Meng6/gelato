@@ -1,20 +1,14 @@
 def on_model_ancestors(m):
-    lt = m.__str__().split("ancestors_of_pid_with_name")
-    ancestors = " (" + str(len(lt)-1) + " ancestors)" + "\n".join(lt)
-    return ancestors
+    return m.__str__().split("ancestors_of_pid_with_name")[1:]
 
 def on_model_descendants(m):
-    lt = m.__str__().split("descendants_of_pid_with_name")
-    descendants = " (" + str(len(lt)-1) + " descendants)" + "\n".join(lt)
-    return descendants
+    return m.__str__().split("descendants_of_pid_with_name")[1:]
 
 def on_model_lowest_common_ancestors(m):
-    lt = m.__str__().split("lowest_common_ancestors_with_name")
-    ancestors = "\n".join(lt)
-    return ancestors
+    return m.__str__().split("lowest_common_ancestors_with_name")[1:]
 
 # Modules to be loaded to mgdb_entry.py script
-def unary_search_ancestors(params, ctl, output_file):
+def unary_search_ancestors(params, ctl):
     
     pid = params["pid"]
 
@@ -30,20 +24,16 @@ def unary_search_ancestors(params, ctl, output_file):
     ctl.ground([("base", []), ("rule", [])])
     ctl.configuration.solve.models="0"
 
-    ancestors = ""
+    ancestors = []
     with ctl.solve(yield_=True) as handle:
         for model in handle:
             ancestors = ancestors + on_model_ancestors(model)
     
-    # Save the results
-    fout = open(output_file, mode="w", encoding="utf-8")
-    fout.write("The ancestors of " + str(pid) + " are:")
-    fout.write(ancestors)
-    fout.close()
+    columns = ["pid", "name"]
 
-    return
+    return ancestors, columns
 
-def binary_search_ancestors(params, ctl, output_file):
+def binary_search_ancestors(params, ctl):
 
     pid = params["pid"]
     
@@ -59,20 +49,16 @@ def binary_search_ancestors(params, ctl, output_file):
     ctl.ground([("base", []), ("rule", [])])
     ctl.configuration.solve.models="0"
 
-    ancestors = ""
+    ancestors = []
     with ctl.solve(yield_=True) as handle:
         for model in handle:
             ancestors = ancestors + on_model_ancestors(model)
     
-    # Save the results
-    fout = open(output_file, mode="w", encoding="utf-8")
-    fout.write("The ancestor pairs (student, advisor) of " + str(pid) + " are:")
-    fout.write(ancestors.replace("ancestors", "ancestor pairs"))
-    fout.close()
+    columns = ["student_pid", "student_name", "advisor_pid", "advisor_name"]
 
-    return
+    return ancestors, columns
 
-def unary_search_descendants(params, ctl, output_file):
+def unary_search_descendants(params, ctl):
 
     pid = params["pid"]
 
@@ -88,20 +74,16 @@ def unary_search_descendants(params, ctl, output_file):
     ctl.ground([("base", []), ("rule", [])])
     ctl.configuration.solve.models="0"
 
-    descendants = ""
+    descendants = []
     with ctl.solve(yield_=True) as handle:
         for model in handle:
             descendants = descendants + on_model_descendants(model)
 
-    # Save the results
-    fout = open(output_file, mode="w", encoding="utf-8")
-    fout.write("The descendants of " + str(pid) + " are:")
-    fout.write(descendants)
-    fout.close()
+    columns = ["pid", "name"]
 
-    return
+    return descendants, columns
 
-def binary_search_descendants(params, ctl, output_file):
+def binary_search_descendants(params, ctl):
 
     pid = params["pid"]
 
@@ -117,20 +99,16 @@ def binary_search_descendants(params, ctl, output_file):
     ctl.ground([("base", []), ("rule", [])])
     ctl.configuration.solve.models="0"
 
-    descendants = ""
+    descendants = []
     with ctl.solve(yield_=True) as handle:
         for model in handle:
             descendants = descendants + on_model_descendants(model)
+    
+    columns = ["student_pid", "student_name", "advisor_pid", "advisor_name"]
 
-    # Save the results
-    fout = open(output_file, mode="w", encoding="utf-8")
-    fout.write("The descendant pairs (student, advisor) of " + str(pid) + " are:")
-    fout.write(descendants.replace("descendants", "descendant pairs"))
-    fout.close()
+    return descendants, columns
 
-    return
-
-def lowest_common_ancestors(params, ctl, output_file):
+def lowest_common_ancestors(params, ctl):
 
     pid1, pid2 = str(params["pid1"]), str(params["pid2"])
 
@@ -152,15 +130,11 @@ def lowest_common_ancestors(params, ctl, output_file):
     ctl.ground([("base", []), ("rule", [])])
     ctl.configuration.solve.models="0"
 
-    lowest_common_ancestors = ""
+    lowest_common_ancestors = []
     with ctl.solve(yield_=True) as handle:
         for model in handle:
             lowest_common_ancestors = lowest_common_ancestors + on_model_lowest_common_ancestors(model)
 
-    # Save the results
-    fout = open(output_file, mode="w", encoding="utf-8")
-    fout.write("The lowest common ancestor(s) of " + pid1 + " and " + pid2 + ":")
-    fout.write(lowest_common_ancestors)
-    fout.close()
+    columns = ["pid", "name"]
 
-    return
+    return lowest_common_ancestors, columns
