@@ -9,7 +9,7 @@ rule mgdb_prepare_unary_search_ancestors_datalog_for_bashlog:
     output:
         "data/query/mgdb/bashlog/unary_search_ancestors_for_{pid}.dlog"
     script:
-        "../src/query/mgdb/prepare_unary_search_ancestors_datalog_for_bashlog.py"
+        "../src/query/mgdb/bashlog_main/prepare_unary_search_ancestors_datalog_for_bashlog.py"
 
 rule mgdb_prepare_binary_search_ancestors_datalog_for_bashlog:
     input:
@@ -22,7 +22,7 @@ rule mgdb_prepare_binary_search_ancestors_datalog_for_bashlog:
         "data/query/mgdb/bashlog/binary_search_ancestors_for_{pid}.dlog"
     threads: workflow.cores
     script:
-        "../src/query/mgdb/prepare_binary_search_ancestors_datalog_for_bashlog.py"
+        "../src/query/mgdb/bashlog_main/prepare_binary_search_ancestors_datalog_for_bashlog.py"
 
 rule mgdb_prepare_unary_search_descendants_datalog_for_bashlog:
     input:
@@ -34,7 +34,7 @@ rule mgdb_prepare_unary_search_descendants_datalog_for_bashlog:
     output:
         "data/query/mgdb/bashlog/unary_search_descendants_for_{pid}.dlog"
     script:
-        "../src/query/mgdb/prepare_unary_search_descendants_datalog_for_bashlog.py"
+        "../src/query/mgdb/bashlog_main/prepare_unary_search_descendants_datalog_for_bashlog.py"
 
 rule mgdb_prepare_binary_search_descendants_datalog_for_bashlog:
     input:
@@ -46,7 +46,7 @@ rule mgdb_prepare_binary_search_descendants_datalog_for_bashlog:
     output:
         "data/query/mgdb/bashlog/binary_search_descendants_for_{pid}.dlog"
     script:
-        "../src/query/mgdb/prepare_binary_search_descendants_datalog_for_bashlog.py"
+        "../src/query/mgdb/bashlog_main/prepare_binary_search_descendants_datalog_for_bashlog.py"
 
 rule mgdb_prepare_interim_advise_datalog_for_bashlog:
     input:
@@ -55,7 +55,7 @@ rule mgdb_prepare_interim_advise_datalog_for_bashlog:
     output:
         "data/query/mgdb/bashlog/interim_advise.dlog"
     script:
-        "../src/query/mgdb/mgdb_prepare_interim_advise_datalog_for_bashlog.py"
+        "../src/query/mgdb/bashlog_main/mgdb_prepare_interim_advise_datalog_for_bashlog.py"
 
 rule mgdb_prepare_interim_common_ancestors_datalog_for_bashlog:
     input:
@@ -66,7 +66,7 @@ rule mgdb_prepare_interim_common_ancestors_datalog_for_bashlog:
     output:
         "data/query/mgdb/bashlog/interim_common_ancestors_of_{pid1}_and_{pid2}.dlog"
     script:
-        "../src/query/mgdb/mgdb_prepare_interim_common_ancestors_datalog_for_bashlog.py"
+        "../src/query/mgdb/bashlog_main/mgdb_prepare_interim_common_ancestors_datalog_for_bashlog.py"
 
 rule mgdb_prepare_lowest_common_ancestors_datalog_for_bashlog:
     input:
@@ -79,7 +79,7 @@ rule mgdb_prepare_lowest_common_ancestors_datalog_for_bashlog:
     output:
         "data/query/mgdb/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.dlog"
     script:
-        "../src/query/mgdb/prepare_lowest_common_ancestors_datalog_for_bashlog.py"
+        "../src/query/mgdb/bashlog_main/prepare_lowest_common_ancestors_datalog_for_bashlog.py"
 
 rule mgdb_prepare_bashscript_for_bashlog_0:
     input:
@@ -93,7 +93,7 @@ rule mgdb_prepare_bashscript_for_bashlog_0:
         "data/query/mgdb/bashlog/interim_{query}.sh"
     threads: workflow.cores
     script:
-        "../src/query/mgdb/prepare_bashscript_for_bashlog.sh"
+        "../src/query/mgdb/bashlog_main/prepare_bashscript_for_bashlog.sh"
 
 rule mgdb_prepare_bashscript_for_bashlog_1:
     input:
@@ -107,7 +107,7 @@ rule mgdb_prepare_bashscript_for_bashlog_1:
         "data/query/mgdb/bashlog/{query}_for_{pid}.sh"
     threads: workflow.cores
     script:
-        "../src/query/mgdb/prepare_bashscript_for_bashlog.sh"
+        "../src/query/mgdb/bashlog_main/prepare_bashscript_for_bashlog.sh"
 
 rule mgdb_prepare_bashscript_for_bashlog_2:
     input:
@@ -120,7 +120,7 @@ rule mgdb_prepare_bashscript_for_bashlog_2:
         "data/query/mgdb/bashlog/{query}_of_{pid1}_and_{pid2}.sh"
     threads: workflow.cores
     script:
-        "../src/query/mgdb/prepare_bashscript_for_bashlog.sh"
+        "../src/query/mgdb/bashlog_main/prepare_bashscript_for_bashlog.sh"
 
 rule fish_prepare_lowest_common_ancestors_datalog_for_bashlog:
     input:
@@ -336,7 +336,7 @@ rule mgdb_unary_search_ancestors_with_bashlog:
         repeat("data/query/mgdb/bashlog/benchmark_unary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     threads: workflow.cores
     shell:
-        "bash data/query/mgdb/bashlog/unary_search_ancestors_for_{wildcards.pid}.sh > {output}"
+        "bash data/query/mgdb/bashlog/unary_search_ancestors_for_{wildcards.pid}.sh &> {output}"
 
 rule mgdb_binary_search_ancestors_with_bashlog:
     input:
@@ -352,7 +352,7 @@ rule mgdb_binary_search_ancestors_with_bashlog:
         repeat("data/query/mgdb/bashlog/benchmark_binary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     threads: workflow.cores
     shell:
-        "bash data/query/mgdb/bashlog/binary_search_ancestors_for_{wildcards.pid}.sh > {output}"
+        "bash data/query/mgdb/bashlog/binary_search_ancestors_for_{wildcards.pid}.sh &> {output}"
 
 # Search descendants
 rule mgdb_unary_search_descendants_with_python:
@@ -519,7 +519,7 @@ rule mgdb_unary_search_descendants_with_bashlog:
         repeat("data/query/mgdb/bashlog/benchmark_unary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     threads: workflow.cores
     shell:
-        "bash data/query/mgdb/bashlog/unary_search_descendants_for_{wildcards.pid}.sh > {output}"
+        "bash data/query/mgdb/bashlog/unary_search_descendants_for_{wildcards.pid}.sh &> {output}"
 
 rule mgdb_binary_search_descendants_with_bashlog:
     input:
@@ -535,7 +535,7 @@ rule mgdb_binary_search_descendants_with_bashlog:
         repeat("data/query/mgdb/bashlog/benchmark_binary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     threads: workflow.cores
     shell:
-        "bash data/query/mgdb/bashlog/binary_search_descendants_for_{wildcards.pid}.sh > {output}"
+        "bash data/query/mgdb/bashlog/binary_search_descendants_for_{wildcards.pid}.sh &> {output}"
 
 # Lowest common ancestors
 rule mgdb_lowest_common_ancestors_with_python:
@@ -627,7 +627,7 @@ rule mgdb_interim_advise_with_bashlog:
         "data/query/mgdb/bashlog/interim_advise.tsv"
     threads: workflow.cores
     shell:
-        "bash data/query/mgdb/bashlog/interim_advise.sh > {output}"
+        "bash data/query/mgdb/bashlog/interim_advise.sh &> {output}"
 
 rule mgdb_interim_common_ancestors_with_bashlog:
     input:
@@ -637,7 +637,7 @@ rule mgdb_interim_common_ancestors_with_bashlog:
         "data/query/mgdb/bashlog/interim_common_ancestors_of_{pid1}_and_{pid2}.tsv"
     threads: workflow.cores
     shell:
-        "bash data/query/mgdb/bashlog/interim_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh > {output}"
+        "bash data/query/mgdb/bashlog/interim_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
 
 rule mgdb_lowest_common_ancestors_with_bashlog:
     input:
@@ -654,7 +654,7 @@ rule mgdb_lowest_common_ancestors_with_bashlog:
         repeat("data/query/mgdb/bashlog/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     threads: workflow.cores
     shell:
-        "bash data/query/mgdb/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh > {output}"
+        "bash data/query/mgdb/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
 
 rule fish_lowest_common_ancestors_with_clingo:
     input:
@@ -684,7 +684,7 @@ rule fish_lowest_common_ancestors_with_bashlog:
         repeat("data/query/fish_{max_hamming_number}/bashlog/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     threads: workflow.cores
     shell:
-        "bash data/query/fish_{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh > {output}"
+        "bash data/query/fish_{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
 
 rule sail_lowest_common_ancestors_with_clingo:
     input:
@@ -714,4 +714,4 @@ rule sail_lowest_common_ancestors_with_bashlog:
         repeat("data/query/sail_{max_hamming_number}/bashlog/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     threads: workflow.cores
     shell:
-        "bash data/query/sail_{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh > {output}"
+        "bash data/query/sail_{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
