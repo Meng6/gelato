@@ -1,3 +1,4 @@
+# BENCHMARK
 rule mgdb_stats:
     input:
         advised = "data/raw/mgdb/tsv/advised.tsv",
@@ -61,3 +62,72 @@ rule sail_merge_benchmarks:
         "data/report/sail_{max_hamming_number}_benchmarks.csv"
     script:
         "../src/report/merge_benchmarks.py"
+
+# OUTPUT_PER_QUERY
+# Search ancestors
+rule report_mgdb_unary_search_ancestors:
+    input:
+        formated_data = "data/query/mgdb/{lat}/output_unary_search_ancestors_for_{pid}.txt"
+    params:
+        query = "unary_search_ancestors",
+        edge = [],
+        include_interactive_table = config["OUTPUT_PER_QUERY"]["INCLUDE_INTERACTIVE_TABLE"],
+        include_network_graph = config["OUTPUT_PER_QUERY"]["INCLUDE_NETWORK_GRAPH"]
+    output:
+        "data/report/mgdb/report_unary_search_ancestors_for_{pid}_{lat}.html"
+    script:
+        "../src/report/report_output_per_query.py"
+
+rule report_mgdb_binary_search_ancestors:
+    input:
+        formated_data = "data/query/mgdb/{lat}/output_binary_search_ancestors_for_{pid}.txt"
+    params:
+        query = "binary_search_ancestors",
+        edge = [["student_name", "advisor_name"]],
+        include_interactive_table = config["OUTPUT_PER_QUERY"]["INCLUDE_INTERACTIVE_TABLE"],
+        include_network_graph = config["OUTPUT_PER_QUERY"]["INCLUDE_NETWORK_GRAPH"]
+    output:
+        "data/report/mgdb/report_binary_search_ancestors_for_{pid}_{lat}.html"
+    script:
+        "../src/report/report_output_per_query.py"
+
+# Search descendants
+rule report_mgdb_unary_search_descendants:
+    input:
+        formated_data = "data/query/mgdb/{lat}/output_unary_search_descendants_for_{pid}.txt"
+    params:
+        query = "unary_search_descendants",
+        edge = [],
+        include_interactive_table = config["OUTPUT_PER_QUERY"]["INCLUDE_INTERACTIVE_TABLE"],
+        include_network_graph = config["OUTPUT_PER_QUERY"]["INCLUDE_NETWORK_GRAPH"]
+    output:
+        "data/report/mgdb/report_unary_search_descendants_for_{pid}_{lat}.html"
+    script:
+        "../src/report/report_output_per_query.py"
+
+rule report_mgdb_binary_search_descendants:
+    input:
+        formated_data = "data/query/mgdb/{lat}/output_binary_search_descendants_for_{pid}.txt"
+    params:
+        query = "binary_search_descendants",
+        edge = [["student_name", "advisor_name"]],
+        include_interactive_table = config["OUTPUT_PER_QUERY"]["INCLUDE_INTERACTIVE_TABLE"],
+        include_network_graph = config["OUTPUT_PER_QUERY"]["INCLUDE_NETWORK_GRAPH"]
+    output:
+        "data/report/mgdb/report_binary_search_descendants_for_{pid}_{lat}.html"
+    script:
+        "../src/report/report_output_per_query.py"
+
+# Lowest common ancestors
+rule report_mgdb_lowest_common_ancestors:
+    input:
+        formated_data = "data/query/mgdb/{lat}/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+    params:
+        query = "lowest_common_ancestors",
+        edge = [],
+        include_interactive_table = config["OUTPUT_PER_QUERY"]["INCLUDE_INTERACTIVE_TABLE"],
+        include_network_graph = config["OUTPUT_PER_QUERY"]["INCLUDE_NETWORK_GRAPH"]
+    output:
+        "data/report/mgdb/report_lowest_common_ancestors_of_{pid1}_and_{pid2}_{lat}.html"
+    script:
+        "../src/report/report_output_per_query.py"

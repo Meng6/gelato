@@ -1,0 +1,646 @@
+
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>binary_search_descendants</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      </head>
+      <body>
+        <div class="container">
+            
+            <h3 style="color: #2E6F9F">An interactive table of binary_search_descendants</h3>
+            <div id="toolbar">
+                <select class="form-control">
+                        <option value="">Export Data</option>
+                        <option value="all">Export All</option>
+                        <option value="selected">Export Selected</option>
+                </select>
+            </div>
+            <table id="table" data-toggle="table" data-height="460" data-search="true" data-filter-control="true" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar" class="table-responsive">
+                <thead>
+                    <tr>
+                        <th data-checkbox="true"></th>
+                        
+                            <th data-field="student_pid" data-filter-control="select" data-sortable="true">student_pid</th>
+                        
+                            <th data-field="student_name" data-filter-control="select" data-sortable="true">student_name</th>
+                        
+                            <th data-field="advisor_pid" data-filter-control="select" data-sortable="true">advisor_pid</th>
+                        
+                            <th data-field="advisor_name" data-filter-control="select" data-sortable="true">advisor_name</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="0" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63240</td>
+                        
+                        <td>Andreas Oberweis</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63241</td>
+                        
+                        <td>Jürgen Seib</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="3" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63242</td>
+                        
+                        <td>Beate Marx</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="4" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63243</td>
+                        
+                        <td>Heinz Uphoff</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="5" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63245</td>
+                        
+                        <td>Jürgen Frohn</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="6" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63246</td>
+                        
+                        <td>Paul-Thomas Kandzia</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="7" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63247</td>
+                        
+                        <td>Wolfgang May</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="8" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63248</td>
+                        
+                        <td>Rainer Himmeröder</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="9" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>89013</td>
+                        
+                        <td>Fang Wei</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="10" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>89014</td>
+                        
+                        <td>Lule Ahmedi</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="11" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>91091</td>
+                        
+                        <td>Cai-Nicolas Ziegler</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="12" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>84323</td>
+                        
+                        <td>Pedro Jose Marron</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="13" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>215836</td>
+                        
+                        <td>İlkay Altıntaş</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="14" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>174176</td>
+                        
+                        <td>Manish Kumar Anand</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="15" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>187066</td>
+                        
+                        <td>Mingmin Chen</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="16" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>285677</td>
+                        
+                        <td>Yi-Yun Jessica Cheng</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="17" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>195636</td>
+                        
+                        <td>Saumen Dey</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="18" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>248098</td>
+                        
+                        <td>Parisa Kianmajd</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="19" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>182342</td>
+                        
+                        <td>Sven Köhler</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="20" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>224736</td>
+                        
+                        <td>Peter Reimann</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="21" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>195637</td>
+                        
+                        <td>Anandarup Sarkar</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="22" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>248097</td>
+                        
+                        <td>Tianhong Song</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="23" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>173881</td>
+                        
+                        <td>David Michael Thau</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="24" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>248901</td>
+                        
+                        <td>Christopher Tuot</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="25" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>243684</td>
+                        
+                        <td>Shizhuo Yu</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="26" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>148828</td>
+                        
+                        <td>Daniel Zinn</td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="27" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63249</td>
+                        
+                        <td>Torsten Zimmer</td>
+                        
+                        <td>63240</td>
+                        
+                        <td>Andreas Oberweis</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="28" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>75008</td>
+                        
+                        <td>Konstantin Knorr</td>
+                        
+                        <td>63240</td>
+                        
+                        <td>Andreas Oberweis</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="29" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>105943</td>
+                        
+                        <td>Erik Behrends</td>
+                        
+                        <td>63247</td>
+                        
+                        <td>Wolfgang May</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="30" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>120050</td>
+                        
+                        <td>Oliver Fritzen</td>
+                        
+                        <td>63247</td>
+                        
+                        <td>Wolfgang May</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="31" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>263486</td>
+                        
+                        <td>Richard Figura</td>
+                        
+                        <td>84323</td>
+                        
+                        <td>Pedro Jose Marron</td>
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+    
+            
+    <br><br><h3 style="color: #2E6F9F">A Force-Directed Network Graph of binary_search_descendants</h3>
+    <figure class="highcharts-figure">
+        <div id="graph-container"></div>
+        <p class="highcharts-description"></p>
+    </figure>
+    
+        </div>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css">
+        <link rel="stylesheet" href="https://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/editable/bootstrap-table-editable.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/export/bootstrap-table-export.js"></script>
+        <script src="http://frontendfreecode.com/codes/files/tableExport.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
+        <script id="rendered-js">
+            var $table = $("#table");
+            $(function () {
+                $("#toolbar")
+                    .find("select")
+                    .change(function () {
+                        $table.bootstrapTable("refreshOptions", {
+                            exportDataType: $(this).val()
+                        });
+                    });
+                });
+
+                var trBoldBlue = $("table");
+
+                $(trBoldBlue).on("click", "tr", function () {
+                    $(this).toggleClass("bold-blue");
+                });
+        </script>
+    
+        
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script>
+        Highcharts.addEvent(
+            Highcharts.Series,
+            'afterSetOptions',
+            function (e) {
+                var colors = Highcharts.getOptions().colors,
+                    i = 0,
+                    nodes = {},
+                    l2r = {};
+                    r2l = {};
+                if (
+                    this instanceof Highcharts.Series.types.networkgraph &&
+                    e.options.id === 'network_graph'
+                ) {
+                    e.options.data.forEach(function (link) {
+                        if (link[0] in l2r) {
+                            nodes[link[1]] = {
+                                id: link[1],
+                                color: nodes[l2r[link[0]]].color
+                            };
+                        } else if (link[1] in r2l) {
+                            nodes[link[0]] = {
+                                id: link[0],
+                                color: nodes[r2l[link[1]]].color
+                            };
+                        } else {
+                            l2r[link[0]] = link[1];
+                            r2l[link[1]] = link[0];
+                            nodes[link[0]] = {
+                                id: link[0],
+                                color: colors[i]
+                            };
+                            i = (i + 1) % 10;
+                            nodes[link[1]] = {
+                                id: link[1],
+                                color: colors[i++]
+                            };
+                        }
+
+                    });
+
+                    e.options.nodes = Object.keys(nodes).map(function (id) {
+                        return nodes[id];
+                    });
+                }
+            }
+        );
+
+        Highcharts.chart('graph-container', {
+            chart: {
+                type: 'networkgraph',
+                height: '100%'
+            },
+            title: {text: undefined},
+            plotOptions: {
+                networkgraph: {
+                    keys: ['from', 'to'],
+                    layoutAlgorithm: {
+                        enableSimulation: true,
+                        friction: -0.9
+                    }
+                }
+            },
+            series: [{
+                accessibility: {
+                    enabled: false
+                },
+                dataLabels: {
+                    enabled: true,
+                    linkFormat: ''
+                },
+                id: 'network_graph',
+                data: [
+                    
+                        
+                        ["Bertram Ludäscher","Georg Lausen"],
+                        
+                        ["Andreas Oberweis","Georg Lausen"],
+                        
+                        ["Jürgen Seib","Georg Lausen"],
+                        
+                        ["Beate Marx","Georg Lausen"],
+                        
+                        ["Heinz Uphoff","Georg Lausen"],
+                        
+                        ["Jürgen Frohn","Georg Lausen"],
+                        
+                        ["Paul-Thomas Kandzia","Georg Lausen"],
+                        
+                        ["Wolfgang May","Georg Lausen"],
+                        
+                        ["Rainer Himmeröder","Georg Lausen"],
+                        
+                        ["Fang Wei","Georg Lausen"],
+                        
+                        ["Lule Ahmedi","Georg Lausen"],
+                        
+                        ["Cai-Nicolas Ziegler","Georg Lausen"],
+                        
+                        ["Pedro Jose Marron","Georg Lausen"],
+                        
+                        ["İlkay Altıntaş","Bertram Ludäscher"],
+                        
+                        ["Manish Kumar Anand","Bertram Ludäscher"],
+                        
+                        ["Mingmin Chen","Bertram Ludäscher"],
+                        
+                        ["Yi-Yun Jessica Cheng","Bertram Ludäscher"],
+                        
+                        ["Saumen Dey","Bertram Ludäscher"],
+                        
+                        ["Parisa Kianmajd","Bertram Ludäscher"],
+                        
+                        ["Sven Köhler","Bertram Ludäscher"],
+                        
+                        ["Peter Reimann","Bertram Ludäscher"],
+                        
+                        ["Anandarup Sarkar","Bertram Ludäscher"],
+                        
+                        ["Tianhong Song","Bertram Ludäscher"],
+                        
+                        ["David Michael Thau","Bertram Ludäscher"],
+                        
+                        ["Christopher Tuot","Bertram Ludäscher"],
+                        
+                        ["Shizhuo Yu","Bertram Ludäscher"],
+                        
+                        ["Daniel Zinn","Bertram Ludäscher"],
+                        
+                        ["Torsten Zimmer","Andreas Oberweis"],
+                        
+                        ["Konstantin Knorr","Andreas Oberweis"],
+                        
+                        ["Erik Behrends","Wolfgang May"],
+                        
+                        ["Oliver Fritzen","Wolfgang May"],
+                        
+                        ["Richard Figura","Pedro Jose Marron"],
+                        
+                    
+                ]
+            }]
+        });
+    </script>
+    
+      </body>
+    </html>
+    

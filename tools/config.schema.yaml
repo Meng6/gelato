@@ -3,6 +3,7 @@ description: GELATO configuration schema
 required:
   - GRAPHS
   - BENCHMARK
+  - OUTPUT_PER_QUERY
   - MGDB
   - FISH
   - SAIL
@@ -18,12 +19,23 @@ properties:
   
   BENCHMARK:
     type: object
-    required: [REPEAT_TIMES, REPORT]
+    required: [REPORT, REPEAT_TIMES]
     properties:
+      REPORT:
+        type: boolean
       REPEAT_TIMES:
         type: integer
         minimum: 1
+  
+  OUTPUT_PER_QUERY:
+    type: object
+    required: [REPORT, INCLUDE_INTERACTIVE_TABLE, INCLUDE_NETWORK_GRAPH]
+    properties:
       REPORT:
+        type: boolean
+      INCLUDE_INTERACTIVE_TABLE:
+        type: boolean
+      INCLUDE_NETWORK_GRAPH:
         type: boolean
 
   MGDB:
