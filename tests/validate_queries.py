@@ -8,7 +8,7 @@ graphs = config["GRAPHS"]
 for graph in graphs:
     lats = config[graph]["LANGUAGES_AND_TOOLS"]
     if len(lats) <= 1:
-        print("Only have one language or tool for {graph} graph. Cannot validate the results.".format(graph=graph))
+        print("WARNING: only have one language or tool for {graph} graph. Cannot validate the results.".format(graph=graph))
     else:
         for query in config[graph]["QUERIES"]["RUN"]:
             if query in ["UNARY_SEARCH_ANCESTORS", "BINARY_SEARCH_ANCESTORS", "UNARY_SEARCH_DESCENDANTS", "BINARY_SEARCH_DESCENDANTS"]:
@@ -39,7 +39,7 @@ for graph in graphs:
                             raise ValueError("TEST FAILED! {graph} graph: results of {base_lat} and {lat} for {query} are not consistent.".format(graph=graph, base_lat=base_lat, lat=lat, query=query))
                         base_data = curr_data.copy()
                     base_lat = lat
-        print("TEST PASSED! {graph} graph done.")
+        print("TEST PASSED! {graph} graph done.".format(graph=graph))
 print("ALL TEST PASSED!")
                         
 
