@@ -50,7 +50,7 @@ for graph in config["GRAPHS"]:
 
         # Report
         if config["BENCHMARK"]["REPORT"]:
-            files_to_compute.extend(expand("data/report/{graph}_benchmarks.csv", graph=graph.lower()))
+            files_to_compute.extend(expand("data/report/{graph}/benchmarks.csv", graph=graph.lower()))
         if config["OUTPUT_PER_QUERY"]["REPORT"]:
             for query in config[graph]["QUERIES"]["RUN"]:
                 if query in ["UNARY_SEARCH_ANCESTORS", "BINARY_SEARCH_ANCESTORS", "UNARY_SEARCH_DESCENDANTS", "BINARY_SEARCH_DESCENDANTS"]:
@@ -73,20 +73,21 @@ for graph in config["GRAPHS"]:
         for query in config[graph]["QUERIES"]["RUN"]:
             if query == "LOWEST_COMMON_ANCESTORS":
                 if "BASHLOG" in config[graph]["LANGUAGES_AND_TOOLS"]:
-                    files_to_compute.extend(expand("data/query/{graph}_{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.dlog", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
-                    files_to_compute.extend(expand("data/query/{graph}_{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.sh", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
-                files_to_compute.extend(expand("data/query/{graph}_{max_hamming_number}/{lat}/output_{query}_of_{pid1}_and_{pid2}.txt", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
-                files_to_compute.extend(expand("data/query/{graph}_{max_hamming_number}/{lat}/benchmark_{query}_of_{pid1}_and_{pid2}.txt", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
+                    files_to_compute.extend(expand("data/query/{graph}/{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.dlog", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
+                    files_to_compute.extend(expand("data/query/{graph}/{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.sh", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
+                files_to_compute.extend(expand("data/query/{graph}/{max_hamming_number}/{lat}/output_{query}_of_{pid1}_and_{pid2}.txt", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
+                files_to_compute.extend(expand("data/query/{graph}/{max_hamming_number}/{lat}/benchmark_{query}_of_{pid1}_and_{pid2}.txt", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
 
         # Report
         if config["BENCHMARK"]["REPORT"]:
-            files_to_compute.extend(expand("data/report/{graph}_{max_hamming_number}_benchmarks.csv", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"]))
+            files_to_compute.extend(expand("data/report/{graph}/{max_hamming_number}/benchmarks.csv", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"]))
         if config["OUTPUT_PER_QUERY"]["REPORT"]:
             for query in config[graph]["QUERIES"]["RUN"]:
                 if query in ["UNARY_SEARCH_ANCESTORS", "BINARY_SEARCH_ANCESTORS", "UNARY_SEARCH_DESCENDANTS", "BINARY_SEARCH_DESCENDANTS"]:
-                    files_to_compute.extend(expand("data/report/{graph}/report_{query}_for_{pid}_{lat}.html", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid=config[graph]["QUERIES"][query]["PIDS"]))
+                    files_to_compute.extend(expand("data/report/{graph}/{max_hamming_number}/report_{query}_for_{pid}_{lat}.html", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid=config[graph]["QUERIES"][query]["PIDS"]))
                 if query == "LOWEST_COMMON_ANCESTORS":
-                    files_to_compute.extend(expand("data/report/{graph}/report_{query}_of_{pid1}_and_{pid2}_{lat}.html", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
+                    files_to_compute.extend(expand("data/report/{graph}/{max_hamming_number}/report_{query}_of_{pid1}_and_{pid2}_{lat}.html", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
+
 # Stats of the graphs
 files_to_compute.append("data/report/overall_stats_of_graphs.csv")
 

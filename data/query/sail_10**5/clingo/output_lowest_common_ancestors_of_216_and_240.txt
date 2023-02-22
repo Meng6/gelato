@@ -1,2 +1,0 @@
-The lowest common ancestor(s) of 216 and 240:
-(8)

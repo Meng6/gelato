@@ -129,19 +129,19 @@ rule fish_prepare_lowest_common_ancestors_datalog_for_bashlog:
         pid1 = "{pid1}",
         pid2 = "{pid2}"
     output:
-        "data/query/fish_{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.dlog"
+        "data/query/fish/{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.dlog"
     script:
         "../src/query/fish/prepare_lowest_common_ancestors_datalog_for_bashlog.py"
 
 rule fish_prepare_bashscript_for_bashlog_2:
     input:
         fish = "data/raw/fish/bashlog/fish_{max_hamming_number}.tsv",
-        datalog = "data/query/fish_{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.dlog"
+        datalog = "data/query/fish/{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.dlog"
     params:
         pid1 = "{pid1}",
         pid2 = "{pid2}"
     output:
-        "data/query/fish_{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.sh"
+        "data/query/fish/{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.sh"
     threads: workflow.cores
     script:
         "../src/query/fish/prepare_bashscript_for_bashlog.sh"
@@ -153,19 +153,19 @@ rule sail_prepare_lowest_common_ancestors_datalog_for_bashlog:
         pid1 = "{pid1}",
         pid2 = "{pid2}"
     output:
-        "data/query/sail_{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.dlog"
+        "data/query/sail/{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.dlog"
     script:
         "../src/query/sail/prepare_lowest_common_ancestors_datalog_for_bashlog.py"
 
 rule sail_prepare_bashscript_for_bashlog_2:
     input:
         sail = "data/raw/sail/bashlog/sail_{max_hamming_number}.tsv",
-        datalog = "data/query/sail_{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.dlog"
+        datalog = "data/query/sail/{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.dlog"
     params:
         pid1 = "{pid1}",
         pid2 = "{pid2}"
     output:
-        "data/query/sail_{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.sh"
+        "data/query/sail/{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.sh"
     threads: workflow.cores
     script:
         "../src/query/sail/prepare_bashscript_for_bashlog.sh"
@@ -665,26 +665,26 @@ rule fish_lowest_common_ancestors_with_clingo:
         lat = "clingo",
         query = "lowest_common_ancestors"
     output:
-        "data/query/fish_{max_hamming_number}/clingo/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+        "data/query/fish/{max_hamming_number}/clingo/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
     benchmark:
-        repeat("data/query/fish_{max_hamming_number}/clingo/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+        repeat("data/query/fish/{max_hamming_number}/clingo/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/fish_entry.py"
 
 rule fish_lowest_common_ancestors_with_bashlog:
     input:
         fish = "data/raw/fish/bashlog/fish_{max_hamming_number}.tsv",
-        bashlog = "data/query/fish_{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.sh"
+        bashlog = "data/query/fish/{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.sh"
     params:
         pid1 = "{pid1}",
         pid2 = "{pid2}"
     output:
-        "data/query/fish_{max_hamming_number}/bashlog/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+        "data/query/fish/{max_hamming_number}/bashlog/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
     benchmark:
-        repeat("data/query/fish_{max_hamming_number}/bashlog/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+        repeat("data/query/fish/{max_hamming_number}/bashlog/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     threads: workflow.cores
     shell:
-        "bash data/query/fish_{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
+        "bash data/query/fish/{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
 
 rule sail_lowest_common_ancestors_with_clingo:
     input:
@@ -695,23 +695,23 @@ rule sail_lowest_common_ancestors_with_clingo:
         lat = "clingo",
         query = "lowest_common_ancestors"
     output:
-        "data/query/sail_{max_hamming_number}/clingo/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+        "data/query/sail/{max_hamming_number}/clingo/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
     benchmark:
-        repeat("data/query/sail_{max_hamming_number}/clingo/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+        repeat("data/query/sail/{max_hamming_number}/clingo/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/sail_entry.py"
 
 rule sail_lowest_common_ancestors_with_bashlog:
     input:
         sail = "data/raw/sail/bashlog/sail_{max_hamming_number}.tsv",
-        bashlog = "data/query/sail_{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.sh"
+        bashlog = "data/query/sail/{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.sh"
     params:
         pid1 = "{pid1}",
         pid2 = "{pid2}"
     output:
-        "data/query/sail_{max_hamming_number}/bashlog/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+        "data/query/sail/{max_hamming_number}/bashlog/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
     benchmark:
-        repeat("data/query/sail_{max_hamming_number}/bashlog/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+        repeat("data/query/sail/{max_hamming_number}/bashlog/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     threads: workflow.cores
     shell:
-        "bash data/query/sail_{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
+        "bash data/query/sail/{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
