@@ -23,7 +23,6 @@ for graph in graphs:
                             curr_data = curr_data.sort_values(by=cols).reset_index()[cols]
                             if not curr_data.equals(base_data):
                                 raise ValueError("TEST FAILED! {graph} graph: results of {base_lat} and {lat} for {query} are not consistent.".format(graph=graph, base_lat=base_lat, lat=lat, query=query))
-                            base_data = curr_data.copy()
                         base_lat = lat
             if query == "LOWEST_COMMON_ANCESTORS":
                 pid1, pid2 = config[graph]["QUERIES"][query]["PID1"], config[graph]["QUERIES"][query]["PID2"]
@@ -37,7 +36,6 @@ for graph in graphs:
                         curr_data = curr_data.sort_values(by=cols).reset_index()[cols]
                         if not curr_data.equals(base_data):
                             raise ValueError("TEST FAILED! {graph} graph: results of {base_lat} and {lat} for {query} are not consistent.".format(graph=graph, base_lat=base_lat, lat=lat, query=query))
-                        base_data = curr_data.copy()
                     base_lat = lat
         print("TEST PASSED! {graph} graph done.".format(graph=graph))
 print("ALL TEST PASSED!")
