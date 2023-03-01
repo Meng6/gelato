@@ -7,7 +7,6 @@ def unary_search_ancestors(params, conn):
 
     sparql_query = """
     PREFIX : <http://MGDB.com/>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
     SELECT DISTINCT ?pid ?name
     WHERE {
@@ -32,7 +31,6 @@ def binary_search_ancestors(params, conn):
 
     sparql_query = """
     PREFIX : <http://MGDB.com/>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
     SELECT DISTINCT ?student_pid ?student_name ?advisor_pid ?advisor_name
     WHERE {
@@ -62,7 +60,6 @@ def unary_search_descendants(params, conn):
 
     sparql_query = """
     PREFIX : <http://MGDB.com/>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
     SELECT DISTINCT ?pid ?name
     WHERE {
@@ -87,7 +84,6 @@ def binary_search_descendants(params, conn):
 
     sparql_query = """
     PREFIX : <http://MGDB.com/>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
     SELECT DISTINCT ?student_pid ?student_name ?advisor_pid ?advisor_name
     WHERE {
@@ -117,10 +113,9 @@ def lowest_common_ancestors(params, conn):
 
     pid1, pid2 = params["pid1"], params["pid2"]
 
-    # Need to be optimized: too slow
+    # Below SPARQL query is too slow
     sparql_query = """
     PREFIX : <http://MGDB.com/>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
     SELECT DISTINCT (?lca AS ?pid) ?name
     WHERE {
@@ -132,6 +127,29 @@ def lowest_common_ancestors(params, conn):
             :writes/(:writes|:advised_by)+ ?lca .
     }
     ?lca :name ?name .
+    }
+    """
+
+    # Below SPARQL query is faster
+    sparql_query = """
+    PREFIX : <http://MGDB.com/>
+
+    SELECT DISTINCT (?lca1 AS ?pid) ?name
+    WHERE {
+    ?lca1 a :Person .
+    ?lca2 a :Person .
+    ?lca1 ^(:writes/(:writes|:advised_by)+) :p"""+str(pid1)+""" .
+    ?lca2 ^(:writes/(:writes|:advised_by)+) :p"""+str(pid2)+""" .
+    FILTER (?lca1 = ?lca2)
+    FILTER NOT EXISTS {
+        ?nlca1 a :Person .
+        ?nlca2 a :Person .
+        ?nlca1 ^(:writes/(:writes|:advised_by)+) :p"""+str(pid1)+""" .
+        ?nlca2 ^(:writes/(:writes|:advised_by)+) :p"""+str(pid2)+""" .
+        FILTER (?nlca1 = ?nlca2)
+        ?nlca1 :writes/(:writes|:advised_by)+ ?lca1 .
+    }
+    ?lca1 :name ?name .
     }
     """
 
