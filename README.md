@@ -25,12 +25,17 @@ conda env create -f environment.yml -n gelato
 conda activate gelato
 ```
 
-5. Make `GELATO` script executable
+5. Add the above Python virtual environment to jupyter kernel
+```
+python -m ipykernel install --user --name=gelato
+```
+
+6. Make `GELATO` script executable
 ```
 chmod +x gelato
 ```
 
-6. Check that `GELATO` is working
+7. Check that `GELATO` is working
 ```
 ./gelato -j1
 ```
@@ -107,8 +112,17 @@ Setup `DATABASE_GROUP` and its connection credentials.
   Usually, we set `MY_HOST=localhost` and `MY_PORT=9999`.
 
 ### Workflow Visualization 
-Get the [directed acyclic graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) of the workflow, where nodes denote rules, edges indicate the order of executing these rules. The following code will create a file named `data/report/dag.svg` to visualize the workflow of computing the `data/report/mgdb_benchmarks.csv` file.
+1. Get the [directed acyclic graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) of the workflow, where nodes denote rules, edges indicate the order of executing these rules. The following code will create a file named `data/report/dag.svg` to visualize the workflow of computing the `data/report/mgdb_benchmarks.csv` file.
 
 ```
 snakemake --dag "data/report/mgdb_benchmarks.csv" | dot -Tsvg > data/report/dag.svg
 ```
+
+2. Visualize top k influential papers
+
+Run the following code via command line
+```
+python -m http.server
+```
+
+Open your web browser and go to http://127.0.0.1:8000/data/report/influential_paper_detection_by_degreecentrality_k3.html

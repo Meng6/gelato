@@ -137,3 +137,19 @@ rule sail_preprocess_data_for_bashlog:
         "data/raw/sail/bashlog/sail_{max_hamming_number}.tsv"
     script:
         "../src/preprocess/sail_preprocess_data_for_bashlog.py"
+
+rule cn_select_fos:
+    input:
+        cn = "data/external/cn/dblp_v14.json"
+    output:
+        "data/raw/{graph}/dblp_v14_nlp.json"
+    script:
+        "../src/preprocess/cn_select_fos.py"
+
+rule load_cn_data_to_neo4j:
+    params:
+        database_group = config["CN"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"]
+    output:
+        touch("data/raw/cn/cypher/load_cn_data_to_neo4j.done")
+    script:
+        "../src/preprocess/load_cn_data_to_neo4j.py"

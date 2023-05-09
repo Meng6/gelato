@@ -715,3 +715,38 @@ rule sail_lowest_common_ancestors_with_bashlog:
     threads: workflow.cores
     shell:
         "bash data/query/sail/{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
+
+# Basic measures
+rule cn_basic_measures_with_python:
+    params:
+        database_group = config["CN"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"],
+        lat = "python",
+        query = "basic_measures",
+        metrics = config["CN"]["QUERIES"]["BASIC_MEASURES"]["METRICS"]
+    output:
+        "data/query/cn/python/output_basic_measures.csv"
+    script:
+        "../src/query/cn_entry.py"
+
+rule cn_research_question_extraction_with_cypher:
+    params:
+        database_group = config["CN"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"],
+        lat = "cypher",
+        query = "research_question_extraction",
+        keywords = config["CN"]["QUERIES"]["RESEARCH_QUESTION_EXTRACTION"]["KEYWORDS"]
+    output:
+        "data/query/cn/cypher/output_research_question_extraction.csv"
+    script:
+        "../src/query/cn_entry.py"
+
+rule cn_influential_paper_detection_by_degreecentrality_with_python:
+    input:
+        data = "data/query/cn/cypher/output_research_question_extraction.csv"
+    params:
+        lat = "python",
+        query = "influential_paper_detection_by_degreecentrality",
+        k = config["CN"]["QUERIES"]["INFLUENTIAL_PAPER_DETECTION_BY_DEGREECENTRALITY"]["K"]
+    output:
+        "data/query/cn/python/output_influential_paper_detection_by_degreecentrality.csv"
+    script:
+        "../src/query/cn_entry.py"

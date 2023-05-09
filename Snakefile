@@ -88,8 +88,28 @@ for graph in config["GRAPHS"]:
                 if query == "LOWEST_COMMON_ANCESTORS":
                     files_to_compute.extend(expand("data/report/{graph}/{max_hamming_number}/report_{query}_of_{pid1}_and_{pid2}_{lat}.html", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
 
+    if graph == "CN":
+        if config[graph]["DATA_SOURCE"]["CYPHER"]["LOAD_DATA"]:
+            # Select field of study (fos)
+            files_to_compute.extend(expand("data/raw/{graph}/dblp_v14_nlp.json", graph=graph.lower()))
+            # Load data into Neo4j
+            files_to_compute.extend(expand("data/raw/{graph}/cypher/load_{graph}_data_to_neo4j.done", graph=graph.lower()))
+        
+        # Query
+        for query in config[graph]["QUERIES"]["RUN"]:
+            files_to_compute.extend(expand("data/query/{graph}/{lat}/output_{query}.csv", graph=graph.lower(), lat=map(str.lower, config[graph]["QUERIES"][query]["LANGUAGES_AND_TOOLS"]), query=query.lower()))
+
+        if config[graph]["INFLUENTIAL_PAPERS"]["REPORT"]:
+            dq = config[graph]["INFLUENTIAL_PAPERS"]["DETECTION_QUERY"]
+            if dq not in config[graph]["QUERIES"]["RUN"]:
+                raise ValueError("Detection query {dq} need to be included in config[CN][QUERIES][RUN]".format(dq=dq))
+            if config[graph]["INFLUENTIAL_PAPERS"]["K"] > config[graph]["QUERIES"][dq]["K"]:
+                raise ValueError("[CN][INFLUENTIAL_PAPERS][K] MUST <= [CN][QUERIES][{dq}]".format(dq=dq))
+            files_to_compute.extend(expand("data/report/{dq}_k{k}.html", dq=dq.lower(), k=str(config[graph]["INFLUENTIAL_PAPERS"]["K"])))
+
 # Stats of the graphs
-files_to_compute.append("data/report/overall_stats_of_graphs.csv")
+if set({"MGDB", "FISH", "SAIL"}).intersection(set(config["GRAPHS"])):
+    files_to_compute.append("data/report/overall_stats_of_graphs.csv")
 
 rule all:
     input:

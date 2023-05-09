@@ -1,4 +1,4 @@
-GRAPHS: [MGDB, FISH, SAIL]
+GRAPHS: [CN]
 
 BENCHMARK:
   REPORT: True
@@ -107,3 +107,35 @@ SAIL:
     LOWEST_COMMON_ANCESTORS:
       PID1: 216
       PID2: 240
+
+# Citation Network
+CN:
+  DATA_SOURCE:
+    FOLDER_PATH: data/external/cn
+    CYPHER: 
+      DATABASE_GROUP: CN_NEO4J
+      LOAD_DATA: False # Set it to True if you run this code for the first time
+
+  QUERIES:
+    RUN: [BASIC_MEASURES, RESEARCH_QUESTION_EXTRACTION, INFLUENTIAL_PAPER_DETECTION_BY_DEGREECENTRALITY]
+    
+    # Available queries
+    BASIC_MEASURES:
+      METRICS: [numofnodes, numofedges, avgdegree, diameter, clusteringcoefficient, avgpathlength]
+      LANGUAGES_AND_TOOLS: [PYTHON]
+    
+    RESEARCH_QUESTION_EXTRACTION:
+      KEYWORDS: ["sentiment analysis"] # Lower case
+      LANGUAGES_AND_TOOLS: [CYPHER]
+
+    INFLUENTIAL_PAPER_DETECTION_BY_DEGREECENTRALITY:
+      K: 3 # Return top k influential papers
+      LANGUAGES_AND_TOOLS: [PYTHON]
+    
+  INFLUENTIAL_PAPERS:
+    REPORT: True
+    K: 3 # This value must be less or equal to [QUERIES][DETECTION_QUERY][K]
+    DETECTION_QUERY: INFLUENTIAL_PAPER_DETECTION_BY_DEGREECENTRALITY
+
+  # Available languages and tools
+  LANGUAGES_AND_TOOLS: [PYTHON, CYPHER]

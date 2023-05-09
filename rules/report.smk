@@ -157,3 +157,16 @@ rule report_sail_lowest_common_ancestors:
         "data/report/sail/{max_hamming_number}/report_lowest_common_ancestors_of_{pid1}_and_{pid2}_{lat}.html"
     script:
         "../src/report/report_output_per_query.py"
+
+# Report influential papers
+rule report_influential_papers:
+    input:
+        inflential_papers = "data/query/cn/python/output_{dq}.csv"
+    params:
+        dq = "{dq}",
+        k = "{k}",
+        database_group = config["CN"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"]
+    output:
+        "data/report/{dq}_k{k}.html"
+    shell:
+        "jupyter nbconvert --ExecutePreprocessor.kernel_name=gelato --to html --execute src/report/report_influential_papers.ipynb --output ../../data/report/{wildcards.dq}_k{wildcards.k}.html"

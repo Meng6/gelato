@@ -1,0 +1,7 @@
+metric,value
+numofnodes,296914
+numofedges,1070398
+avgdegree,7.21015512909462
+diameter,29
+clusteringcoefficient,0.025718678320538743
+avgpathlength,0.0022229915803527703

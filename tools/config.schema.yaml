@@ -7,6 +7,7 @@ required:
   - MGDB
   - FISH
   - SAIL
+  - CN
 
 properties:
 
@@ -15,7 +16,7 @@ properties:
     uniqueItems: True
     items:
       type: string
-      enum: [MGDB, FISH, SAIL]
+      enum: [MGDB, FISH, SAIL, CN]
   
   BENCHMARK:
     type: object
