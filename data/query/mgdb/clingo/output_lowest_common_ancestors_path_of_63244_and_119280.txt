@@ -1,0 +1,59 @@
+advisor_pid,advisor_name,student_pid,student_name
+143011,Nicolas Malebranche,54440,Jacob Bernoulli
+53410,Johann Bernoulli,38586,Leonhard Euler
+17864,Joseph Louis Lagrange,17865,Siméon Denis Poisson
+17864,Joseph Louis Lagrange,17981,Jean-Baptiste Joseph Fourier
+17946,Gustav Peter Lejeune Dirichlet,19964,Rudolf Otto Sigismund Lipschitz
+7401,C. Felix [Christian] Klein,7404,C. L. Ferdinand [Carl Louis] Lindemann
+5119,Alfred Loewy,234,Wolfgang Krull
+5119,Alfred Loewy,19950,Friedrich Karl Schmidt
+50689,Wilfried Brauer,95822,Wolfgang Wahlster
+20296,Robert W. Berger,58560,Wolffried Stucky
+66006,Bernhard Nebel,63244,Bertram Ludäscher
+63188,Georg Lausen,63244,Bertram Ludäscher
+95822,Wolfgang Wahlster,66006,Bernhard Nebel
+58560,Wolffried Stucky,63188,Georg Lausen
+234,Wolfgang Krull,50689,Wilfried Brauer
+19950,Friedrich Karl Schmidt,20296,Robert W. Berger
+7404,C. L. Ferdinand [Carl Louis] Lindemann,5119,Alfred Loewy
+19964,Rudolf Otto Sigismund Lipschitz,7401,C. Felix [Christian] Klein
+17865,Siméon Denis Poisson,17946,Gustav Peter Lejeune Dirichlet
+17981,Jean-Baptiste Joseph Fourier,17946,Gustav Peter Lejeune Dirichlet
+38586,Leonhard Euler,17864,Joseph Louis Lagrange
+54440,Jacob Bernoulli,53410,Johann Bernoulli
+60985,Gottfried Wilhelm Leibniz,143011,Nicolas Malebranche
+124000,Rudolf Wilhelm Krause,125971,Simon Paul Hilscher
+60782,Johann Andreas Segner,127668,Johann Georg Büsch
+127710,Johann Elert Bode,18230,Johann Friedrich Pfaff
+18231,Carl Friedrich Gauß,29642,Christian Ludwig Gerling
+7402,Julius Plücker,7401,C. Felix [Christian] Klein
+29642,Christian Ludwig Gerling,7402,Julius Plücker
+18230,Johann Friedrich Pfaff,18231,Carl Friedrich Gauß
+127668,Johann Georg Büsch,127710,Johann Elert Bode
+125971,Simon Paul Hilscher,60782,Johann Andreas Segner
+101860,Franciscus de le Boë Sylvius,124000,Rudolf Wilhelm Krause
+128046,Johann Pasch,128986,Johann Andreas Planer
+57670,Christian August Hausen,66476,Abraham Gotthelf Kästner
+47025,Karl Christian von Langsdorf,47064,Martin Ohm
+47064,Martin Ohm,19964,Rudolf Otto Sigismund Lipschitz
+66476,Abraham Gotthelf Kästner,47025,Karl Christian von Langsdorf
+128986,Johann Andreas Planer,57670,Christian August Hausen
+127962,Michael d. J. Walther,128046,Johann Pasch
+47793,Christian M. von Wolff,106922,Martin Knutzen
+106921,Immanuel Kant,35141,Karl Reinhold
+60803,Friedrich Adolf Trendelenburg,95530,George Sylvester Morris
+24410,Josiah Royce,105777,Clarence Irving Lewis
+105778,Roderick Milton Chisholm,119280,Allen Hume Renear
+105777,Clarence Irving Lewis,105778,Roderick Milton Chisholm
+95530,George Sylvester Morris,24410,Josiah Royce
+35141,Karl Reinhold,60803,Friedrich Adolf Trendelenburg
+106922,Martin Knutzen,106921,Immanuel Kant
+60985,Gottfried Wilhelm Leibniz,47793,Christian M. von Wolff
+113719,Ehrenfried Walter von Tschirnhaus,47793,Christian M. von Wolff
+101860,Franciscus de le Boë Sylvius,113719,Ehrenfried Walter von Tschirnhaus
+127646,Johann Franz Buddeus,127647,Johann Matthias Gesner
+126119,Johann August Ernesti,126124,Christian Gottlob Heyne
+126894,Georg Ludwig König,60803,Friedrich Adolf Trendelenburg
+126124,Christian Gottlob Heyne,126894,Georg Ludwig König
+127647,Johann Matthias Gesner,126119,Johann August Ernesti
+127962,Michael d. J. Walther,127646,Johann Franz Buddeus

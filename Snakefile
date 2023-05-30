@@ -41,7 +41,7 @@ for graph in config["GRAPHS"]:
                     files_to_compute.extend(expand("data/query/{graph}/bashlog/{query}_for_{pid}.sh", graph=graph.lower(), query=query.lower(), pid=config[graph]["QUERIES"][query]["PIDS"]))
                 files_to_compute.extend(expand("data/query/{graph}/{lat}/output_{query}_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid=config[graph]["QUERIES"][query]["PIDS"]))
                 files_to_compute.extend(expand("data/query/{graph}/{lat}/benchmark_{query}_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid=config[graph]["QUERIES"][query]["PIDS"]))
-            if query == "LOWEST_COMMON_ANCESTORS":
+            if query in ["LOWEST_COMMON_ANCESTORS", "LOWEST_COMMON_ANCESTORS_PATH"]:
                 if "BASHLOG" in config[graph]["LANGUAGES_AND_TOOLS"]:
                     files_to_compute.extend(expand("data/query/{graph}/bashlog/{query}_of_{pid1}_and_{pid2}.dlog", graph=graph.lower(), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
                     files_to_compute.extend(expand("data/query/{graph}/bashlog/{query}_of_{pid1}_and_{pid2}.sh", graph=graph.lower(), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
@@ -55,7 +55,7 @@ for graph in config["GRAPHS"]:
             for query in config[graph]["QUERIES"]["RUN"]:
                 if query in ["UNARY_SEARCH_ANCESTORS", "BINARY_SEARCH_ANCESTORS", "UNARY_SEARCH_DESCENDANTS", "BINARY_SEARCH_DESCENDANTS"]:
                     files_to_compute.extend(expand("data/report/{graph}/report_{query}_for_{pid}_{lat}.html", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid=config[graph]["QUERIES"][query]["PIDS"]))
-                if query == "LOWEST_COMMON_ANCESTORS":
+                if query in ["LOWEST_COMMON_ANCESTORS", "LOWEST_COMMON_ANCESTORS_PATH"]:
                     files_to_compute.extend(expand("data/report/{graph}/report_{query}_of_{pid1}_and_{pid2}_{lat}.html", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
 
 

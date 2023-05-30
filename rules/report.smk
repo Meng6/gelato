@@ -157,3 +157,17 @@ rule report_sail_lowest_common_ancestors:
         "data/report/sail/{max_hamming_number}/report_lowest_common_ancestors_of_{pid1}_and_{pid2}_{lat}.html"
     script:
         "../src/report/report_output_per_query.py"
+
+# Lowest common ancestors path
+rule report_mgdb_lowest_common_ancestors_path:
+    input:
+        formated_data = "data/query/mgdb/{lat}/output_lowest_common_ancestors_path_of_{pid1}_and_{pid2}.txt"
+    params:
+        query = "lowest_common_ancestors_path",
+        edge = [["student_name", "advisor_name"]],
+        include_interactive_table = config["OUTPUT_PER_QUERY"]["INCLUDE_INTERACTIVE_TABLE"],
+        include_network_graph = config["OUTPUT_PER_QUERY"]["INCLUDE_NETWORK_GRAPH"]
+    output:
+        "data/report/mgdb/report_lowest_common_ancestors_path_of_{pid1}_and_{pid2}_{lat}.html"
+    script:
+        "../src/report/report_output_per_query.py"

@@ -715,3 +715,35 @@ rule sail_lowest_common_ancestors_with_bashlog:
     threads: workflow.cores
     shell:
         "bash data/query/sail/{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
+
+# Lowest common ancestors path
+rule mgdb_lowest_common_ancestors_path_with_cypher:
+    input:
+        optional_mgdb_cypher_input
+    params:
+        pid1 = "{pid1}",
+        pid2 = "{pid2}",
+        database_group = config["MGDB"]["DATA_SOURCE"]["CYPHER"]["DATABASE_GROUP"],
+        lat = "cypher",
+        query = "lowest_common_ancestors_path"
+    output:
+        "data/query/mgdb/cypher/output_lowest_common_ancestors_path_of_{pid1}_and_{pid2}.txt"
+    benchmark:
+        repeat("data/query/mgdb/cypher/benchmark_lowest_common_ancestors_path_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+rule mgdb_lowest_common_ancestors_path_with_clingo:
+    input:
+        facts = "data/raw/mgdb/clingo/facts.tsv"
+    params:
+        pid1 = "{pid1}",
+        pid2 = "{pid2}",
+        lat = "clingo",
+        query = "lowest_common_ancestors_path"
+    output:
+        "data/query/mgdb/clingo/output_lowest_common_ancestors_path_of_{pid1}_and_{pid2}.txt"
+    benchmark:
+        repeat("data/query/mgdb/clingo/benchmark_lowest_common_ancestors_path_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
