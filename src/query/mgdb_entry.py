@@ -94,6 +94,23 @@ def clingo_entry(*args, **kwargs):
 
     return data, columns
 
+def logica_entry(*args, **kwargs):
+
+    from mgdb import logica_main
+    import subprocess
+
+    # Query
+    logica_script_path = snakemake.output[0].replace("output_", "").replace("txt", "l")
+    with open(logica_script_path, mode="w", encoding="utf-8") as logica_script:
+        query_function = getattr(logica_main, snakemake.params["query"])
+        (logica_query, output_name, columns) = query_function(snakemake.params, snakemake.input["database"])
+        logica_script.write(logica_query)
+
+    # Execute logica
+    logica_output = subprocess.run(["logica", logica_script_path, "run", output_name], capture_output=True, text=True).stdout
+    data = [[e.strip() for e in row.split("|")[1:-1]] for row in logica_output.split("\n")[3:-2]]
+
+    return data, columns
 
 # Load credentials
 if "database_group" in snakemake.params.keys():

@@ -70,7 +70,7 @@ properties:
         uniqueItems: True
         items:
           type: string
-          enum: [PYTHON, SQL, CYPHER, SPARQL, CLINGO, BASHLOG]
+          enum: [PYTHON, SQL, CYPHER, SPARQL, CLINGO, BASHLOG, LOGICA]
       QUERIES:
         type: object
         required: [RUN, UNARY_SEARCH_ANCESTORS, BINARY_SEARCH_ANCESTORS, UNARY_SEARCH_DESCENDANTS]

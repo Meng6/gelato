@@ -16,7 +16,7 @@ def format_output(data, columns, lat):
 
     if lat == "python" or lat == "cypher":
         formated_data = data
-    elif lat == "sql":
+    elif lat == "sql" or lat == "logica":
         formated_data = pd.DataFrame(data=data, columns=columns)
     elif lat == "sparql":
         formated_data = pd.DataFrame(data).applymap(lambda x: x["value"].replace("http://MGDB.com/p", ""))
