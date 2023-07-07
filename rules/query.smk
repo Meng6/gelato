@@ -368,6 +368,22 @@ rule mgdb_unary_search_ancestors_with_logica:
     script:
         "../src/query/mgdb_entry.py"
 
+rule mgdb_binary_search_ancestors_with_logica:
+    input:
+        database = "data/external/mgdb/mgdb.db"
+    params:
+        pid = "{pid}",
+        lat = "logica",
+        query = "binary_search_ancestors"
+    output:
+        "data/query/mgdb/logica/output_binary_search_ancestors_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/logica/benchmark_binary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+
+
 # Search descendants
 rule mgdb_unary_search_descendants_with_python:
     input:
@@ -551,6 +567,36 @@ rule mgdb_binary_search_descendants_with_bashlog:
     shell:
         "bash data/query/mgdb/bashlog/binary_search_descendants_for_{wildcards.pid}.sh &> {output}"
 
+
+rule mgdb_unary_search_descendants_with_logica:
+    input:
+        database = "data/external/mgdb/mgdb.db"
+    params:
+        pid = "{pid}",
+        lat = "logica",
+        query = "unary_search_descendants"
+    output:
+        "data/query/mgdb/logica/output_unary_search_descendants_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/logica/benchmark_unary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+rule mgdb_binary_search_descendants_with_logica:
+    input:
+        database = "data/external/mgdb/mgdb.db"
+    params:
+        pid = "{pid}",
+        lat = "logica",
+        query = "binary_search_descendants"
+    output:
+        "data/query/mgdb/logica/output_binary_search_descendants_for_{pid}.txt"
+    benchmark:
+        repeat("data/query/mgdb/logica/benchmark_binary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+
 # Lowest common ancestors
 rule mgdb_lowest_common_ancestors_with_python:
     input:
@@ -629,6 +675,21 @@ rule mgdb_lowest_common_ancestors_with_clingo:
         "data/query/mgdb/clingo/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
     benchmark:
         repeat("data/query/mgdb/clingo/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
+rule mgdb_lowest_common_ancestors_with_logica:
+    input:
+        database = "data/external/mgdb/mgdb.db"
+    params:
+        pid1 = "{pid1}",
+        pid2 = "{pid2}",
+        lat = "logica",
+        query = "lowest_common_ancestors"
+    output:
+        "data/query/mgdb/logica/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+    benchmark:
+        repeat("data/query/mgdb/logica/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/mgdb_entry.py"
 
