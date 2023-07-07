@@ -1,0 +1,4741 @@
+
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>binary_search_ancestors</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      </head>
+      <body>
+        <div class="container">
+            
+            <h3 style="color: #2E6F9F">An interactive table of binary_search_ancestors</h3>
+            <div id="toolbar">
+                <select class="form-control">
+                        <option value="">Export Data</option>
+                        <option value="all">Export All</option>
+                        <option value="selected">Export Selected</option>
+                </select>
+            </div>
+            <table id="table" data-toggle="table" data-height="460" data-search="true" data-filter-control="true" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar" class="table-responsive">
+                <thead>
+                    <tr>
+                        <th data-checkbox="true"></th>
+                        
+                            <th data-field="student_id" data-filter-control="select" data-sortable="true">student_id</th>
+                        
+                            <th data-field="student_name" data-filter-control="select" data-sortable="true">student_name</th>
+                        
+                            <th data-field="advisor_id" data-filter-control="select" data-sortable="true">advisor_id</th>
+                        
+                            <th data-field="advisor_name" data-filter-control="select" data-sortable="true">advisor_name</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="0" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>50689</td>
+                        
+                        <td>Wilfried Brauer</td>
+                        
+                        <td>234</td>
+                        
+                        <td>Wolfgang Krull</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>234</td>
+                        
+                        <td>Wolfgang Krull</td>
+                        
+                        <td>5119</td>
+                        
+                        <td>Alfred Loewy</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>19950</td>
+                        
+                        <td>Friedrich Karl Schmidt</td>
+                        
+                        <td>5119</td>
+                        
+                        <td>Alfred Loewy</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="3" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>7379</td>
+                        
+                        <td>Erich Hecke</td>
+                        
+                        <td>7298</td>
+                        
+                        <td>David Hilbert</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="4" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>7401</td>
+                        
+                        <td>C. Felix (Christian) Klein</td>
+                        
+                        <td>7402</td>
+                        
+                        <td>Julius Plücker</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="5" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>15252</td>
+                        
+                        <td>Kurt Reidemeister</td>
+                        
+                        <td>7379</td>
+                        
+                        <td>Erich Hecke</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="6" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>19964</td>
+                        
+                        <td>Rudolf Otto Sigismund Lipschitz</td>
+                        
+                        <td>17946</td>
+                        
+                        <td>Gustav Peter Lejeune Dirichlet</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="7" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>17946</td>
+                        
+                        <td>Gustav Peter Lejeune Dirichlet</td>
+                        
+                        <td>17865</td>
+                        
+                        <td>Siméon Denis Poisson</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="8" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>17865</td>
+                        
+                        <td>Siméon Denis Poisson</td>
+                        
+                        <td>17864</td>
+                        
+                        <td>Joseph Louis Lagrange</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="9" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>17981</td>
+                        
+                        <td>Jean-Baptiste Joseph Fourier</td>
+                        
+                        <td>17864</td>
+                        
+                        <td>Joseph Louis Lagrange</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="10" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>17946</td>
+                        
+                        <td>Gustav Peter Lejeune Dirichlet</td>
+                        
+                        <td>17981</td>
+                        
+                        <td>Jean-Baptiste Joseph Fourier</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="11" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>18231</td>
+                        
+                        <td>Carl Friedrich Gauß</td>
+                        
+                        <td>18230</td>
+                        
+                        <td>Johann Friedrich Pfaff</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="12" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>7401</td>
+                        
+                        <td>C. Felix (Christian) Klein</td>
+                        
+                        <td>19964</td>
+                        
+                        <td>Rudolf Otto Sigismund Lipschitz</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="13" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>20296</td>
+                        
+                        <td>Robert W. Berger</td>
+                        
+                        <td>19950</td>
+                        
+                        <td>Friedrich Karl Schmidt</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="14" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>58560</td>
+                        
+                        <td>Wolffried Stucky</td>
+                        
+                        <td>20296</td>
+                        
+                        <td>Robert W. Berger</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="15" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>72669</td>
+                        
+                        <td>Johann Christoph Wichmannshausen</td>
+                        
+                        <td>21235</td>
+                        
+                        <td>Otto Mencke</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="16" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>7402</td>
+                        
+                        <td>Julius Plücker</td>
+                        
+                        <td>29642</td>
+                        
+                        <td>Christian Ludwig Gerling</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="17" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>17864</td>
+                        
+                        <td>Joseph Louis Lagrange</td>
+                        
+                        <td>38586</td>
+                        
+                        <td>Leonhard Euler</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="18" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>19964</td>
+                        
+                        <td>Rudolf Otto Sigismund Lipschitz</td>
+                        
+                        <td>47064</td>
+                        
+                        <td>Martin Ohm</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="19" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>47064</td>
+                        
+                        <td>Martin Ohm</td>
+                        
+                        <td>47025</td>
+                        
+                        <td>Karl Christian von Langsdorf</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="20" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>95822</td>
+                        
+                        <td>Wolfgang Wahlster</td>
+                        
+                        <td>50689</td>
+                        
+                        <td>Wilfried Brauer</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="21" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>38586</td>
+                        
+                        <td>Leonhard Euler</td>
+                        
+                        <td>53410</td>
+                        
+                        <td>Johann Bernoulli</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="22" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>53410</td>
+                        
+                        <td>Johann Bernoulli</td>
+                        
+                        <td>54440</td>
+                        
+                        <td>Jacob Bernoulli</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="23" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>66476</td>
+                        
+                        <td>Abraham Gotthelf Kästner</td>
+                        
+                        <td>57670</td>
+                        
+                        <td>Christian August Hausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="24" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127668</td>
+                        
+                        <td>Johann Georg Büsch</td>
+                        
+                        <td>60782</td>
+                        
+                        <td>Johann Andreas Segner</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="25" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>60985</td>
+                        
+                        <td>Gottfried Wilhelm Leibniz</td>
+                        
+                        <td>60984</td>
+                        
+                        <td>Erhard Weigel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="26" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>143011</td>
+                        
+                        <td>Nicolas Malebranche</td>
+                        
+                        <td>60985</td>
+                        
+                        <td>Gottfried Wilhelm Leibniz</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="27" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>5119</td>
+                        
+                        <td>Alfred Loewy</td>
+                        
+                        <td>61850</td>
+                        
+                        <td>Gustav Conrad Bauer</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="28" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="29" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63244</td>
+                        
+                        <td>Bertram Ludäscher</td>
+                        
+                        <td>66006</td>
+                        
+                        <td>Bernhard Nebel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="30" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>18230</td>
+                        
+                        <td>Johann Friedrich Pfaff</td>
+                        
+                        <td>66476</td>
+                        
+                        <td>Abraham Gotthelf Kästner</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="31" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>47025</td>
+                        
+                        <td>Karl Christian von Langsdorf</td>
+                        
+                        <td>66476</td>
+                        
+                        <td>Abraham Gotthelf Kästner</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="32" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128938</td>
+                        
+                        <td>Rudolf Jakob Camerarius</td>
+                        
+                        <td>76481</td>
+                        
+                        <td>Elias Rudolph Camerarius, Sr.</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="33" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>66006</td>
+                        
+                        <td>Bernhard Nebel</td>
+                        
+                        <td>95822</td>
+                        
+                        <td>Wolfgang Wahlster</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="34" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>17865</td>
+                        
+                        <td>Siméon Denis Poisson</td>
+                        
+                        <td>108295</td>
+                        
+                        <td>Pierre-Simon Laplace</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="35" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>108295</td>
+                        
+                        <td>Pierre-Simon Laplace</td>
+                        
+                        <td>108266</td>
+                        
+                        <td>Jean Le Rond d'Alembert</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="36" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125023</td>
+                        
+                        <td>Adolph Vorstius</td>
+                        
+                        <td>114992</td>
+                        
+                        <td>Gilbert Jacchaeus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="37" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125303</td>
+                        
+                        <td>Matteo Realdo (Renaldus Columbus) Colombo</td>
+                        
+                        <td>119178</td>
+                        
+                        <td>Andreas (Andries van Wesel) Vesalius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="38" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>119178</td>
+                        
+                        <td>Andreas (Andries van Wesel) Vesalius</td>
+                        
+                        <td>119159</td>
+                        
+                        <td>Johannes Winter von Andernach</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="39" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125665</td>
+                        
+                        <td>Johannes (Johann Sturm) Sturmius</td>
+                        
+                        <td>119159</td>
+                        
+                        <td>Johannes Winter von Andernach</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="40" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>158329</td>
+                        
+                        <td>Guillaume Rondelet</td>
+                        
+                        <td>119159</td>
+                        
+                        <td>Johannes Winter von Andernach</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="41" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125023</td>
+                        
+                        <td>Adolph Vorstius</td>
+                        
+                        <td>125006</td>
+                        
+                        <td>Adriaan van den Spieghel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="42" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125154</td>
+                        
+                        <td>Werner Rolfinck</td>
+                        
+                        <td>125006</td>
+                        
+                        <td>Adriaan van den Spieghel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="43" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>101860</td>
+                        
+                        <td>Franciscus de le Boë Sylvius</td>
+                        
+                        <td>125023</td>
+                        
+                        <td>Adolph Vorstius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="44" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125006</td>
+                        
+                        <td>Adriaan van den Spieghel</td>
+                        
+                        <td>125109</td>
+                        
+                        <td>Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="45" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127252</td>
+                        
+                        <td>Salomon Alberti</td>
+                        
+                        <td>125109</td>
+                        
+                        <td>Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="46" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127278</td>
+                        
+                        <td>Jan Jessenius</td>
+                        
+                        <td>125109</td>
+                        
+                        <td>Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="47" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125488</td>
+                        
+                        <td>Georg Wolffgang Wedel</td>
+                        
+                        <td>125154</td>
+                        
+                        <td>Werner Rolfinck</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="48" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>182089</td>
+                        
+                        <td>Gottfried Möbius</td>
+                        
+                        <td>125154</td>
+                        
+                        <td>Werner Rolfinck</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="49" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125148</td>
+                        
+                        <td>Theodor Zwinger</td>
+                        
+                        <td>125047</td>
+                        
+                        <td>Petrus (Pierre de La Ramée) Ramus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="50" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>182088</td>
+                        
+                        <td>Johann Jakob von Brunn</td>
+                        
+                        <td>125048</td>
+                        
+                        <td>Johannes Nicolaus Stupanus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="51" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125181</td>
+                        
+                        <td>Rudolph (Snel van Royen) Snellius</td>
+                        
+                        <td>125160</td>
+                        
+                        <td>Valentine Naibod</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="52" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125181</td>
+                        
+                        <td>Rudolph (Snel van Royen) Snellius</td>
+                        
+                        <td>125159</td>
+                        
+                        <td>Immanuel Tremellius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="53" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127098</td>
+                        
+                        <td>Johannes Kepler</td>
+                        
+                        <td>125379</td>
+                        
+                        <td>Tycho (Tyge Ottesen) Brahe</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="54" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127606</td>
+                        
+                        <td>Ambrosius Rhodius</td>
+                        
+                        <td>125379</td>
+                        
+                        <td>Tycho (Tyge Ottesen) Brahe</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="55" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125450</td>
+                        
+                        <td>Frans van Schooten, Jr.</td>
+                        
+                        <td>125408</td>
+                        
+                        <td>Jacobus Golius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="56" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>145708</td>
+                        
+                        <td>Hiob Ludolf</td>
+                        
+                        <td>125408</td>
+                        
+                        <td>Jacobus Golius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="57" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125142</td>
+                        
+                        <td>Gabriele Falloppio</td>
+                        
+                        <td>125303</td>
+                        
+                        <td>Matteo Realdo (Renaldus Columbus) Colombo</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="58" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125846</td>
+                        
+                        <td>Johann Adolph Wedel</td>
+                        
+                        <td>125488</td>
+                        
+                        <td>Georg Wolffgang Wedel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="59" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125450</td>
+                        
+                        <td>Frans van Schooten, Jr.</td>
+                        
+                        <td>125434</td>
+                        
+                        <td>Marin Mersenne</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="60" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125561</td>
+                        
+                        <td>Christiaan Huygens</td>
+                        
+                        <td>125450</td>
+                        
+                        <td>Frans van Schooten, Jr.</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="61" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>60985</td>
+                        
+                        <td>Gottfried Wilhelm Leibniz</td>
+                        
+                        <td>125561</td>
+                        
+                        <td>Christiaan Huygens</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="62" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125047</td>
+                        
+                        <td>Petrus (Pierre de La Ramée) Ramus</td>
+                        
+                        <td>125665</td>
+                        
+                        <td>Johannes (Johann Sturm) Sturmius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="63" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127020</td>
+                        
+                        <td>Samuel Heyland</td>
+                        
+                        <td>125665</td>
+                        
+                        <td>Johannes (Johann Sturm) Sturmius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="64" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127039</td>
+                        
+                        <td>Philipp Apian</td>
+                        
+                        <td>125665</td>
+                        
+                        <td>Johannes (Johann Sturm) Sturmius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="65" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125665</td>
+                        
+                        <td>Johannes (Johann Sturm) Sturmius</td>
+                        
+                        <td>125658</td>
+                        
+                        <td>Nicolas (Nicolaes Cleynaerts) Clénard</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="66" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125682</td>
+                        
+                        <td>Jan (Johannes Campensis) van Campen</td>
+                        
+                        <td>125760</td>
+                        
+                        <td>Johann (Johannes Kapnion) Reuchlin</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="67" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126956</td>
+                        
+                        <td>Philipp Melanchthon</td>
+                        
+                        <td>125760</td>
+                        
+                        <td>Johann (Johannes Kapnion) Reuchlin</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="68" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>182045</td>
+                        
+                        <td>Simon Grynaeus</td>
+                        
+                        <td>125760</td>
+                        
+                        <td>Johann (Johannes Kapnion) Reuchlin</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="69" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125760</td>
+                        
+                        <td>Johann (Johannes Kapnion) Reuchlin</td>
+                        
+                        <td>125755</td>
+                        
+                        <td>Jacob ben Jehiel Loans</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="70" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>60782</td>
+                        
+                        <td>Johann Andreas Segner</td>
+                        
+                        <td>125886</td>
+                        
+                        <td>Georg Erhard Hamberger</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="71" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125886</td>
+                        
+                        <td>Georg Erhard Hamberger</td>
+                        
+                        <td>125846</td>
+                        
+                        <td>Johann Adolph Wedel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="72" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125681</td>
+                        
+                        <td>Jacobus (Jacques Masson) Latomus</td>
+                        
+                        <td>125888</td>
+                        
+                        <td>Jan Standonck</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="73" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125938</td>
+                        
+                        <td>Desiderius Erasmus</td>
+                        
+                        <td>125888</td>
+                        
+                        <td>Jan Standonck</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="74" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125938</td>
+                        
+                        <td>Desiderius Erasmus</td>
+                        
+                        <td>125898</td>
+                        
+                        <td>Alexander Hegius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="75" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125894</td>
+                        
+                        <td>Maarten (Martinus Dorpius) van Dorp</td>
+                        
+                        <td>125897</td>
+                        
+                        <td>Leo Outers</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="76" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>60782</td>
+                        
+                        <td>Johann Andreas Segner</td>
+                        
+                        <td>125971</td>
+                        
+                        <td>Simon Paul Hilscher</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="77" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126667</td>
+                        
+                        <td>Jakob Milich</td>
+                        
+                        <td>125938</td>
+                        
+                        <td>Desiderius Erasmus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="78" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131399</td>
+                        
+                        <td>Wolfgang Fabricius Capito</td>
+                        
+                        <td>125938</td>
+                        
+                        <td>Desiderius Erasmus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="79" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>114992</td>
+                        
+                        <td>Gilbert Jacchaeus</td>
+                        
+                        <td>126489</td>
+                        
+                        <td>Jacobus (Jacob Harmensz.) Arminius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="80" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125160</td>
+                        
+                        <td>Valentine Naibod</td>
+                        
+                        <td>126736</td>
+                        
+                        <td>Erasmus Reinhold</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="81" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126875</td>
+                        
+                        <td>Caspar Peucer</td>
+                        
+                        <td>126736</td>
+                        
+                        <td>Erasmus Reinhold</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="82" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126957</td>
+                        
+                        <td>Sebastian (Theodoricus) Dietrich</td>
+                        
+                        <td>126736</td>
+                        
+                        <td>Erasmus Reinhold</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="83" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127011</td>
+                        
+                        <td>Johannes Hommel</td>
+                        
+                        <td>126736</td>
+                        
+                        <td>Erasmus Reinhold</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="84" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127110</td>
+                        
+                        <td>Michael Beuther</td>
+                        
+                        <td>126736</td>
+                        
+                        <td>Erasmus Reinhold</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="85" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126827</td>
+                        
+                        <td>Georg Joachim von Leuchen Rheticus</td>
+                        
+                        <td>126730</td>
+                        
+                        <td>Johannes Volmar</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="86" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126875</td>
+                        
+                        <td>Caspar Peucer</td>
+                        
+                        <td>126827</td>
+                        
+                        <td>Georg Joachim von Leuchen Rheticus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="87" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126957</td>
+                        
+                        <td>Sebastian (Theodoricus) Dietrich</td>
+                        
+                        <td>126827</td>
+                        
+                        <td>Georg Joachim von Leuchen Rheticus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="88" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127061</td>
+                        
+                        <td>Valentin (Valentinus Otho) Otto</td>
+                        
+                        <td>126827</td>
+                        
+                        <td>Georg Joachim von Leuchen Rheticus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="89" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127790</td>
+                        
+                        <td>Moritz Valentin Steinmetz</td>
+                        
+                        <td>126827</td>
+                        
+                        <td>Georg Joachim von Leuchen Rheticus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="90" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126112</td>
+                        
+                        <td>Domenico Maria Novara da Ferrara</td>
+                        
+                        <td>126888</td>
+                        
+                        <td>Luca Pacioli</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="91" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127098</td>
+                        
+                        <td>Johannes Kepler</td>
+                        
+                        <td>127049</td>
+                        
+                        <td>Michael Maestlin</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="92" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127011</td>
+                        
+                        <td>Johannes Hommel</td>
+                        
+                        <td>126956</td>
+                        
+                        <td>Philipp Melanchthon</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="93" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127110</td>
+                        
+                        <td>Michael Beuther</td>
+                        
+                        <td>126956</td>
+                        
+                        <td>Philipp Melanchthon</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="94" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128104</td>
+                        
+                        <td>Johannes Caselius</td>
+                        
+                        <td>126956</td>
+                        
+                        <td>Philipp Melanchthon</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="95" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>182045</td>
+                        
+                        <td>Simon Grynaeus</td>
+                        
+                        <td>126956</td>
+                        
+                        <td>Philipp Melanchthon</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="96" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127275</td>
+                        
+                        <td>Andreas Schato</td>
+                        
+                        <td>126957</td>
+                        
+                        <td>Sebastian (Theodoricus) Dietrich</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="97" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127049</td>
+                        
+                        <td>Michael Maestlin</td>
+                        
+                        <td>127020</td>
+                        
+                        <td>Samuel Heyland</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="98" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127049</td>
+                        
+                        <td>Michael Maestlin</td>
+                        
+                        <td>127039</td>
+                        
+                        <td>Philipp Apian</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="99" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127092</td>
+                        
+                        <td>Valentin Thau</td>
+                        
+                        <td>127011</td>
+                        
+                        <td>Johannes Hommel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="100" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127606</td>
+                        
+                        <td>Ambrosius Rhodius</td>
+                        
+                        <td>127098</td>
+                        
+                        <td>Johannes Kepler</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="101" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127459</td>
+                        
+                        <td>Melchior Jöstel</td>
+                        
+                        <td>127061</td>
+                        
+                        <td>Valentin (Valentinus Otho) Otto</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="102" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125379</td>
+                        
+                        <td>Tycho (Tyge Ottesen) Brahe</td>
+                        
+                        <td>127092</td>
+                        
+                        <td>Valentin Thau</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="103" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128348</td>
+                        
+                        <td>Paul Wittich</td>
+                        
+                        <td>127092</td>
+                        
+                        <td>Valentin Thau</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="104" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126956</td>
+                        
+                        <td>Philipp Melanchthon</td>
+                        
+                        <td>127107</td>
+                        
+                        <td>Johannes Stöffler</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="105" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127459</td>
+                        
+                        <td>Melchior Jöstel</td>
+                        
+                        <td>127275</td>
+                        
+                        <td>Andreas Schato</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="106" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127461</td>
+                        
+                        <td>Ernestus Hettenbach</td>
+                        
+                        <td>127275</td>
+                        
+                        <td>Andreas Schato</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="107" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127275</td>
+                        
+                        <td>Andreas Schato</td>
+                        
+                        <td>127252</td>
+                        
+                        <td>Salomon Alberti</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="108" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127461</td>
+                        
+                        <td>Ernestus Hettenbach</td>
+                        
+                        <td>127252</td>
+                        
+                        <td>Salomon Alberti</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="109" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125142</td>
+                        
+                        <td>Gabriele Falloppio</td>
+                        
+                        <td>127245</td>
+                        
+                        <td>Antonio Musa Brasavola</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="110" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126111</td>
+                        
+                        <td>Daniel Sennert</td>
+                        
+                        <td>127278</td>
+                        
+                        <td>Jan Jessenius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="111" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126887</td>
+                        
+                        <td>Johannes von Gmunden</td>
+                        
+                        <td>127264</td>
+                        
+                        <td>Heinrich von Langenstein</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="112" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127734</td>
+                        
+                        <td>Nicolaus Zapf</td>
+                        
+                        <td>127424</td>
+                        
+                        <td>Erasmus Schmidt</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="113" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127606</td>
+                        
+                        <td>Ambrosius Rhodius</td>
+                        
+                        <td>127459</td>
+                        
+                        <td>Melchior Jöstel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="114" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127606</td>
+                        
+                        <td>Ambrosius Rhodius</td>
+                        
+                        <td>127461</td>
+                        
+                        <td>Ernestus Hettenbach</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="115" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127710</td>
+                        
+                        <td>Johann Elert Bode</td>
+                        
+                        <td>127668</td>
+                        
+                        <td>Johann Georg Büsch</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="116" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>18230</td>
+                        
+                        <td>Johann Friedrich Pfaff</td>
+                        
+                        <td>127710</td>
+                        
+                        <td>Johann Elert Bode</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="117" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127956</td>
+                        
+                        <td>Johann Andreas Quenstedt</td>
+                        
+                        <td>127724</td>
+                        
+                        <td>Christoph Nottnagel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="118" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127962</td>
+                        
+                        <td>Michael d. J. Walther</td>
+                        
+                        <td>127801</td>
+                        
+                        <td>Aegidius Strauch</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="119" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127801</td>
+                        
+                        <td>Aegidius Strauch</td>
+                        
+                        <td>127734</td>
+                        
+                        <td>Nicolaus Zapf</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="120" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127898</td>
+                        
+                        <td>Sethus Calvisius</td>
+                        
+                        <td>127790</td>
+                        
+                        <td>Moritz Valentin Steinmetz</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="121" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>144220</td>
+                        
+                        <td>Christoph Meurer</td>
+                        
+                        <td>127790</td>
+                        
+                        <td>Moritz Valentin Steinmetz</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="122" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126111</td>
+                        
+                        <td>Daniel Sennert</td>
+                        
+                        <td>127848</td>
+                        
+                        <td>Jacobus Martini</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="123" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127734</td>
+                        
+                        <td>Nicolaus Zapf</td>
+                        
+                        <td>127848</td>
+                        
+                        <td>Jacobus Martini</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="124" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128046</td>
+                        
+                        <td>Johann Pasch</td>
+                        
+                        <td>127962</td>
+                        
+                        <td>Michael d. J. Walther</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="125" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127962</td>
+                        
+                        <td>Michael d. J. Walther</td>
+                        
+                        <td>127956</td>
+                        
+                        <td>Johann Andreas Quenstedt</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="126" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127424</td>
+                        
+                        <td>Erasmus Schmidt</td>
+                        
+                        <td>127898</td>
+                        
+                        <td>Sethus Calvisius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="127" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127424</td>
+                        
+                        <td>Erasmus Schmidt</td>
+                        
+                        <td>127942</td>
+                        
+                        <td>Petrus Otto</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="128" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127898</td>
+                        
+                        <td>Sethus Calvisius</td>
+                        
+                        <td>127864</td>
+                        
+                        <td>Nikolaus Selnecker</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="129" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128986</td>
+                        
+                        <td>Johann Andreas Planer</td>
+                        
+                        <td>128046</td>
+                        
+                        <td>Johann Pasch</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="130" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125898</td>
+                        
+                        <td>Alexander Hegius</td>
+                        
+                        <td>128012</td>
+                        
+                        <td>Rudolf Agricola</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="131" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127956</td>
+                        
+                        <td>Johann Andreas Quenstedt</td>
+                        
+                        <td>128097</td>
+                        
+                        <td>Georg Calixt</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="132" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>114992</td>
+                        
+                        <td>Gilbert Jacchaeus</td>
+                        
+                        <td>128122</td>
+                        
+                        <td>Duncan Liddel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="133" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128105</td>
+                        
+                        <td>Cornelius Martini</td>
+                        
+                        <td>128122</td>
+                        
+                        <td>Duncan Liddel</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="134" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127848</td>
+                        
+                        <td>Jacobus Martini</td>
+                        
+                        <td>128105</td>
+                        
+                        <td>Cornelius Martini</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="135" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128097</td>
+                        
+                        <td>Georg Calixt</td>
+                        
+                        <td>128105</td>
+                        
+                        <td>Cornelius Martini</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="136" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128097</td>
+                        
+                        <td>Georg Calixt</td>
+                        
+                        <td>128104</td>
+                        
+                        <td>Johannes Caselius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="137" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128122</td>
+                        
+                        <td>Duncan Liddel</td>
+                        
+                        <td>128305</td>
+                        
+                        <td>John Craig</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="138" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128122</td>
+                        
+                        <td>Duncan Liddel</td>
+                        
+                        <td>128348</td>
+                        
+                        <td>Paul Wittich</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="139" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>57670</td>
+                        
+                        <td>Christian August Hausen</td>
+                        
+                        <td>128986</td>
+                        
+                        <td>Johann Andreas Planer</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="140" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128986</td>
+                        
+                        <td>Johann Andreas Planer</td>
+                        
+                        <td>128938</td>
+                        
+                        <td>Rudolf Jakob Camerarius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="141" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125422</td>
+                        
+                        <td>Jacobus (Jacques Dubois) Sylvius</td>
+                        
+                        <td>128921</td>
+                        
+                        <td>Jean Tagault</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="142" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>53410</td>
+                        
+                        <td>Johann Bernoulli</td>
+                        
+                        <td>129628</td>
+                        
+                        <td>Nikolaus Eglinger</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="143" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>129628</td>
+                        
+                        <td>Nikolaus Eglinger</td>
+                        
+                        <td>129708</td>
+                        
+                        <td>Johann Caspar Bauhin</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="144" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125125</td>
+                        
+                        <td>Emmanuel Stupanus</td>
+                        
+                        <td>130248</td>
+                        
+                        <td>Petrus Ryff</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="145" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>145707</td>
+                        
+                        <td>Constantijn l’Empereur van Oppyck</td>
+                        
+                        <td>130913</td>
+                        
+                        <td>Johannes (van den Driesche) Drusius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="146" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>130913</td>
+                        
+                        <td>Johannes (van den Driesche) Drusius</td>
+                        
+                        <td>130995</td>
+                        
+                        <td>Raoul (Rodolphus Cavellerius) le Chevalier</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="147" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>130995</td>
+                        
+                        <td>Raoul (Rodolphus Cavellerius) le Chevalier</td>
+                        
+                        <td>131235</td>
+                        
+                        <td>François Vatable</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="148" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>130995</td>
+                        
+                        <td>Raoul (Rodolphus Cavellerius) le Chevalier</td>
+                        
+                        <td>131236</td>
+                        
+                        <td>Paul (Paul Büchlein) Fagius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="149" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125760</td>
+                        
+                        <td>Johann (Johannes Kapnion) Reuchlin</td>
+                        
+                        <td>131444</td>
+                        
+                        <td>Johannes Argyropoulos</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="150" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131398</td>
+                        
+                        <td>Jacques (Jacobus Faber) Lefèvre d'Étaples</td>
+                        
+                        <td>131444</td>
+                        
+                        <td>Johannes Argyropoulos</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="151" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131539</td>
+                        
+                        <td>Marsilio Ficino</td>
+                        
+                        <td>131444</td>
+                        
+                        <td>Johannes Argyropoulos</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="152" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131398</td>
+                        
+                        <td>Jacques (Jacobus Faber) Lefèvre d'Étaples</td>
+                        
+                        <td>131443</td>
+                        
+                        <td>Georgius Hermonymus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="153" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131517</td>
+                        
+                        <td>Guillaume Budé</td>
+                        
+                        <td>131443</td>
+                        
+                        <td>Georgius Hermonymus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="154" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131575</td>
+                        
+                        <td>Georgios Plethon Gemistos</td>
+                        
+                        <td>134780</td>
+                        
+                        <td>Demetrios Kydones</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="155" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>135185</td>
+                        
+                        <td>Manuel Chrysoloras</td>
+                        
+                        <td>134780</td>
+                        
+                        <td>Demetrios Kydones</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="156" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131584</td>
+                        
+                        <td>Theodoros Gazes</td>
+                        
+                        <td>134873</td>
+                        
+                        <td>Vittorino da Feltre</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="157" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>149192</td>
+                        
+                        <td>Ognibene (Omnibonus Leonicenus) Bonisoli da Lonigo</td>
+                        
+                        <td>134873</td>
+                        
+                        <td>Vittorino da Feltre</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="158" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>134931</td>
+                        
+                        <td>Guarino da Verona</td>
+                        
+                        <td>135185</td>
+                        
+                        <td>Manuel Chrysoloras</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="159" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127166</td>
+                        
+                        <td>Niccolò Leoniceno</td>
+                        
+                        <td>136726</td>
+                        
+                        <td>Pietro Roccabonella</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="160" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152903</td>
+                        
+                        <td>Pietro Pomponazzi</td>
+                        
+                        <td>136726</td>
+                        
+                        <td>Pietro Roccabonella</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="161" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>21235</td>
+                        
+                        <td>Otto Mencke</td>
+                        
+                        <td>137705</td>
+                        
+                        <td>Jakob Thomasius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="162" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>60985</td>
+                        
+                        <td>Gottfried Wilhelm Leibniz</td>
+                        
+                        <td>137705</td>
+                        
+                        <td>Jakob Thomasius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="163" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125898</td>
+                        
+                        <td>Alexander Hegius</td>
+                        
+                        <td>140181</td>
+                        
+                        <td>Thomas von Kempen à Kempis</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="164" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125159</td>
+                        
+                        <td>Immanuel Tremellius</td>
+                        
+                        <td>141571</td>
+                        
+                        <td>Thomas Cranmer</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="165" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>143084</td>
+                        
+                        <td>Peter Werenfels</td>
+                        
+                        <td>143083</td>
+                        
+                        <td>Theodor Zwinger, Jr.</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="166" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>143083</td>
+                        
+                        <td>Theodor Zwinger, Jr.</td>
+                        
+                        <td>143082</td>
+                        
+                        <td>Sebastian Beck</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="167" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>137705</td>
+                        
+                        <td>Jakob Thomasius</td>
+                        
+                        <td>143630</td>
+                        
+                        <td>Friedrich Leibniz</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="168" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>60985</td>
+                        
+                        <td>Gottfried Wilhelm Leibniz</td>
+                        
+                        <td>143859</td>
+                        
+                        <td>Bartholomäus Leonhard Schwendendörffer</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="169" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>60984</td>
+                        
+                        <td>Erhard Weigel</td>
+                        
+                        <td>144221</td>
+                        
+                        <td>Philipp Müller</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="170" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>144221</td>
+                        
+                        <td>Philipp Müller</td>
+                        
+                        <td>144220</td>
+                        
+                        <td>Christoph Meurer</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="171" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>145770</td>
+                        
+                        <td>Johann Heinrich Michaelis</td>
+                        
+                        <td>145708</td>
+                        
+                        <td>Hiob Ludolf</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="172" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>145708</td>
+                        
+                        <td>Hiob Ludolf</td>
+                        
+                        <td>145707</td>
+                        
+                        <td>Constantijn l’Empereur van Oppyck</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="173" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>146035</td>
+                        
+                        <td>Christian Benedict Michaelis</td>
+                        
+                        <td>145770</td>
+                        
+                        <td>Johann Heinrich Michaelis</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="174" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>208259</td>
+                        
+                        <td>Siegmund Jakob Baumgarten</td>
+                        
+                        <td>146035</td>
+                        
+                        <td>Christian Benedict Michaelis</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="175" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>145770</td>
+                        
+                        <td>Johann Heinrich Michaelis</td>
+                        
+                        <td>146034</td>
+                        
+                        <td>August Hermann Francke</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="176" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>17864</td>
+                        
+                        <td>Joseph Louis Lagrange</td>
+                        
+                        <td>146036</td>
+                        
+                        <td>Giovanni Battista (Giambattista) Beccaria</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="177" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>145708</td>
+                        
+                        <td>Hiob Ludolf</td>
+                        
+                        <td>146374</td>
+                        
+                        <td>Johann Möller</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="178" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>134780</td>
+                        
+                        <td>Demetrios Kydones</td>
+                        
+                        <td>146365</td>
+                        
+                        <td>Nilos Kabasilas</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="179" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127166</td>
+                        
+                        <td>Niccolò Leoniceno</td>
+                        
+                        <td>149192</td>
+                        
+                        <td>Ognibene (Omnibonus Leonicenus) Bonisoli da Lonigo</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="180" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>143044</td>
+                        
+                        <td>Jacob Andreae</td>
+                        
+                        <td>152648</td>
+                        
+                        <td>Jakob Beuerlin</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="181" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125148</td>
+                        
+                        <td>Theodor Zwinger</td>
+                        
+                        <td>152906</td>
+                        
+                        <td>Bassiano Landi</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="182" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125148</td>
+                        
+                        <td>Theodor Zwinger</td>
+                        
+                        <td>152905</td>
+                        
+                        <td>Vittore Trincavelli</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="183" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152906</td>
+                        
+                        <td>Bassiano Landi</td>
+                        
+                        <td>152905</td>
+                        
+                        <td>Vittore Trincavelli</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="184" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>119178</td>
+                        
+                        <td>Andreas (Andries van Wesel) Vesalius</td>
+                        
+                        <td>152904</td>
+                        
+                        <td>Giovanni Battista della Monte</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="185" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152906</td>
+                        
+                        <td>Bassiano Landi</td>
+                        
+                        <td>152904</td>
+                        
+                        <td>Giovanni Battista della Monte</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="186" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>182090</td>
+                        
+                        <td>Felix Plater</td>
+                        
+                        <td>158329</td>
+                        
+                        <td>Guillaume Rondelet</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="187" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>146365</td>
+                        
+                        <td>Nilos Kabasilas</td>
+                        
+                        <td>176844</td>
+                        
+                        <td>Gregory Palamas</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="188" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>140181</td>
+                        
+                        <td>Thomas von Kempen à Kempis</td>
+                        
+                        <td>179836</td>
+                        
+                        <td>Geert Gerardus Magnus Groote</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="189" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>123974</td>
+                        
+                        <td>Georg Balthasar Metzger</td>
+                        
+                        <td>182089</td>
+                        
+                        <td>Gottfried Möbius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="190" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>130248</td>
+                        
+                        <td>Petrus Ryff</td>
+                        
+                        <td>182090</td>
+                        
+                        <td>Felix Plater</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="191" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>176844</td>
+                        
+                        <td>Gregory Palamas</td>
+                        
+                        <td>184631</td>
+                        
+                        <td>Theodore Metochites</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="192" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>184631</td>
+                        
+                        <td>Theodore Metochites</td>
+                        
+                        <td>184632</td>
+                        
+                        <td>Manuel Bryennios</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="193" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127790</td>
+                        
+                        <td>Moritz Valentin Steinmetz</td>
+                        
+                        <td>184935</td>
+                        
+                        <td>Johann Hoffmann</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="194" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127734</td>
+                        
+                        <td>Nicolaus Zapf</td>
+                        
+                        <td>189659</td>
+                        
+                        <td>Abraham Heinecke</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="195" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125886</td>
+                        
+                        <td>Georg Erhard Hamberger</td>
+                        
+                        <td>191279</td>
+                        
+                        <td>Anton Bernhard Lauterbach</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="196" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127264</td>
+                        
+                        <td>Heinrich von Langenstein</td>
+                        
+                        <td>199357</td>
+                        
+                        <td>Nicole Oresme</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="197" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128105</td>
+                        
+                        <td>Cornelius Martini</td>
+                        
+                        <td>200006</td>
+                        
+                        <td>Albert Clampius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="198" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>184632</td>
+                        
+                        <td>Manuel Bryennios</td>
+                        
+                        <td>201288</td>
+                        
+                        <td>Gregory Chioniadis</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="199" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>201288</td>
+                        
+                        <td>Gregory Chioniadis</td>
+                        
+                        <td>204293</td>
+                        
+                        <td>Shams al‐Dīn al‐Bukhārī</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="200" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>124000</td>
+                        
+                        <td>Rudolf Wilhelm Krause</td>
+                        
+                        <td>208258</td>
+                        
+                        <td>Gerardus Leonardus Blasius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="201" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127668</td>
+                        
+                        <td>Johann Georg Büsch</td>
+                        
+                        <td>208259</td>
+                        
+                        <td>Siegmund Jakob Baumgarten</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="202" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>204293</td>
+                        
+                        <td>Shams al‐Dīn al‐Bukhārī</td>
+                        
+                        <td>217509</td>
+                        
+                        <td>Nasir al-Dīn al-Ṭūsī</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="203" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>221101</td>
+                        
+                        <td>Anton Euonymus</td>
+                        
+                        <td>221100</td>
+                        
+                        <td>Leonhard Etzler</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="204" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127606</td>
+                        
+                        <td>Ambrosius Rhodius</td>
+                        
+                        <td>221101</td>
+                        
+                        <td>Anton Euonymus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="205" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>217509</td>
+                        
+                        <td>Nasir al-Dīn al-Ṭūsī</td>
+                        
+                        <td>223724</td>
+                        
+                        <td>Kamāl al-Dīn Ibn Yūnus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="206" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>200006</td>
+                        
+                        <td>Albert Clampius</td>
+                        
+                        <td>224249</td>
+                        
+                        <td>Reinhard Bachoff von Echt</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="207" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127962</td>
+                        
+                        <td>Michael d. J. Walther</td>
+                        
+                        <td>230796</td>
+                        
+                        <td>Constantin Ziegra</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="208" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>223724</td>
+                        
+                        <td>Kamāl al-Dīn Ibn Yūnus</td>
+                        
+                        <td>230926</td>
+                        
+                        <td>Sharaf al-Dīn al-Ṭūsī</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="209" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>148882</td>
+                        
+                        <td>Gaetano da Thiene</td>
+                        
+                        <td>232227</td>
+                        
+                        <td>Paolo (Nicoletti) da Venezia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="210" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>7404</td>
+                        
+                        <td>C. L. Ferdinand (Carl Louis) Lindemann</td>
+                        
+                        <td>7401</td>
+                        
+                        <td>C. Felix (Christian) Klein</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="211" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>63188</td>
+                        
+                        <td>Georg Lausen</td>
+                        
+                        <td>58560</td>
+                        
+                        <td>Wolffried Stucky</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="212" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>58560</td>
+                        
+                        <td>Wolffried Stucky</td>
+                        
+                        <td>21668</td>
+                        
+                        <td>Günter Hotz</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="213" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>29642</td>
+                        
+                        <td>Christian Ludwig Gerling</td>
+                        
+                        <td>18231</td>
+                        
+                        <td>Carl Friedrich Gauß</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="214" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127724</td>
+                        
+                        <td>Christoph Nottnagel</td>
+                        
+                        <td>127606</td>
+                        
+                        <td>Ambrosius Rhodius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="215" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>21668</td>
+                        
+                        <td>Günter Hotz</td>
+                        
+                        <td>15252</td>
+                        
+                        <td>Kurt Reidemeister</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="216" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>57670</td>
+                        
+                        <td>Christian August Hausen</td>
+                        
+                        <td>72669</td>
+                        
+                        <td>Johann Christoph Wichmannshausen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="217" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>5119</td>
+                        
+                        <td>Alfred Loewy</td>
+                        
+                        <td>7404</td>
+                        
+                        <td>C. L. Ferdinand (Carl Louis) Lindemann</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="218" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>7298</td>
+                        
+                        <td>David Hilbert</td>
+                        
+                        <td>7404</td>
+                        
+                        <td>C. L. Ferdinand (Carl Louis) Lindemann</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="219" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125379</td>
+                        
+                        <td>Tycho (Tyge Ottesen) Brahe</td>
+                        
+                        <td>126875</td>
+                        
+                        <td>Caspar Peucer</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="220" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127252</td>
+                        
+                        <td>Salomon Alberti</td>
+                        
+                        <td>126875</td>
+                        
+                        <td>Caspar Peucer</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="221" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125109</td>
+                        
+                        <td>Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius</td>
+                        
+                        <td>125142</td>
+                        
+                        <td>Gabriele Falloppio</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="222" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125048</td>
+                        
+                        <td>Johannes Nicolaus Stupanus</td>
+                        
+                        <td>125148</td>
+                        
+                        <td>Theodor Zwinger</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="223" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128305</td>
+                        
+                        <td>John Craig</td>
+                        
+                        <td>125148</td>
+                        
+                        <td>Theodor Zwinger</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="224" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>54440</td>
+                        
+                        <td>Jacob Bernoulli</td>
+                        
+                        <td>143084</td>
+                        
+                        <td>Peter Werenfels</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="225" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>54440</td>
+                        
+                        <td>Jacob Bernoulli</td>
+                        
+                        <td>143011</td>
+                        
+                        <td>Nicolas Malebranche</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="226" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>101860</td>
+                        
+                        <td>Franciscus de le Boë Sylvius</td>
+                        
+                        <td>125125</td>
+                        
+                        <td>Emmanuel Stupanus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="227" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>129628</td>
+                        
+                        <td>Nikolaus Eglinger</td>
+                        
+                        <td>125125</td>
+                        
+                        <td>Emmanuel Stupanus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="228" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>129708</td>
+                        
+                        <td>Johann Caspar Bauhin</td>
+                        
+                        <td>125125</td>
+                        
+                        <td>Emmanuel Stupanus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="229" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>124000</td>
+                        
+                        <td>Rudolf Wilhelm Krause</td>
+                        
+                        <td>101860</td>
+                        
+                        <td>Franciscus de le Boë Sylvius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="230" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125488</td>
+                        
+                        <td>Georg Wolffgang Wedel</td>
+                        
+                        <td>101860</td>
+                        
+                        <td>Franciscus de le Boë Sylvius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="231" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>76481</td>
+                        
+                        <td>Elias Rudolph Camerarius, Sr.</td>
+                        
+                        <td>123974</td>
+                        
+                        <td>Georg Balthasar Metzger</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="232" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128938</td>
+                        
+                        <td>Rudolf Jakob Camerarius</td>
+                        
+                        <td>123974</td>
+                        
+                        <td>Georg Balthasar Metzger</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="233" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125561</td>
+                        
+                        <td>Christiaan Huygens</td>
+                        
+                        <td>125416</td>
+                        
+                        <td>Jan Jansz Stampioen, Jr.</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="234" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>123974</td>
+                        
+                        <td>Georg Balthasar Metzger</td>
+                        
+                        <td>182088</td>
+                        
+                        <td>Johann Jakob von Brunn</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="235" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125154</td>
+                        
+                        <td>Werner Rolfinck</td>
+                        
+                        <td>126111</td>
+                        
+                        <td>Daniel Sennert</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="236" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125971</td>
+                        
+                        <td>Simon Paul Hilscher</td>
+                        
+                        <td>124000</td>
+                        
+                        <td>Rudolf Wilhelm Krause</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="237" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125408</td>
+                        
+                        <td>Jacobus Golius</td>
+                        
+                        <td>125302</td>
+                        
+                        <td>Willebrord (Snel van Royen) Snellius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="238" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125408</td>
+                        
+                        <td>Jacobus Golius</td>
+                        
+                        <td>125378</td>
+                        
+                        <td>Thomas Erpenius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="239" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126827</td>
+                        
+                        <td>Georg Joachim von Leuchen Rheticus</td>
+                        
+                        <td>126177</td>
+                        
+                        <td>Nicolaus (Mikołaj Kopernik) Copernicus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="240" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127039</td>
+                        
+                        <td>Philipp Apian</td>
+                        
+                        <td>127110</td>
+                        
+                        <td>Michael Beuther</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="241" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126736</td>
+                        
+                        <td>Erasmus Reinhold</td>
+                        
+                        <td>126667</td>
+                        
+                        <td>Jakob Milich</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="242" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127245</td>
+                        
+                        <td>Antonio Musa Brasavola</td>
+                        
+                        <td>127166</td>
+                        
+                        <td>Niccolò Leoniceno</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="243" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152904</td>
+                        
+                        <td>Giovanni Battista della Monte</td>
+                        
+                        <td>127166</td>
+                        
+                        <td>Niccolò Leoniceno</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="244" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125047</td>
+                        
+                        <td>Petrus (Pierre de La Ramée) Ramus</td>
+                        
+                        <td>131546</td>
+                        
+                        <td>Jacques Toussain</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="245" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131606</td>
+                        
+                        <td>Adrien Turnèbe</td>
+                        
+                        <td>131546</td>
+                        
+                        <td>Jacques Toussain</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="246" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152904</td>
+                        
+                        <td>Giovanni Battista della Monte</td>
+                        
+                        <td>152903</td>
+                        
+                        <td>Pietro Pomponazzi</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="247" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152905</td>
+                        
+                        <td>Vittore Trincavelli</td>
+                        
+                        <td>152903</td>
+                        
+                        <td>Pietro Pomponazzi</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="248" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125302</td>
+                        
+                        <td>Willebrord (Snel van Royen) Snellius</td>
+                        
+                        <td>125232</td>
+                        
+                        <td>Ludolph van Ceulen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="249" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125302</td>
+                        
+                        <td>Willebrord (Snel van Royen) Snellius</td>
+                        
+                        <td>125181</td>
+                        
+                        <td>Rudolph (Snel van Royen) Snellius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="250" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126489</td>
+                        
+                        <td>Jacobus (Jacob Harmensz.) Arminius</td>
+                        
+                        <td>125181</td>
+                        
+                        <td>Rudolph (Snel van Royen) Snellius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="251" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125378</td>
+                        
+                        <td>Thomas Erpenius</td>
+                        
+                        <td>131577</td>
+                        
+                        <td>Joseph Justus Scaliger</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="252" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126730</td>
+                        
+                        <td>Johannes Volmar</td>
+                        
+                        <td>126724</td>
+                        
+                        <td>Bonifazius Erasmi</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="253" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126177</td>
+                        
+                        <td>Nicolaus (Mikołaj Kopernik) Copernicus</td>
+                        
+                        <td>126113</td>
+                        
+                        <td>Leonhard (Leonard Vitreatoris z Dobczyc) von Dobschütz</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="254" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126177</td>
+                        
+                        <td>Nicolaus (Mikołaj Kopernik) Copernicus</td>
+                        
+                        <td>126112</td>
+                        
+                        <td>Domenico Maria Novara da Ferrara</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="255" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126667</td>
+                        
+                        <td>Jakob Milich</td>
+                        
+                        <td>126659</td>
+                        
+                        <td>Ulrich Zasius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="256" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131399</td>
+                        
+                        <td>Wolfgang Fabricius Capito</td>
+                        
+                        <td>126659</td>
+                        
+                        <td>Ulrich Zasius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="257" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126109</td>
+                        
+                        <td>Johannes Müller Regiomontanus</td>
+                        
+                        <td>131561</td>
+                        
+                        <td>Basilios Bessarion</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="258" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131444</td>
+                        
+                        <td>Johannes Argyropoulos</td>
+                        
+                        <td>131561</td>
+                        
+                        <td>Basilios Bessarion</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="259" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131541</td>
+                        
+                        <td>Janus Lascaris</td>
+                        
+                        <td>131561</td>
+                        
+                        <td>Basilios Bessarion</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="260" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127166</td>
+                        
+                        <td>Niccolò Leoniceno</td>
+                        
+                        <td>127144</td>
+                        
+                        <td>Pelope</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="261" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>119178</td>
+                        
+                        <td>Andreas (Andries van Wesel) Vesalius</td>
+                        
+                        <td>119097</td>
+                        
+                        <td>Gemma (Jemme Reinerszoon) Frisius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="262" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131577</td>
+                        
+                        <td>Joseph Justus Scaliger</td>
+                        
+                        <td>131606</td>
+                        
+                        <td>Adrien Turnèbe</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="263" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131546</td>
+                        
+                        <td>Jacques Toussain</td>
+                        
+                        <td>131517</td>
+                        
+                        <td>Guillaume Budé</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="264" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152904</td>
+                        
+                        <td>Giovanni Battista della Monte</td>
+                        
+                        <td>152901</td>
+                        
+                        <td>Marco Musuro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="265" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152903</td>
+                        
+                        <td>Pietro Pomponazzi</td>
+                        
+                        <td>152902</td>
+                        
+                        <td>Nicoletto Vernia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="266" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>143082</td>
+                        
+                        <td>Sebastian Beck</td>
+                        
+                        <td>143045</td>
+                        
+                        <td>Johann Jacob Grynaeus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="267" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126112</td>
+                        
+                        <td>Domenico Maria Novara da Ferrara</td>
+                        
+                        <td>126109</td>
+                        
+                        <td>Johannes Müller Regiomontanus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="268" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125658</td>
+                        
+                        <td>Nicolas (Nicolaes Cleynaerts) Clénard</td>
+                        
+                        <td>125681</td>
+                        
+                        <td>Jacobus (Jacques Masson) Latomus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="269" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125658</td>
+                        
+                        <td>Nicolas (Nicolaes Cleynaerts) Clénard</td>
+                        
+                        <td>125682</td>
+                        
+                        <td>Jan (Johannes Campensis) van Campen</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="270" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>119159</td>
+                        
+                        <td>Johannes Winter von Andernach</td>
+                        
+                        <td>126571</td>
+                        
+                        <td>Rutger Rescius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="271" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>119159</td>
+                        
+                        <td>Johannes Winter von Andernach</td>
+                        
+                        <td>125422</td>
+                        
+                        <td>Jacobus (Jacques Dubois) Sylvius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="272" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131561</td>
+                        
+                        <td>Basilios Bessarion</td>
+                        
+                        <td>131575</td>
+                        
+                        <td>Georgios Plethon Gemistos</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="273" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>136726</td>
+                        
+                        <td>Pietro Roccabonella</td>
+                        
+                        <td>148882</td>
+                        
+                        <td>Gaetano da Thiene</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="274" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152902</td>
+                        
+                        <td>Nicoletto Vernia</td>
+                        
+                        <td>148882</td>
+                        
+                        <td>Gaetano da Thiene</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="275" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>136726</td>
+                        
+                        <td>Pietro Roccabonella</td>
+                        
+                        <td>164338</td>
+                        
+                        <td>Sigismondo Polcastro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="276" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>119097</td>
+                        
+                        <td>Gemma (Jemme Reinerszoon) Frisius</td>
+                        
+                        <td>125892</td>
+                        
+                        <td>Petrus (Pieter de Corte) Curtius</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="277" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131235</td>
+                        
+                        <td>François Vatable</td>
+                        
+                        <td>131398</td>
+                        
+                        <td>Jacques (Jacobus Faber) Lefèvre d'Étaples</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="278" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131517</td>
+                        
+                        <td>Guillaume Budé</td>
+                        
+                        <td>131541</td>
+                        
+                        <td>Janus Lascaris</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="279" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152901</td>
+                        
+                        <td>Marco Musuro</td>
+                        
+                        <td>131541</td>
+                        
+                        <td>Janus Lascaris</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="280" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>143045</td>
+                        
+                        <td>Johann Jacob Grynaeus</td>
+                        
+                        <td>182092</td>
+                        
+                        <td>Simon Sulzer</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="281" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>143045</td>
+                        
+                        <td>Johann Jacob Grynaeus</td>
+                        
+                        <td>143044</td>
+                        
+                        <td>Jacob Andreae</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="282" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126571</td>
+                        
+                        <td>Rutger Rescius</td>
+                        
+                        <td>127181</td>
+                        
+                        <td>Girolamo (Hieronymus Aleander) Aleandro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="283" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131235</td>
+                        
+                        <td>François Vatable</td>
+                        
+                        <td>127181</td>
+                        
+                        <td>Girolamo (Hieronymus Aleander) Aleandro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="284" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131236</td>
+                        
+                        <td>Paul (Paul Büchlein) Fagius</td>
+                        
+                        <td>131399</td>
+                        
+                        <td>Wolfgang Fabricius Capito</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="285" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>182092</td>
+                        
+                        <td>Simon Sulzer</td>
+                        
+                        <td>131399</td>
+                        
+                        <td>Wolfgang Fabricius Capito</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="286" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131236</td>
+                        
+                        <td>Paul (Paul Büchlein) Fagius</td>
+                        
+                        <td>131400</td>
+                        
+                        <td>Elijah ben Asher Levita</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="287" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126109</td>
+                        
+                        <td>Johannes Müller Regiomontanus</td>
+                        
+                        <td>126087</td>
+                        
+                        <td>Georg von Peuerbach</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="288" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125682</td>
+                        
+                        <td>Jan (Johannes Campensis) van Campen</td>
+                        
+                        <td>125794</td>
+                        
+                        <td>Matthaeus Adrianus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="289" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125422</td>
+                        
+                        <td>Jacobus (Jacques Dubois) Sylvius</td>
+                        
+                        <td>128987</td>
+                        
+                        <td>François Dubois</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="290" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131575</td>
+                        
+                        <td>Georgios Plethon Gemistos</td>
+                        
+                        <td>134781</td>
+                        
+                        <td>Elissaeus Judaeus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="291" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>134873</td>
+                        
+                        <td>Vittorino da Feltre</td>
+                        
+                        <td>134931</td>
+                        
+                        <td>Guarino da Verona</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="292" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>125892</td>
+                        
+                        <td>Petrus (Pieter de Corte) Curtius</td>
+                        
+                        <td>125894</td>
+                        
+                        <td>Maarten (Martinus Dorpius) van Dorp</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="293" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131541</td>
+                        
+                        <td>Janus Lascaris</td>
+                        
+                        <td>131576</td>
+                        
+                        <td>Demetrios Chalcocondyles</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="294" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>182092</td>
+                        
+                        <td>Simon Sulzer</td>
+                        
+                        <td>182045</td>
+                        
+                        <td>Simon Grynaeus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="295" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127181</td>
+                        
+                        <td>Girolamo (Hieronymus Aleander) Aleandro</td>
+                        
+                        <td>131446</td>
+                        
+                        <td>Moses Perez</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="296" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>127181</td>
+                        
+                        <td>Girolamo (Hieronymus Aleander) Aleandro</td>
+                        
+                        <td>131447</td>
+                        
+                        <td>Scipione Fortiguerra</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="297" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>126087</td>
+                        
+                        <td>Georg von Peuerbach</td>
+                        
+                        <td>126887</td>
+                        
+                        <td>Johannes von Gmunden</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="298" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>128012</td>
+                        
+                        <td>Rudolf Agricola</td>
+                        
+                        <td>131584</td>
+                        
+                        <td>Theodoros Gazes</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="299" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131576</td>
+                        
+                        <td>Demetrios Chalcocondyles</td>
+                        
+                        <td>131584</td>
+                        
+                        <td>Theodoros Gazes</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="300" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>140181</td>
+                        
+                        <td>Thomas von Kempen à Kempis</td>
+                        
+                        <td>179837</td>
+                        
+                        <td>Florens Florentius Radwyn Radewyns</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="301" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>152648</td>
+                        
+                        <td>Jakob Beuerlin</td>
+                        
+                        <td>152647</td>
+                        
+                        <td>Balthasar Kaeuffelin</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="302" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131447</td>
+                        
+                        <td>Scipione Fortiguerra</td>
+                        
+                        <td>131535</td>
+                        
+                        <td>Angelo Poliziano</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="303" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131535</td>
+                        
+                        <td>Angelo Poliziano</td>
+                        
+                        <td>131539</td>
+                        
+                        <td>Marsilio Ficino</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="304" name="btSelectItem" type="checkbox"></td>
+                        
+                        <td>131535</td>
+                        
+                        <td>Angelo Poliziano</td>
+                        
+                        <td>131540</td>
+                        
+                        <td>Cristoforo Landino</td>
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+    
+            
+    <br><br><h3 style="color: #2E6F9F">A Force-Directed Network Graph of binary_search_ancestors</h3>
+    <figure class="highcharts-figure">
+        <div id="graph-container"></div>
+        <p class="highcharts-description"></p>
+    </figure>
+    
+        </div>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css">
+        <link rel="stylesheet" href="https://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/editable/bootstrap-table-editable.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/export/bootstrap-table-export.js"></script>
+        <script src="http://frontendfreecode.com/codes/files/tableExport.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
+        <script id="rendered-js">
+            var $table = $("#table");
+            $(function () {
+                $("#toolbar")
+                    .find("select")
+                    .change(function () {
+                        $table.bootstrapTable("refreshOptions", {
+                            exportDataType: $(this).val()
+                        });
+                    });
+                });
+
+                var trBoldBlue = $("table");
+
+                $(trBoldBlue).on("click", "tr", function () {
+                    $(this).toggleClass("bold-blue");
+                });
+        </script>
+    
+        
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script>
+        Highcharts.addEvent(
+            Highcharts.Series,
+            'afterSetOptions',
+            function (e) {
+                var colors = Highcharts.getOptions().colors,
+                    i = 0,
+                    nodes = {},
+                    l2r = {};
+                    r2l = {};
+                if (
+                    this instanceof Highcharts.Series.types.networkgraph &&
+                    e.options.id === 'network_graph'
+                ) {
+                    e.options.data.forEach(function (link) {
+                        if (link[0] in l2r) {
+                            nodes[link[1]] = {
+                                id: link[1],
+                                color: nodes[l2r[link[0]]].color
+                            };
+                        } else if (link[1] in r2l) {
+                            nodes[link[0]] = {
+                                id: link[0],
+                                color: nodes[r2l[link[1]]].color
+                            };
+                        } else {
+                            l2r[link[0]] = link[1];
+                            r2l[link[1]] = link[0];
+                            nodes[link[0]] = {
+                                id: link[0],
+                                color: colors[i]
+                            };
+                            i = (i + 1) % 10;
+                            nodes[link[1]] = {
+                                id: link[1],
+                                color: colors[i++]
+                            };
+                        }
+
+                    });
+
+                    e.options.nodes = Object.keys(nodes).map(function (id) {
+                        return nodes[id];
+                    });
+                }
+            }
+        );
+
+        Highcharts.chart('graph-container', {
+            chart: {
+                type: 'networkgraph',
+                height: '100%'
+            },
+            title: {text: undefined},
+            plotOptions: {
+                networkgraph: {
+                    keys: ['from', 'to'],
+                    layoutAlgorithm: {
+                        enableSimulation: true,
+                        friction: -0.9
+                    }
+                }
+            },
+            series: [{
+                accessibility: {
+                    enabled: false
+                },
+                dataLabels: {
+                    enabled: true,
+                    linkFormat: ''
+                },
+                id: 'network_graph',
+                data: [
+                    
+                        
+                        ["Wilfried Brauer","Wolfgang Krull"],
+                        
+                        ["Wolfgang Krull","Alfred Loewy"],
+                        
+                        ["Friedrich Karl Schmidt","Alfred Loewy"],
+                        
+                        ["Erich Hecke","David Hilbert"],
+                        
+                        ["C. Felix (Christian) Klein","Julius Plücker"],
+                        
+                        ["Kurt Reidemeister","Erich Hecke"],
+                        
+                        ["Rudolf Otto Sigismund Lipschitz","Gustav Peter Lejeune Dirichlet"],
+                        
+                        ["Gustav Peter Lejeune Dirichlet","Siméon Denis Poisson"],
+                        
+                        ["Siméon Denis Poisson","Joseph Louis Lagrange"],
+                        
+                        ["Jean-Baptiste Joseph Fourier","Joseph Louis Lagrange"],
+                        
+                        ["Gustav Peter Lejeune Dirichlet","Jean-Baptiste Joseph Fourier"],
+                        
+                        ["Carl Friedrich Gauß","Johann Friedrich Pfaff"],
+                        
+                        ["C. Felix (Christian) Klein","Rudolf Otto Sigismund Lipschitz"],
+                        
+                        ["Robert W. Berger","Friedrich Karl Schmidt"],
+                        
+                        ["Wolffried Stucky","Robert W. Berger"],
+                        
+                        ["Johann Christoph Wichmannshausen","Otto Mencke"],
+                        
+                        ["Julius Plücker","Christian Ludwig Gerling"],
+                        
+                        ["Joseph Louis Lagrange","Leonhard Euler"],
+                        
+                        ["Rudolf Otto Sigismund Lipschitz","Martin Ohm"],
+                        
+                        ["Martin Ohm","Karl Christian von Langsdorf"],
+                        
+                        ["Wolfgang Wahlster","Wilfried Brauer"],
+                        
+                        ["Leonhard Euler","Johann Bernoulli"],
+                        
+                        ["Johann Bernoulli","Jacob Bernoulli"],
+                        
+                        ["Abraham Gotthelf Kästner","Christian August Hausen"],
+                        
+                        ["Johann Georg Büsch","Johann Andreas Segner"],
+                        
+                        ["Gottfried Wilhelm Leibniz","Erhard Weigel"],
+                        
+                        ["Nicolas Malebranche","Gottfried Wilhelm Leibniz"],
+                        
+                        ["Alfred Loewy","Gustav Conrad Bauer"],
+                        
+                        ["Bertram Ludäscher","Georg Lausen"],
+                        
+                        ["Bertram Ludäscher","Bernhard Nebel"],
+                        
+                        ["Johann Friedrich Pfaff","Abraham Gotthelf Kästner"],
+                        
+                        ["Karl Christian von Langsdorf","Abraham Gotthelf Kästner"],
+                        
+                        ["Rudolf Jakob Camerarius","Elias Rudolph Camerarius, Sr."],
+                        
+                        ["Bernhard Nebel","Wolfgang Wahlster"],
+                        
+                        ["Siméon Denis Poisson","Pierre-Simon Laplace"],
+                        
+                        ["Pierre-Simon Laplace","Jean Le Rond d'Alembert"],
+                        
+                        ["Adolph Vorstius","Gilbert Jacchaeus"],
+                        
+                        ["Matteo Realdo (Renaldus Columbus) Colombo","Andreas (Andries van Wesel) Vesalius"],
+                        
+                        ["Andreas (Andries van Wesel) Vesalius","Johannes Winter von Andernach"],
+                        
+                        ["Johannes (Johann Sturm) Sturmius","Johannes Winter von Andernach"],
+                        
+                        ["Guillaume Rondelet","Johannes Winter von Andernach"],
+                        
+                        ["Adolph Vorstius","Adriaan van den Spieghel"],
+                        
+                        ["Werner Rolfinck","Adriaan van den Spieghel"],
+                        
+                        ["Franciscus de le Boë Sylvius","Adolph Vorstius"],
+                        
+                        ["Adriaan van den Spieghel","Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius"],
+                        
+                        ["Salomon Alberti","Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius"],
+                        
+                        ["Jan Jessenius","Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius"],
+                        
+                        ["Georg Wolffgang Wedel","Werner Rolfinck"],
+                        
+                        ["Gottfried Möbius","Werner Rolfinck"],
+                        
+                        ["Theodor Zwinger","Petrus (Pierre de La Ramée) Ramus"],
+                        
+                        ["Johann Jakob von Brunn","Johannes Nicolaus Stupanus"],
+                        
+                        ["Rudolph (Snel van Royen) Snellius","Valentine Naibod"],
+                        
+                        ["Rudolph (Snel van Royen) Snellius","Immanuel Tremellius"],
+                        
+                        ["Johannes Kepler","Tycho (Tyge Ottesen) Brahe"],
+                        
+                        ["Ambrosius Rhodius","Tycho (Tyge Ottesen) Brahe"],
+                        
+                        ["Frans van Schooten, Jr.","Jacobus Golius"],
+                        
+                        ["Hiob Ludolf","Jacobus Golius"],
+                        
+                        ["Gabriele Falloppio","Matteo Realdo (Renaldus Columbus) Colombo"],
+                        
+                        ["Johann Adolph Wedel","Georg Wolffgang Wedel"],
+                        
+                        ["Frans van Schooten, Jr.","Marin Mersenne"],
+                        
+                        ["Christiaan Huygens","Frans van Schooten, Jr."],
+                        
+                        ["Gottfried Wilhelm Leibniz","Christiaan Huygens"],
+                        
+                        ["Petrus (Pierre de La Ramée) Ramus","Johannes (Johann Sturm) Sturmius"],
+                        
+                        ["Samuel Heyland","Johannes (Johann Sturm) Sturmius"],
+                        
+                        ["Philipp Apian","Johannes (Johann Sturm) Sturmius"],
+                        
+                        ["Johannes (Johann Sturm) Sturmius","Nicolas (Nicolaes Cleynaerts) Clénard"],
+                        
+                        ["Jan (Johannes Campensis) van Campen","Johann (Johannes Kapnion) Reuchlin"],
+                        
+                        ["Philipp Melanchthon","Johann (Johannes Kapnion) Reuchlin"],
+                        
+                        ["Simon Grynaeus","Johann (Johannes Kapnion) Reuchlin"],
+                        
+                        ["Johann (Johannes Kapnion) Reuchlin","Jacob ben Jehiel Loans"],
+                        
+                        ["Johann Andreas Segner","Georg Erhard Hamberger"],
+                        
+                        ["Georg Erhard Hamberger","Johann Adolph Wedel"],
+                        
+                        ["Jacobus (Jacques Masson) Latomus","Jan Standonck"],
+                        
+                        ["Desiderius Erasmus","Jan Standonck"],
+                        
+                        ["Desiderius Erasmus","Alexander Hegius"],
+                        
+                        ["Maarten (Martinus Dorpius) van Dorp","Leo Outers"],
+                        
+                        ["Johann Andreas Segner","Simon Paul Hilscher"],
+                        
+                        ["Jakob Milich","Desiderius Erasmus"],
+                        
+                        ["Wolfgang Fabricius Capito","Desiderius Erasmus"],
+                        
+                        ["Gilbert Jacchaeus","Jacobus (Jacob Harmensz.) Arminius"],
+                        
+                        ["Valentine Naibod","Erasmus Reinhold"],
+                        
+                        ["Caspar Peucer","Erasmus Reinhold"],
+                        
+                        ["Sebastian (Theodoricus) Dietrich","Erasmus Reinhold"],
+                        
+                        ["Johannes Hommel","Erasmus Reinhold"],
+                        
+                        ["Michael Beuther","Erasmus Reinhold"],
+                        
+                        ["Georg Joachim von Leuchen Rheticus","Johannes Volmar"],
+                        
+                        ["Caspar Peucer","Georg Joachim von Leuchen Rheticus"],
+                        
+                        ["Sebastian (Theodoricus) Dietrich","Georg Joachim von Leuchen Rheticus"],
+                        
+                        ["Valentin (Valentinus Otho) Otto","Georg Joachim von Leuchen Rheticus"],
+                        
+                        ["Moritz Valentin Steinmetz","Georg Joachim von Leuchen Rheticus"],
+                        
+                        ["Domenico Maria Novara da Ferrara","Luca Pacioli"],
+                        
+                        ["Johannes Kepler","Michael Maestlin"],
+                        
+                        ["Johannes Hommel","Philipp Melanchthon"],
+                        
+                        ["Michael Beuther","Philipp Melanchthon"],
+                        
+                        ["Johannes Caselius","Philipp Melanchthon"],
+                        
+                        ["Simon Grynaeus","Philipp Melanchthon"],
+                        
+                        ["Andreas Schato","Sebastian (Theodoricus) Dietrich"],
+                        
+                        ["Michael Maestlin","Samuel Heyland"],
+                        
+                        ["Michael Maestlin","Philipp Apian"],
+                        
+                        ["Valentin Thau","Johannes Hommel"],
+                        
+                        ["Ambrosius Rhodius","Johannes Kepler"],
+                        
+                        ["Melchior Jöstel","Valentin (Valentinus Otho) Otto"],
+                        
+                        ["Tycho (Tyge Ottesen) Brahe","Valentin Thau"],
+                        
+                        ["Paul Wittich","Valentin Thau"],
+                        
+                        ["Philipp Melanchthon","Johannes Stöffler"],
+                        
+                        ["Melchior Jöstel","Andreas Schato"],
+                        
+                        ["Ernestus Hettenbach","Andreas Schato"],
+                        
+                        ["Andreas Schato","Salomon Alberti"],
+                        
+                        ["Ernestus Hettenbach","Salomon Alberti"],
+                        
+                        ["Gabriele Falloppio","Antonio Musa Brasavola"],
+                        
+                        ["Daniel Sennert","Jan Jessenius"],
+                        
+                        ["Johannes von Gmunden","Heinrich von Langenstein"],
+                        
+                        ["Nicolaus Zapf","Erasmus Schmidt"],
+                        
+                        ["Ambrosius Rhodius","Melchior Jöstel"],
+                        
+                        ["Ambrosius Rhodius","Ernestus Hettenbach"],
+                        
+                        ["Johann Elert Bode","Johann Georg Büsch"],
+                        
+                        ["Johann Friedrich Pfaff","Johann Elert Bode"],
+                        
+                        ["Johann Andreas Quenstedt","Christoph Nottnagel"],
+                        
+                        ["Michael d. J. Walther","Aegidius Strauch"],
+                        
+                        ["Aegidius Strauch","Nicolaus Zapf"],
+                        
+                        ["Sethus Calvisius","Moritz Valentin Steinmetz"],
+                        
+                        ["Christoph Meurer","Moritz Valentin Steinmetz"],
+                        
+                        ["Daniel Sennert","Jacobus Martini"],
+                        
+                        ["Nicolaus Zapf","Jacobus Martini"],
+                        
+                        ["Johann Pasch","Michael d. J. Walther"],
+                        
+                        ["Michael d. J. Walther","Johann Andreas Quenstedt"],
+                        
+                        ["Erasmus Schmidt","Sethus Calvisius"],
+                        
+                        ["Erasmus Schmidt","Petrus Otto"],
+                        
+                        ["Sethus Calvisius","Nikolaus Selnecker"],
+                        
+                        ["Johann Andreas Planer","Johann Pasch"],
+                        
+                        ["Alexander Hegius","Rudolf Agricola"],
+                        
+                        ["Johann Andreas Quenstedt","Georg Calixt"],
+                        
+                        ["Gilbert Jacchaeus","Duncan Liddel"],
+                        
+                        ["Cornelius Martini","Duncan Liddel"],
+                        
+                        ["Jacobus Martini","Cornelius Martini"],
+                        
+                        ["Georg Calixt","Cornelius Martini"],
+                        
+                        ["Georg Calixt","Johannes Caselius"],
+                        
+                        ["Duncan Liddel","John Craig"],
+                        
+                        ["Duncan Liddel","Paul Wittich"],
+                        
+                        ["Christian August Hausen","Johann Andreas Planer"],
+                        
+                        ["Johann Andreas Planer","Rudolf Jakob Camerarius"],
+                        
+                        ["Jacobus (Jacques Dubois) Sylvius","Jean Tagault"],
+                        
+                        ["Johann Bernoulli","Nikolaus Eglinger"],
+                        
+                        ["Nikolaus Eglinger","Johann Caspar Bauhin"],
+                        
+                        ["Emmanuel Stupanus","Petrus Ryff"],
+                        
+                        ["Constantijn l’Empereur van Oppyck","Johannes (van den Driesche) Drusius"],
+                        
+                        ["Johannes (van den Driesche) Drusius","Raoul (Rodolphus Cavellerius) le Chevalier"],
+                        
+                        ["Raoul (Rodolphus Cavellerius) le Chevalier","François Vatable"],
+                        
+                        ["Raoul (Rodolphus Cavellerius) le Chevalier","Paul (Paul Büchlein) Fagius"],
+                        
+                        ["Johann (Johannes Kapnion) Reuchlin","Johannes Argyropoulos"],
+                        
+                        ["Jacques (Jacobus Faber) Lefèvre d'Étaples","Johannes Argyropoulos"],
+                        
+                        ["Marsilio Ficino","Johannes Argyropoulos"],
+                        
+                        ["Jacques (Jacobus Faber) Lefèvre d'Étaples","Georgius Hermonymus"],
+                        
+                        ["Guillaume Budé","Georgius Hermonymus"],
+                        
+                        ["Georgios Plethon Gemistos","Demetrios Kydones"],
+                        
+                        ["Manuel Chrysoloras","Demetrios Kydones"],
+                        
+                        ["Theodoros Gazes","Vittorino da Feltre"],
+                        
+                        ["Ognibene (Omnibonus Leonicenus) Bonisoli da Lonigo","Vittorino da Feltre"],
+                        
+                        ["Guarino da Verona","Manuel Chrysoloras"],
+                        
+                        ["Niccolò Leoniceno","Pietro Roccabonella"],
+                        
+                        ["Pietro Pomponazzi","Pietro Roccabonella"],
+                        
+                        ["Otto Mencke","Jakob Thomasius"],
+                        
+                        ["Gottfried Wilhelm Leibniz","Jakob Thomasius"],
+                        
+                        ["Alexander Hegius","Thomas von Kempen à Kempis"],
+                        
+                        ["Immanuel Tremellius","Thomas Cranmer"],
+                        
+                        ["Peter Werenfels","Theodor Zwinger, Jr."],
+                        
+                        ["Theodor Zwinger, Jr.","Sebastian Beck"],
+                        
+                        ["Jakob Thomasius","Friedrich Leibniz"],
+                        
+                        ["Gottfried Wilhelm Leibniz","Bartholomäus Leonhard Schwendendörffer"],
+                        
+                        ["Erhard Weigel","Philipp Müller"],
+                        
+                        ["Philipp Müller","Christoph Meurer"],
+                        
+                        ["Johann Heinrich Michaelis","Hiob Ludolf"],
+                        
+                        ["Hiob Ludolf","Constantijn l’Empereur van Oppyck"],
+                        
+                        ["Christian Benedict Michaelis","Johann Heinrich Michaelis"],
+                        
+                        ["Siegmund Jakob Baumgarten","Christian Benedict Michaelis"],
+                        
+                        ["Johann Heinrich Michaelis","August Hermann Francke"],
+                        
+                        ["Joseph Louis Lagrange","Giovanni Battista (Giambattista) Beccaria"],
+                        
+                        ["Hiob Ludolf","Johann Möller"],
+                        
+                        ["Demetrios Kydones","Nilos Kabasilas"],
+                        
+                        ["Niccolò Leoniceno","Ognibene (Omnibonus Leonicenus) Bonisoli da Lonigo"],
+                        
+                        ["Jacob Andreae","Jakob Beuerlin"],
+                        
+                        ["Theodor Zwinger","Bassiano Landi"],
+                        
+                        ["Theodor Zwinger","Vittore Trincavelli"],
+                        
+                        ["Bassiano Landi","Vittore Trincavelli"],
+                        
+                        ["Andreas (Andries van Wesel) Vesalius","Giovanni Battista della Monte"],
+                        
+                        ["Bassiano Landi","Giovanni Battista della Monte"],
+                        
+                        ["Felix Plater","Guillaume Rondelet"],
+                        
+                        ["Nilos Kabasilas","Gregory Palamas"],
+                        
+                        ["Thomas von Kempen à Kempis","Geert Gerardus Magnus Groote"],
+                        
+                        ["Georg Balthasar Metzger","Gottfried Möbius"],
+                        
+                        ["Petrus Ryff","Felix Plater"],
+                        
+                        ["Gregory Palamas","Theodore Metochites"],
+                        
+                        ["Theodore Metochites","Manuel Bryennios"],
+                        
+                        ["Moritz Valentin Steinmetz","Johann Hoffmann"],
+                        
+                        ["Nicolaus Zapf","Abraham Heinecke"],
+                        
+                        ["Georg Erhard Hamberger","Anton Bernhard Lauterbach"],
+                        
+                        ["Heinrich von Langenstein","Nicole Oresme"],
+                        
+                        ["Cornelius Martini","Albert Clampius"],
+                        
+                        ["Manuel Bryennios","Gregory Chioniadis"],
+                        
+                        ["Gregory Chioniadis","Shams al‐Dīn al‐Bukhārī"],
+                        
+                        ["Rudolf Wilhelm Krause","Gerardus Leonardus Blasius"],
+                        
+                        ["Johann Georg Büsch","Siegmund Jakob Baumgarten"],
+                        
+                        ["Shams al‐Dīn al‐Bukhārī","Nasir al-Dīn al-Ṭūsī"],
+                        
+                        ["Anton Euonymus","Leonhard Etzler"],
+                        
+                        ["Ambrosius Rhodius","Anton Euonymus"],
+                        
+                        ["Nasir al-Dīn al-Ṭūsī","Kamāl al-Dīn Ibn Yūnus"],
+                        
+                        ["Albert Clampius","Reinhard Bachoff von Echt"],
+                        
+                        ["Michael d. J. Walther","Constantin Ziegra"],
+                        
+                        ["Kamāl al-Dīn Ibn Yūnus","Sharaf al-Dīn al-Ṭūsī"],
+                        
+                        ["Gaetano da Thiene","Paolo (Nicoletti) da Venezia"],
+                        
+                        ["C. L. Ferdinand (Carl Louis) Lindemann","C. Felix (Christian) Klein"],
+                        
+                        ["Georg Lausen","Wolffried Stucky"],
+                        
+                        ["Wolffried Stucky","Günter Hotz"],
+                        
+                        ["Christian Ludwig Gerling","Carl Friedrich Gauß"],
+                        
+                        ["Christoph Nottnagel","Ambrosius Rhodius"],
+                        
+                        ["Günter Hotz","Kurt Reidemeister"],
+                        
+                        ["Christian August Hausen","Johann Christoph Wichmannshausen"],
+                        
+                        ["Alfred Loewy","C. L. Ferdinand (Carl Louis) Lindemann"],
+                        
+                        ["David Hilbert","C. L. Ferdinand (Carl Louis) Lindemann"],
+                        
+                        ["Tycho (Tyge Ottesen) Brahe","Caspar Peucer"],
+                        
+                        ["Salomon Alberti","Caspar Peucer"],
+                        
+                        ["Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius","Gabriele Falloppio"],
+                        
+                        ["Johannes Nicolaus Stupanus","Theodor Zwinger"],
+                        
+                        ["John Craig","Theodor Zwinger"],
+                        
+                        ["Jacob Bernoulli","Peter Werenfels"],
+                        
+                        ["Jacob Bernoulli","Nicolas Malebranche"],
+                        
+                        ["Franciscus de le Boë Sylvius","Emmanuel Stupanus"],
+                        
+                        ["Nikolaus Eglinger","Emmanuel Stupanus"],
+                        
+                        ["Johann Caspar Bauhin","Emmanuel Stupanus"],
+                        
+                        ["Rudolf Wilhelm Krause","Franciscus de le Boë Sylvius"],
+                        
+                        ["Georg Wolffgang Wedel","Franciscus de le Boë Sylvius"],
+                        
+                        ["Elias Rudolph Camerarius, Sr.","Georg Balthasar Metzger"],
+                        
+                        ["Rudolf Jakob Camerarius","Georg Balthasar Metzger"],
+                        
+                        ["Christiaan Huygens","Jan Jansz Stampioen, Jr."],
+                        
+                        ["Georg Balthasar Metzger","Johann Jakob von Brunn"],
+                        
+                        ["Werner Rolfinck","Daniel Sennert"],
+                        
+                        ["Simon Paul Hilscher","Rudolf Wilhelm Krause"],
+                        
+                        ["Jacobus Golius","Willebrord (Snel van Royen) Snellius"],
+                        
+                        ["Jacobus Golius","Thomas Erpenius"],
+                        
+                        ["Georg Joachim von Leuchen Rheticus","Nicolaus (Mikołaj Kopernik) Copernicus"],
+                        
+                        ["Philipp Apian","Michael Beuther"],
+                        
+                        ["Erasmus Reinhold","Jakob Milich"],
+                        
+                        ["Antonio Musa Brasavola","Niccolò Leoniceno"],
+                        
+                        ["Giovanni Battista della Monte","Niccolò Leoniceno"],
+                        
+                        ["Petrus (Pierre de La Ramée) Ramus","Jacques Toussain"],
+                        
+                        ["Adrien Turnèbe","Jacques Toussain"],
+                        
+                        ["Giovanni Battista della Monte","Pietro Pomponazzi"],
+                        
+                        ["Vittore Trincavelli","Pietro Pomponazzi"],
+                        
+                        ["Willebrord (Snel van Royen) Snellius","Ludolph van Ceulen"],
+                        
+                        ["Willebrord (Snel van Royen) Snellius","Rudolph (Snel van Royen) Snellius"],
+                        
+                        ["Jacobus (Jacob Harmensz.) Arminius","Rudolph (Snel van Royen) Snellius"],
+                        
+                        ["Thomas Erpenius","Joseph Justus Scaliger"],
+                        
+                        ["Johannes Volmar","Bonifazius Erasmi"],
+                        
+                        ["Nicolaus (Mikołaj Kopernik) Copernicus","Leonhard (Leonard Vitreatoris z Dobczyc) von Dobschütz"],
+                        
+                        ["Nicolaus (Mikołaj Kopernik) Copernicus","Domenico Maria Novara da Ferrara"],
+                        
+                        ["Jakob Milich","Ulrich Zasius"],
+                        
+                        ["Wolfgang Fabricius Capito","Ulrich Zasius"],
+                        
+                        ["Johannes Müller Regiomontanus","Basilios Bessarion"],
+                        
+                        ["Johannes Argyropoulos","Basilios Bessarion"],
+                        
+                        ["Janus Lascaris","Basilios Bessarion"],
+                        
+                        ["Niccolò Leoniceno","Pelope"],
+                        
+                        ["Andreas (Andries van Wesel) Vesalius","Gemma (Jemme Reinerszoon) Frisius"],
+                        
+                        ["Joseph Justus Scaliger","Adrien Turnèbe"],
+                        
+                        ["Jacques Toussain","Guillaume Budé"],
+                        
+                        ["Giovanni Battista della Monte","Marco Musuro"],
+                        
+                        ["Pietro Pomponazzi","Nicoletto Vernia"],
+                        
+                        ["Sebastian Beck","Johann Jacob Grynaeus"],
+                        
+                        ["Domenico Maria Novara da Ferrara","Johannes Müller Regiomontanus"],
+                        
+                        ["Nicolas (Nicolaes Cleynaerts) Clénard","Jacobus (Jacques Masson) Latomus"],
+                        
+                        ["Nicolas (Nicolaes Cleynaerts) Clénard","Jan (Johannes Campensis) van Campen"],
+                        
+                        ["Johannes Winter von Andernach","Rutger Rescius"],
+                        
+                        ["Johannes Winter von Andernach","Jacobus (Jacques Dubois) Sylvius"],
+                        
+                        ["Basilios Bessarion","Georgios Plethon Gemistos"],
+                        
+                        ["Pietro Roccabonella","Gaetano da Thiene"],
+                        
+                        ["Nicoletto Vernia","Gaetano da Thiene"],
+                        
+                        ["Pietro Roccabonella","Sigismondo Polcastro"],
+                        
+                        ["Gemma (Jemme Reinerszoon) Frisius","Petrus (Pieter de Corte) Curtius"],
+                        
+                        ["François Vatable","Jacques (Jacobus Faber) Lefèvre d'Étaples"],
+                        
+                        ["Guillaume Budé","Janus Lascaris"],
+                        
+                        ["Marco Musuro","Janus Lascaris"],
+                        
+                        ["Johann Jacob Grynaeus","Simon Sulzer"],
+                        
+                        ["Johann Jacob Grynaeus","Jacob Andreae"],
+                        
+                        ["Rutger Rescius","Girolamo (Hieronymus Aleander) Aleandro"],
+                        
+                        ["François Vatable","Girolamo (Hieronymus Aleander) Aleandro"],
+                        
+                        ["Paul (Paul Büchlein) Fagius","Wolfgang Fabricius Capito"],
+                        
+                        ["Simon Sulzer","Wolfgang Fabricius Capito"],
+                        
+                        ["Paul (Paul Büchlein) Fagius","Elijah ben Asher Levita"],
+                        
+                        ["Johannes Müller Regiomontanus","Georg von Peuerbach"],
+                        
+                        ["Jan (Johannes Campensis) van Campen","Matthaeus Adrianus"],
+                        
+                        ["Jacobus (Jacques Dubois) Sylvius","François Dubois"],
+                        
+                        ["Georgios Plethon Gemistos","Elissaeus Judaeus"],
+                        
+                        ["Vittorino da Feltre","Guarino da Verona"],
+                        
+                        ["Petrus (Pieter de Corte) Curtius","Maarten (Martinus Dorpius) van Dorp"],
+                        
+                        ["Janus Lascaris","Demetrios Chalcocondyles"],
+                        
+                        ["Simon Sulzer","Simon Grynaeus"],
+                        
+                        ["Girolamo (Hieronymus Aleander) Aleandro","Moses Perez"],
+                        
+                        ["Girolamo (Hieronymus Aleander) Aleandro","Scipione Fortiguerra"],
+                        
+                        ["Georg von Peuerbach","Johannes von Gmunden"],
+                        
+                        ["Rudolf Agricola","Theodoros Gazes"],
+                        
+                        ["Demetrios Chalcocondyles","Theodoros Gazes"],
+                        
+                        ["Thomas von Kempen à Kempis","Florens Florentius Radwyn Radewyns"],
+                        
+                        ["Jakob Beuerlin","Balthasar Kaeuffelin"],
+                        
+                        ["Scipione Fortiguerra","Angelo Poliziano"],
+                        
+                        ["Angelo Poliziano","Marsilio Ficino"],
+                        
+                        ["Angelo Poliziano","Cristoforo Landino"],
+                        
+                    
+                ]
+            }]
+        });
+    </script>
+    
+      </body>
+    </html>
+    
