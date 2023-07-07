@@ -678,6 +678,21 @@ rule mgdb_lowest_common_ancestors_with_clingo:
     script:
         "../src/query/mgdb_entry.py"
 
+rule mgdb_lowest_common_ancestors_with_logica:
+    input:
+        database = "data/external/mgdb/mgdb.db"
+    params:
+        pid1 = "{pid1}",
+        pid2 = "{pid2}",
+        lat = "logica",
+        query = "lowest_common_ancestors"
+    output:
+        "data/query/mgdb/logica/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+    benchmark:
+        repeat("data/query/mgdb/logica/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
+    script:
+        "../src/query/mgdb_entry.py"
+
 rule mgdb_interim_advise_with_bashlog:
     input:
         advised = "data/raw/mgdb/bashlog/advised.tsv",

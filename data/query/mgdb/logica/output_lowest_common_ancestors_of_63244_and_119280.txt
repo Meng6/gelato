@@ -1,0 +1,4 @@
+pid,name
+60985,Gottfried Wilhelm Leibniz
+101860,Franciscus de le Boë Sylvius
+127962,Michael d. J. Walther

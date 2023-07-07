@@ -1,2 +1,2 @@
-language_or_tool,unary_search_ancestors_for_63244,binary_search_ancestors_for_63244,unary_search_descendants_for_63188,binary_search_descendants_for_63188
-logica,23.54(0.49),22.87(0.51),2.6(0.4),8.46(0.27)
+language_or_tool,unary_search_ancestors_for_63244,binary_search_ancestors_for_63244,unary_search_descendants_for_63188,binary_search_descendants_for_63188,lowest_common_ancestors_of_63244_and_119280
+logica,23.54(0.49),22.87(0.51),2.6(0.4),8.46(0.27),33.25(1.09)

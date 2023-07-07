@@ -103,3 +103,43 @@ def binary_search_descendants(params, database):
     columns = ["student_id", "student_name", "advisor_id", "advisor_name"]
 
     return logica_query, output_name, columns
+
+
+def lowest_common_ancestors(params, database):
+    logica_query = """
+
+    @Engine("sqlite");
+
+    @AttachDatabase("mgdb","{database}");
+    @Dataset("advised");
+    @Dataset("person");
+    @Dataset("dissertation");
+
+    Adv_Stu(advisor:, student:author) :- Advised(did:x, advisor:),Dissertation(did:y, author:), x=y;
+
+    @Recursive(Anc_1,33);
+    Anc_1(ancestor:advisor, student:m) distinct :- Adv_Stu(advisor:, student:m), m={pid1};
+    Anc_1(ancestor:x, student:) distinct:- Adv_Stu(advisor:x, student:y),Anc_1(ancestor:y, student:);
+
+    @Recursive(Anc_2,10);
+    Anc_2(ancestor:advisor, student:l) distinct :- Adv_Stu(advisor:, student:l), l={pid2};
+    Anc_2(ancestor:x, student:) distinct:- Adv_Stu(advisor:x, student:y),Anc_2(ancestor:y, student:);
+
+    Common_Ancestors(pid_1:m, pid_2:l, anc_id: x) :- Anc_1(ancestor:x, student:m), 
+    Anc_2(ancestor:x, student:l), m={pid1},l={pid2} ;
+
+    Not_Lowest_Common_Ancestors(pid_1:m, pid_2:l, anc_id: x) :- Common_Ancestors(pid_1:m, pid_2:l, anc_id: x), 
+    Common_Ancestors(pid_1:m, pid_2:l, anc_id: y), Adv_Stu(advisor:x, student:y),m={pid1},l={pid2};
+
+    Lowest_Common_Ancestors_with_Name(pid:x, name:name) :- Common_Ancestors(pid_1:m, pid_2:l, anc_id: x),
+    ~Not_Lowest_Common_Ancestors(pid_1:m, pid_2:l, anc_id: x), Person(pid:x,name:name),m={pid1},l={pid2};
+    """.format(
+        database=database,
+        pid1=params["pid1"],
+        pid2=params["pid2"],
+    )
+
+    output_name = "Lowest_Common_Ancestors_with_Name"
+    columns = ["pid", "name"]
+
+    return logica_query, output_name, columns
