@@ -1,7 +1,7 @@
 # Modules to be loaded to mgdb_entry.py script
 def unary_search_ancestors(params, database):
     logica_query = """
-
+    
     @Engine("sqlite");
     @AttachDatabase("mgdb", "{database}");
     @Dataset("advised");
@@ -9,6 +9,7 @@ def unary_search_ancestors(params, database):
     @Dataset("dissertation");
 
     Adv_Stu(advisor:, student:author) :- Advised(did:x, advisor:),Dissertation(did:y, author:), x=y;
+
     @Recursive(Anc,33);
     Anc(ancestor:advisor, student:m) distinct :- Adv_Stu(advisor:, student:m), m={pid};
     Anc(ancestor:x, student:l) distinct:- Adv_Stu(advisor:x, student:y),Anc(ancestor:z, student:l), y=z;
