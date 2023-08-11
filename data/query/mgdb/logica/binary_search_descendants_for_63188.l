@@ -3,16 +3,15 @@
     @Engine("sqlite");
 
     @AttachDatabase("mgdb","data/external/mgdb/mgdb.db");
-    @Dataset("advised");
-    @Dataset("person");
-    @Dataset("dissertation");
 
+    @Ground(Adv_Stu);
     Adv_Stu(advisor:, student:author) :- Advised(did:x, advisor:),Dissertation(did:y, author:), x=y;
 
     Desc(pid:m, descendant_1:student, descendant_2:m) distinct :- Adv_Stu(advisor:m, student:), m=63188;
     Desc(pid:, descendant_1:z,descendant_2:y) distinct:- Desc(pid:, descendant_1:l),
     Adv_Stu(advisor:y, student:z), l=y;
-
+    
+    @Ground(Desc_with_Name);
     Desc_with_Name(student_id:z,student_name:name2,advisor_id:y,advisor_name:name1) :- 
-    Desc(pid:, descendant_1:z,descendant_2:y), person(pid:y,name:name1),person(pid:z,name:name2);
+    Desc(pid:, descendant_1:z,descendant_2:y), Person(pid:y,name:name1),Person(pid:z,name:name2);
     
