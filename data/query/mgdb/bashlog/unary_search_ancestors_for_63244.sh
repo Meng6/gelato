@@ -5,8 +5,8 @@
 ###############################################################
 
 export LC_ALL=C
-mkdir -p tmp
-rm -f tmp/*
+mkdir -p data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288
+rm -f data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/*
 if type mawk > /dev/null; then awk="mawk"; else awk="awk"; fi
 sort="sort "
 check() { grep -- $1 <(sort --help) > /dev/null; }
@@ -18,26 +18,26 @@ conv_ntriples() { $awk -F$'\t' '{ print $1 " " $2 " " $3 " ." }'; }
 
 
 
-mkfifo tmp/lock_mat0; ( $sort -t $'\t' -k 1 \
+mkfifo data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/lock_mat0; ( $sort -t $'\t' -k 1 \
     <($awk -v FS=$'\t' ' 
           BEGIN { 
            out0c2_cond1["<advised_by>"] = "1"; 
           }
         
          (($2) in out0c2_cond1){ print $1 FS $3 } 
-          ' ./data/raw/mgdb/bashlog/advised.tsv) > tmp/mat0; mv tmp/lock_mat0 tmp/done_mat0; cat tmp/done_mat0 > /dev/null & exec 3> tmp/done_mat0; exec 3>&-; ) & 
+          ' ./data/raw/mgdb/bashlog/advised.tsv) > data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat0; mv data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/lock_mat0 data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/done_mat0; cat data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/done_mat0 > /dev/null & exec 3> data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/done_mat0; exec 3>&-; ) & 
 
 # plan
-touch tmp/mat1 tmp/mat2
-$awk -v FS=$'\t' ' ($3 == "63244" && $2 == "<author>") { print $1 >> "tmp/mat1" } 
- ($2 == "<author>") { print $1 FS $3 >> "tmp/mat2" } 
+touch data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat1 data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat2
+$awk -v FS=$'\t' ' ($3 == "63244" && $2 == "<author>") { print $1 >> "data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat1" } 
+ ($2 == "<author>") { print $1 FS $3 >> "data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat2" } 
   ' ./data/raw/mgdb/bashlog/dissertation.tsv 
 
 
-mkfifo tmp/lock_mat3; ( $sort -t $'\t' -k 1 \
-    <(cat tmp/lock_mat0 1>&2 2>/dev/null ;  \
+mkfifo data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/lock_mat3; ( $sort -t $'\t' -k 1 \
+    <(cat data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/lock_mat0 1>&2 2>/dev/null ;  \
         join -t $'\t' -1 1 -2 1 -o 1.2,2.2 \
-        <($sort -t $'\t' -k 1 tmp/mat2) tmp/mat0) > tmp/mat3; mv tmp/lock_mat3 tmp/done_mat3; cat tmp/done_mat3 > /dev/null & exec 3> tmp/done_mat3; exec 3>&-; ) & 
+        <($sort -t $'\t' -k 1 data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat2) data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat0) > data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat3; mv data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/lock_mat3 data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/done_mat3; cat data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/done_mat3 > /dev/null & exec 3> data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/done_mat3; exec 3>&-; ) & 
 
 # plan
 $sort -t $'\t' -k 1 -k 2 -u \
@@ -48,29 +48,29 @@ $sort -t $'\t' -k 1 -k 2 -u \
             <($sort -t $'\t' -k 1 -k 2 -u \
                     <($awk -v FS=$'\t' '  { print $2 FS "63244"} 
                           ' \
-                        <(cat tmp/lock_mat0 1>&2 2>/dev/null ;  \
-                            join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 tmp/mat0 \
-                            <($sort -t $'\t' -k 1 -u tmp/mat1))) \
-                     | tee tmp/full4 > tmp/delta4
+                        <(cat data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/lock_mat0 1>&2 2>/dev/null ;  \
+                            join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat0 \
+                            <($sort -t $'\t' -k 1 -u data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat1))) \
+                     | tee data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/full4 > data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/delta4
                 while 
                 
                 $sort -t $'\t' -k 1 -k 2 -u \
                     <($awk -v FS=$'\t' '  { print $2 FS "63244"} 
                           ' \
-                        <(cat tmp/lock_mat3 1>&2 2>/dev/null ;  \
-                            join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 tmp/mat3 \
+                        <(cat data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/lock_mat3 1>&2 2>/dev/null ;  \
+                            join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/mat3 \
                             <($sort -t $'\t' -k 1 -u \
                                 <($awk -v FS=$'\t' '  { print $1} 
-                                      ' tmp/delta4)))) \
-                     | comm -23 - tmp/full4 > tmp/new4;
+                                      ' data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/delta4)))) \
+                     | comm -23 - data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/full4 > data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/new4;
                 
-                mv tmp/new4 tmp/delta4 ; 
-                $sort -u --merge -o tmp/full4 tmp/full4 tmp/delta4 ; 
-                [ -s tmp/delta4 ]; 
+                mv data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/new4 data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/delta4 ; 
+                $sort -u --merge -o data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/full4 data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/full4 data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/delta4 ; 
+                [ -s data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/delta4 ]; 
                 do continue; done
                 
-                rm tmp/delta4
-                cat tmp/full4))) \
+                rm data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/delta4
+                cat data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288/full4))) \
     <($sort -t $'\t' -k 1 \
         <($awk -v FS=$'\t' ' 
               BEGIN { 
@@ -80,4 +80,4 @@ $sort -t $'\t' -k 1 -k 2 -u \
              (($2) in out0c2_cond1){ print $1 FS $3 } 
               ' ./data/raw/mgdb/bashlog/person.tsv)))
 
- rm -f tmp/*
+rm -rf data/query/mgdb/bashlog/unary_search_ancestors_for_63244_tmp8668316288

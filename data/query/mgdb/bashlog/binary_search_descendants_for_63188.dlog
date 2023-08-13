@@ -1,19 +1,22 @@
 
-facts_p(S, P, O) :~ cat ./data/raw/mgdb/bashlog/person.tsv
-facts_d(S, P, O) :~ cat ./data/raw/mgdb/bashlog/dissertation.tsv
-facts_a(S, P1, O1, P2, O2) :~ cat ./data/raw/mgdb/bashlog/advised.tsv
 
-% advise(advisor, student).
-advise(A, S) :-
-   facts_a(DID, "<advised_by>", A, _, _),
-   facts_d(DID, "<author>", S).
+    facts_p(S, P, O) :~ cat ./data/raw/mgdb/bashlog/person.tsv
+    facts_d(S, P, O) :~ cat ./data/raw/mgdb/bashlog/dissertation.tsv
+    facts_a(S, P1, O1, P2, O2) :~ cat ./data/raw/mgdb/bashlog/advised.tsv
 
-% descendants_for_pid(PID, descendant1, descendant2), where descendant2 is descendant1's advisor.
-descendants_for_pid(63188, Y, 63188) :- advise(63188, Y).
-descendants_for_pid(63188, Z, Y) :- descendants_for_pid(63188, Y, _), advise(Y, Z).
+    % advise(advisor, student).
+    advise(A, S) :-
+        facts_a(DID, "<advised_by>", A, _, _),
+        facts_d(DID, "<author>", S).
 
-% Return: descendant pairs (student, advisor).
-main(PID1, NAME1, PID2, NAME2) :-
-   descendants_for_pid(63188, PID1, PID2),
-   facts_p(PID1, "<name>", NAME1),
-   facts_p(PID2, "<name>", NAME2).
+    % descendants_for_pid(PID, descendant1, descendant2), where descendant2 is descendant1's advisor.
+    descendants_for_pid(63188, Y, 63188) :- advise(63188, Y).
+    descendants_for_pid(63188, Z, Y) :- descendants_for_pid(63188, Y, _), advise(Y, Z).
+
+    % Return: descendant pairs (student, advisor).
+    main(PID1, NAME1, PID2, NAME2) :-
+        descendants_for_pid(63188, PID1, PID2),
+        facts_p(PID1, "<name>", NAME1),
+        facts_p(PID2, "<name>", NAME2).
+
+    

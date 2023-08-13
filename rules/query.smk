@@ -1,175 +1,3 @@
-# Preprare bashlog
-rule mgdb_prepare_unary_search_ancestors_datalog_for_bashlog:
-    input:
-        advised = "data/raw/mgdb/bashlog/advised.tsv",
-        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        person = "data/raw/mgdb/bashlog/person.tsv"
-    params:
-        pid = "{pid}"
-    output:
-        "data/query/mgdb/bashlog/unary_search_ancestors_for_{pid}.dlog"
-    script:
-        "../src/query/mgdb/bashlog_main/prepare_unary_search_ancestors_datalog_for_bashlog.py"
-
-rule mgdb_prepare_binary_search_ancestors_datalog_for_bashlog:
-    input:
-        advised = "data/raw/mgdb/bashlog/advised.tsv",
-        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        person = "data/raw/mgdb/bashlog/person.tsv"
-    params:
-        pid = "{pid}"
-    output:
-        "data/query/mgdb/bashlog/binary_search_ancestors_for_{pid}.dlog"
-    threads: workflow.cores
-    script:
-        "../src/query/mgdb/bashlog_main/prepare_binary_search_ancestors_datalog_for_bashlog.py"
-
-rule mgdb_prepare_unary_search_descendants_datalog_for_bashlog:
-    input:
-        advised = "data/raw/mgdb/bashlog/advised.tsv",
-        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        person = "data/raw/mgdb/bashlog/person.tsv"
-    params:
-        pid = "{pid}"
-    output:
-        "data/query/mgdb/bashlog/unary_search_descendants_for_{pid}.dlog"
-    script:
-        "../src/query/mgdb/bashlog_main/prepare_unary_search_descendants_datalog_for_bashlog.py"
-
-rule mgdb_prepare_binary_search_descendants_datalog_for_bashlog:
-    input:
-        advised = "data/raw/mgdb/bashlog/advised.tsv",
-        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        person = "data/raw/mgdb/bashlog/person.tsv"
-    params:
-        pid = "{pid}"
-    output:
-        "data/query/mgdb/bashlog/binary_search_descendants_for_{pid}.dlog"
-    script:
-        "../src/query/mgdb/bashlog_main/prepare_binary_search_descendants_datalog_for_bashlog.py"
-
-rule mgdb_prepare_interim_advise_datalog_for_bashlog:
-    input:
-        advised = "data/raw/mgdb/bashlog/advised.tsv",
-        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv"
-    output:
-        "data/query/mgdb/bashlog/interim_advise.dlog"
-    script:
-        "../src/query/mgdb/bashlog_main/mgdb_prepare_interim_advise_datalog_for_bashlog.py"
-
-rule mgdb_prepare_interim_common_ancestors_datalog_for_bashlog:
-    input:
-        interim_advise = "data/query/mgdb/bashlog/interim_advise.tsv"
-    params:
-        pid1 = "{pid1}",
-        pid2 = "{pid2}"
-    output:
-        "data/query/mgdb/bashlog/interim_common_ancestors_of_{pid1}_and_{pid2}.dlog"
-    script:
-        "../src/query/mgdb/bashlog_main/mgdb_prepare_interim_common_ancestors_datalog_for_bashlog.py"
-
-rule mgdb_prepare_lowest_common_ancestors_datalog_for_bashlog:
-    input:
-        person = "data/raw/mgdb/bashlog/person.tsv",
-        interim_advise = "data/query/mgdb/bashlog/interim_advise.tsv",
-        interim_common_ancestors = "data/query/mgdb/bashlog/interim_common_ancestors_of_{pid1}_and_{pid2}.tsv"
-    params:
-        pid1 = "{pid1}",
-        pid2 = "{pid2}"
-    output:
-        "data/query/mgdb/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.dlog"
-    script:
-        "../src/query/mgdb/bashlog_main/prepare_lowest_common_ancestors_datalog_for_bashlog.py"
-
-rule mgdb_prepare_bashscript_for_bashlog_0:
-    input:
-        advised = "data/raw/mgdb/bashlog/advised.tsv",
-        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        person = "data/raw/mgdb/bashlog/person.tsv",
-        datalog = "data/query/mgdb/bashlog/interim_{query}.dlog"
-    wildcard_constraints:
-        query = "advise"
-    output:
-        "data/query/mgdb/bashlog/interim_{query}.sh"
-    threads: workflow.cores
-    script:
-        "../src/query/mgdb/bashlog_main/prepare_bashscript_for_bashlog.sh"
-
-rule mgdb_prepare_bashscript_for_bashlog_1:
-    input:
-        advised = "data/raw/mgdb/bashlog/advised.tsv",
-        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        person = "data/raw/mgdb/bashlog/person.tsv",
-        datalog = "data/query/mgdb/bashlog/{query}_for_{pid}.dlog"
-    params:
-        pid = "{pid}"
-    output:
-        "data/query/mgdb/bashlog/{query}_for_{pid}.sh"
-    threads: workflow.cores
-    script:
-        "../src/query/mgdb/bashlog_main/prepare_bashscript_for_bashlog.sh"
-
-rule mgdb_prepare_bashscript_for_bashlog_2:
-    input:
-        data = get_mgdb_prepare_bashscript_for_bashlog_2_input,
-        datalog = "data/query/mgdb/bashlog/{query}_of_{pid1}_and_{pid2}.dlog"
-    params:
-        pid1 = "{pid1}",
-        pid2 = "{pid2}"
-    output:
-        "data/query/mgdb/bashlog/{query}_of_{pid1}_and_{pid2}.sh"
-    threads: workflow.cores
-    script:
-        "../src/query/mgdb/bashlog_main/prepare_bashscript_for_bashlog.sh"
-
-rule fish_prepare_lowest_common_ancestors_datalog_for_bashlog:
-    input:
-        fish = "data/raw/fish/bashlog/fish_{max_hamming_number}.tsv"
-    params:
-        pid1 = "{pid1}",
-        pid2 = "{pid2}"
-    output:
-        "data/query/fish/{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.dlog"
-    script:
-        "../src/query/fish/prepare_lowest_common_ancestors_datalog_for_bashlog.py"
-
-rule fish_prepare_bashscript_for_bashlog_2:
-    input:
-        fish = "data/raw/fish/bashlog/fish_{max_hamming_number}.tsv",
-        datalog = "data/query/fish/{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.dlog"
-    params:
-        pid1 = "{pid1}",
-        pid2 = "{pid2}"
-    output:
-        "data/query/fish/{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.sh"
-    threads: workflow.cores
-    script:
-        "../src/query/fish/prepare_bashscript_for_bashlog.sh"
-
-rule sail_prepare_lowest_common_ancestors_datalog_for_bashlog:
-    input:
-        sail = "data/raw/sail/bashlog/sail_{max_hamming_number}.tsv"
-    params:
-        pid1 = "{pid1}",
-        pid2 = "{pid2}"
-    output:
-        "data/query/sail/{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.dlog"
-    script:
-        "../src/query/sail/prepare_lowest_common_ancestors_datalog_for_bashlog.py"
-
-rule sail_prepare_bashscript_for_bashlog_2:
-    input:
-        sail = "data/raw/sail/bashlog/sail_{max_hamming_number}.tsv",
-        datalog = "data/query/sail/{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.dlog"
-    params:
-        pid1 = "{pid1}",
-        pid2 = "{pid2}"
-    output:
-        "data/query/sail/{max_hamming_number}/bashlog/{query}_of_{pid1}_and_{pid2}.sh"
-    threads: workflow.cores
-    script:
-        "../src/query/sail/prepare_bashscript_for_bashlog.sh"
-
 # Query
 # Search ancestors
 rule mgdb_unary_search_ancestors_with_python:
@@ -326,33 +154,33 @@ rule mgdb_unary_search_ancestors_with_bashlog:
     input:
         advised = "data/raw/mgdb/bashlog/advised.tsv",
         dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        person = "data/raw/mgdb/bashlog/person.tsv",
-        bashlog = "data/query/mgdb/bashlog/unary_search_ancestors_for_{pid}.sh"
+        person = "data/raw/mgdb/bashlog/person.tsv"
     params:
-        pid = "{pid}"
+        pid = "{pid}",
+        lat = "bashlog",
+        query = "unary_search_ancestors"
     output:
         "data/query/mgdb/bashlog/output_unary_search_ancestors_for_{pid}.txt"
     benchmark:
         repeat("data/query/mgdb/bashlog/benchmark_unary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
-    threads: workflow.cores
-    shell:
-        "bash data/query/mgdb/bashlog/unary_search_ancestors_for_{wildcards.pid}.sh &> {output}"
+    script:
+        "../src/query/mgdb_entry.py"
 
 rule mgdb_binary_search_ancestors_with_bashlog:
     input:
         advised = "data/raw/mgdb/bashlog/advised.tsv",
         dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        person = "data/raw/mgdb/bashlog/person.tsv",
-        bashlog = "data/query/mgdb/bashlog/binary_search_ancestors_for_{pid}.sh"
+        person = "data/raw/mgdb/bashlog/person.tsv"
     params:
-        pid = "{pid}"
+        pid = "{pid}",
+        lat = "bashlog",
+        query = "binary_search_ancestors"
     output:
         "data/query/mgdb/bashlog/output_binary_search_ancestors_for_{pid}.txt"
     benchmark:
         repeat("data/query/mgdb/bashlog/benchmark_binary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
-    threads: workflow.cores
-    shell:
-        "bash data/query/mgdb/bashlog/binary_search_ancestors_for_{wildcards.pid}.sh &> {output}"
+    script:
+        "../src/query/mgdb_entry.py"
 
 rule mgdb_unary_search_ancestors_with_logica:
     input:
@@ -381,8 +209,6 @@ rule mgdb_binary_search_ancestors_with_logica:
         repeat("data/query/mgdb/logica/benchmark_binary_search_ancestors_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/mgdb_entry.py"
-
-
 
 # Search descendants
 rule mgdb_unary_search_descendants_with_python:
@@ -539,34 +365,33 @@ rule mgdb_unary_search_descendants_with_bashlog:
     input:
         advised = "data/raw/mgdb/bashlog/advised.tsv",
         dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        person = "data/raw/mgdb/bashlog/person.tsv",
-        bashlog = "data/query/mgdb/bashlog/unary_search_descendants_for_{pid}.sh"
+        person = "data/raw/mgdb/bashlog/person.tsv"
     params:
-        pid = "{pid}"
+        pid = "{pid}",
+        lat = "bashlog",
+        query = "unary_search_descendants"
     output:
         "data/query/mgdb/bashlog/output_unary_search_descendants_for_{pid}.txt"
     benchmark:
         repeat("data/query/mgdb/bashlog/benchmark_unary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
-    threads: workflow.cores
-    shell:
-        "bash data/query/mgdb/bashlog/unary_search_descendants_for_{wildcards.pid}.sh &> {output}"
+    script:
+        "../src/query/mgdb_entry.py"
 
 rule mgdb_binary_search_descendants_with_bashlog:
     input:
         advised = "data/raw/mgdb/bashlog/advised.tsv",
         dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        person = "data/raw/mgdb/bashlog/person.tsv",
-        bashlog = "data/query/mgdb/bashlog/binary_search_descendants_for_{pid}.sh",
+        person = "data/raw/mgdb/bashlog/person.tsv"
     params:
-        pid = "{pid}"
+        pid = "{pid}",
+        lat = "bashlog",
+        query = "binary_search_descendants"
     output:
         "data/query/mgdb/bashlog/output_binary_search_descendants_for_{pid}.txt"
     benchmark:
         repeat("data/query/mgdb/bashlog/benchmark_binary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
-    threads: workflow.cores
-    shell:
-        "bash data/query/mgdb/bashlog/binary_search_descendants_for_{wildcards.pid}.sh &> {output}"
-
+    script:
+        "../src/query/mgdb_entry.py"
 
 rule mgdb_unary_search_descendants_with_logica:
     input:
@@ -595,7 +420,6 @@ rule mgdb_binary_search_descendants_with_logica:
         repeat("data/query/mgdb/logica/benchmark_binary_search_descendants_for_{pid}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
     script:
         "../src/query/mgdb_entry.py"
-
 
 # Lowest common ancestors
 rule mgdb_lowest_common_ancestors_with_python:
@@ -693,43 +517,22 @@ rule mgdb_lowest_common_ancestors_with_logica:
     script:
         "../src/query/mgdb_entry.py"
 
-rule mgdb_interim_advise_with_bashlog:
-    input:
-        advised = "data/raw/mgdb/bashlog/advised.tsv",
-        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
-        bashlog = "data/query/mgdb/bashlog/interim_advise.sh"
-    output:
-        "data/query/mgdb/bashlog/interim_advise.tsv"
-    threads: workflow.cores
-    shell:
-        "bash data/query/mgdb/bashlog/interim_advise.sh &> {output}"
-
-rule mgdb_interim_common_ancestors_with_bashlog:
-    input:
-        interim_advise = "data/query/mgdb/bashlog/interim_advise.tsv",
-        bashlog = "data/query/mgdb/bashlog/interim_common_ancestors_of_{pid1}_and_{pid2}.sh"
-    output:
-        "data/query/mgdb/bashlog/interim_common_ancestors_of_{pid1}_and_{pid2}.tsv"
-    threads: workflow.cores
-    shell:
-        "bash data/query/mgdb/bashlog/interim_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
-
 rule mgdb_lowest_common_ancestors_with_bashlog:
     input:
         person = "data/raw/mgdb/bashlog/person.tsv",
-        interim_advise = "data/query/mgdb/bashlog/interim_advise.tsv",
-        interim_common_ancestors = "data/query/mgdb/bashlog/interim_common_ancestors_of_{pid1}_and_{pid2}.tsv",
-        bashlog = "data/query/mgdb/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.sh"
+        dissertation = "data/raw/mgdb/bashlog/dissertation.tsv",
+        advised = "data/raw/mgdb/bashlog/advised.tsv"
     params:
         pid1 = "{pid1}",
-        pid2 = "{pid2}"
+        pid2 = "{pid2}",
+        lat = "bashlog",
+        query = "lowest_common_ancestors"
     output:
         "data/query/mgdb/bashlog/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
     benchmark:
         repeat("data/query/mgdb/bashlog/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
-    threads: workflow.cores
-    shell:
-        "bash data/query/mgdb/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
+    script:
+        "../src/query/mgdb_entry.py"
 
 rule fish_lowest_common_ancestors_with_clingo:
     input:
@@ -748,18 +551,18 @@ rule fish_lowest_common_ancestors_with_clingo:
 
 rule fish_lowest_common_ancestors_with_bashlog:
     input:
-        fish = "data/raw/fish/bashlog/fish_{max_hamming_number}.tsv",
-        bashlog = "data/query/fish/{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.sh"
+        fish = "data/raw/fish/bashlog/fish_{max_hamming_number}.tsv"
     params:
         pid1 = "{pid1}",
-        pid2 = "{pid2}"
+        pid2 = "{pid2}",
+        lat = "bashlog",
+        query = "lowest_common_ancestors"
     output:
         "data/query/fish/{max_hamming_number}/bashlog/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
     benchmark:
         repeat("data/query/fish/{max_hamming_number}/bashlog/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
-    threads: workflow.cores
-    shell:
-        "bash data/query/fish/{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
+    script:
+        "../src/query/fish_entry.py"
 
 rule sail_lowest_common_ancestors_with_clingo:
     input:
@@ -778,18 +581,18 @@ rule sail_lowest_common_ancestors_with_clingo:
 
 rule sail_lowest_common_ancestors_with_bashlog:
     input:
-        sail = "data/raw/sail/bashlog/sail_{max_hamming_number}.tsv",
-        bashlog = "data/query/sail/{max_hamming_number}/bashlog/lowest_common_ancestors_of_{pid1}_and_{pid2}.sh"
+        sail = "data/raw/sail/bashlog/sail_{max_hamming_number}.tsv"
     params:
         pid1 = "{pid1}",
-        pid2 = "{pid2}"
+        pid2 = "{pid2}",
+        lat = "bashlog",
+        query = "lowest_common_ancestors"
     output:
         "data/query/sail/{max_hamming_number}/bashlog/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
     benchmark:
         repeat("data/query/sail/{max_hamming_number}/bashlog/benchmark_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt", config["BENCHMARK"]["REPEAT_TIMES"])
-    threads: workflow.cores
-    shell:
-        "bash data/query/sail/{wildcards.max_hamming_number}/bashlog/lowest_common_ancestors_of_{wildcards.pid1}_and_{wildcards.pid2}.sh &> {output}"
+    script:
+        "../src/query/sail_entry.py"
 
 # Lowest common ancestors path
 rule mgdb_lowest_common_ancestors_path_with_cypher:

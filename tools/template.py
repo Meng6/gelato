@@ -22,6 +22,8 @@ def format_output(data, columns, lat):
         formated_data = pd.DataFrame(data).applymap(lambda x: x["value"].replace("http://MGDB.com/p", ""))
     elif lat == "clingo":
         formated_data = pd.read_csv(StringIO("\n".join([x.strip()[1:-1] for x in data])), names=columns)
+    elif lat == "bashlog":
+        formated_data = pd.read_csv(StringIO(data), names=columns, sep="\t")
     else:
         raise ValueError("lat parameter only supports [python, sql, cypher, sparql, clingo] for now.")
 

@@ -1,17 +1,20 @@
 
-facts_p(S, P, O) :~ cat ./data/raw/mgdb/bashlog/person.tsv
-facts_d(S, P, O) :~ cat ./data/raw/mgdb/bashlog/dissertation.tsv
-facts_a(S, P1, O1, P2, O2) :~ cat ./data/raw/mgdb/bashlog/advised.tsv
 
-% advise(advisor, student).
-advise(A, S) :-
-   facts_a(DID, "<advised_by>", A, _, _),
-   facts_d(DID, "<author>", S).
+    facts_p(S, P, O) :~ cat ./data/raw/mgdb/bashlog/person.tsv
+    facts_d(S, P, O) :~ cat ./data/raw/mgdb/bashlog/dissertation.tsv
+    facts_a(S, P1, O1, P2, O2) :~ cat ./data/raw/mgdb/bashlog/advised.tsv
 
-% ancestor_of_pid(ancestors, PID).
-ancestor_of_pid(X, 63244) :- advise(X, 63244).
-ancestor_of_pid(X, 63244) :- advise(X, Y), ancestor_of_pid(Y, 63244).
+    % advise(advisor, student).
+    advise(A, S) :-
+        facts_a(DID, "<advised_by>", A, _, _),
+        facts_d(DID, "<author>", S).
 
-main(PID, NAME) :-
-   ancestor_of_pid(PID, 63244),
-   facts_p(PID, "<name>", NAME).
+    % ancestor_of_pid(ancestors, PID).
+    ancestor_of_pid(X, 63244) :- advise(X, 63244).
+    ancestor_of_pid(X, 63244) :- advise(X, Y), ancestor_of_pid(Y, 63244).
+
+    main(PID, NAME) :-
+        ancestor_of_pid(PID, 63244),
+        facts_p(PID, "<name>", NAME).
+
+    

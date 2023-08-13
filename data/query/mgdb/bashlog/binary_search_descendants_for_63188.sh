@@ -5,8 +5,8 @@
 ###############################################################
 
 export LC_ALL=C
-mkdir -p tmp
-rm -f tmp/*
+mkdir -p data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064
+rm -f data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/*
 if type mawk > /dev/null; then awk="mawk"; else awk="awk"; fi
 sort="sort "
 check() { grep -- $1 <(sort --help) > /dev/null; }
@@ -18,42 +18,42 @@ conv_ntriples() { $awk -F$'\t' '{ print $1 " " $2 " " $3 " ." }'; }
 
 
 
-mkfifo tmp/lock_mat0; ( $sort -t $'\t' -k 1 \
+mkfifo data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat0; ( $sort -t $'\t' -k 1 \
     <($awk -v FS=$'\t' ' 
           BEGIN { 
            out0c2_cond1["<author>"] = "1"; 
           }
         
          (($2) in out0c2_cond1){ print $1 FS $3 } 
-          ' ./data/raw/mgdb/bashlog/dissertation.tsv) > tmp/mat0; mv tmp/lock_mat0 tmp/done_mat0; cat tmp/done_mat0 > /dev/null & exec 3> tmp/done_mat0; exec 3>&-; ) & 
+          ' ./data/raw/mgdb/bashlog/dissertation.tsv) > data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat0; mv data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat0 data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/done_mat0; cat data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/done_mat0 > /dev/null & exec 3> data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/done_mat0; exec 3>&-; ) & 
 
-mkfifo tmp/lock_mat1; ( $sort -t $'\t' -k 1 \
+mkfifo data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat1; ( $sort -t $'\t' -k 1 \
     <($awk -v FS=$'\t' ' 
           BEGIN { 
            out0c2_cond1["<name>"] = "1"; 
           }
         
          (($2) in out0c2_cond1){ print $1 FS $3 } 
-          ' ./data/raw/mgdb/bashlog/person.tsv) > tmp/mat1; mv tmp/lock_mat1 tmp/done_mat1; cat tmp/done_mat1 > /dev/null & exec 3> tmp/done_mat1; exec 3>&-; ) & 
+          ' ./data/raw/mgdb/bashlog/person.tsv) > data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat1; mv data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat1 data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/done_mat1; cat data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/done_mat1 > /dev/null & exec 3> data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/done_mat1; exec 3>&-; ) & 
 
 # plan
-touch tmp/mat2 tmp/mat3
-$awk -v FS=$'\t' ' ($2 == "<advised_by>") { print $1 FS $3 >> "tmp/mat2" } 
- ($3 == "63188" && $2 == "<advised_by>") { print $1 >> "tmp/mat3" } 
+touch data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat2 data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat3
+$awk -v FS=$'\t' ' ($2 == "<advised_by>") { print $1 FS $3 >> "data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat2" } 
+ ($3 == "63188" && $2 == "<advised_by>") { print $1 >> "data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat3" } 
   ' ./data/raw/mgdb/bashlog/advised.tsv 
 
 
-mkfifo tmp/lock_mat4; ( $sort -t $'\t' -k 1 \
-    <(cat tmp/lock_mat0 1>&2 2>/dev/null ;  \
+mkfifo data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat4; ( $sort -t $'\t' -k 1 \
+    <(cat data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat0 1>&2 2>/dev/null ;  \
         join -t $'\t' -1 1 -2 1 -o 1.2,2.2 \
-        <($sort -t $'\t' -k 1 tmp/mat2) tmp/mat0) > tmp/mat4; mv tmp/lock_mat4 tmp/done_mat4; cat tmp/done_mat4 > /dev/null & exec 3> tmp/done_mat4; exec 3>&-; ) & 
+        <($sort -t $'\t' -k 1 data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat2) data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat0) > data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat4; mv data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat4 data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/done_mat4; cat data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/done_mat4 > /dev/null & exec 3> data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/done_mat4; exec 3>&-; ) & 
 
 # plan
 $sort -t $'\t' -k 1 -k 2 -k 3 -k 4 -u \
-<(cat tmp/lock_mat1 1>&2 2>/dev/null ;  \
+<(cat data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat1 1>&2 2>/dev/null ;  \
     join -t $'\t' -1 2 -2 1 -o 1.1,1.3,1.2,2.2 \
     <($sort -t $'\t' -k 2 \
-        <(cat tmp/lock_mat1 1>&2 2>/dev/null ;  \
+        <(cat data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat1 1>&2 2>/dev/null ;  \
             join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.2 \
             <($sort -t $'\t' -k 1 \
                 <($awk -v FS=$'\t' '  { print $2 FS $3} 
@@ -61,28 +61,28 @@ $sort -t $'\t' -k 1 -k 2 -k 3 -k 4 -u \
                     <($sort -t $'\t' -k 1 -k 2 -k 3 -u \
                             <($awk -v FS=$'\t' '  { print "63188" FS $3 FS "63188"} 
                                   ' \
-                                <(cat tmp/lock_mat0 1>&2 2>/dev/null ;  \
+                                <(cat data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat0 1>&2 2>/dev/null ;  \
                                     join -t $'\t' -1 1 -2 1 -o 1.1,2.1,2.2 \
-                                    <($sort -t $'\t' -k 1 -u tmp/mat3) tmp/mat0)) \
-                             | tee tmp/full5 > tmp/delta5
+                                    <($sort -t $'\t' -k 1 -u data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat3) data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat0)) \
+                             | tee data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/full5 > data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/delta5
                         while 
                         
                         $sort -t $'\t' -k 1 -k 2 -k 3 -u \
                             <($awk -v FS=$'\t' '  { print "63188" FS $3 FS $1} 
                                   ' \
-                                <(cat tmp/lock_mat4 1>&2 2>/dev/null ;  \
+                                <(cat data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/lock_mat4 1>&2 2>/dev/null ;  \
                                     join -t $'\t' -1 1 -2 1 -o 1.1,2.1,2.2 \
                                     <($sort -t $'\t' -k 1 -u \
                                         <($awk -v FS=$'\t' '  { print $2} 
-                                              ' tmp/delta5)) tmp/mat4)) \
-                             | comm -23 - tmp/full5 > tmp/new5;
+                                              ' data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/delta5)) data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat4)) \
+                             | comm -23 - data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/full5 > data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/new5;
                         
-                        mv tmp/new5 tmp/delta5 ; 
-                        $sort -u --merge -o tmp/full5 tmp/full5 tmp/delta5 ; 
-                        [ -s tmp/delta5 ]; 
+                        mv data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/new5 data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/delta5 ; 
+                        $sort -u --merge -o data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/full5 data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/full5 data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/delta5 ; 
+                        [ -s data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/delta5 ]; 
                         do continue; done
                         
-                        rm tmp/delta5
-                        cat tmp/full5))) tmp/mat1)) tmp/mat1)
+                        rm data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/delta5
+                        cat data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/full5))) data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat1)) data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064/mat1)
 
- rm -f tmp/*
+rm -rf data/query/mgdb/bashlog/binary_search_descendants_for_63188_tmp8645096064

@@ -92,6 +92,33 @@ def clingo_entry(*args, **kwargs):
 
     return data, columns
 
+def bashlog_entry(*args, **kwargs):
+
+    from fish import bashlog_main
+    import subprocess, threading
+
+    # Thread ID
+    tid = str(threading.current_thread().ident)
+
+    # File paths: datalog and bashlog
+    file_name = snakemake.output[0].replace("output_", "")[:-4]
+    datalog_script_path, bashlog_script_path = file_name + ".dlog", file_name + ".sh"
+
+    # Query
+    # Create a datalog query
+    with open(datalog_script_path, mode="w", encoding="utf-8") as datalog_script:
+        query_function = getattr(bashlog_main, snakemake.params["query"])
+        (datalog_query, columns) = query_function(snakemake.params, snakemake.input["fish"])
+        datalog_script.write(datalog_query)
+    # Convert datalog to bashlog
+    with open(bashlog_script_path, mode="w", encoding="utf-8") as bashlog_script:
+        bashlog_query = subprocess.run(["curl", "--data-binary", "@" + datalog_script_path, "https://www.thomasrebele.org/projects/bashlog/api/datalog?query"], stdout=subprocess.PIPE, text=True).stdout
+        bashlog_script.write(bashlog_query.replace(" rm -f tmp/*", "rm -rf tmp").replace("tmp", file_name + "_tmp" + tid))
+    
+    # Execute bashlog
+    data = subprocess.run(["bash", bashlog_script_path], stdout=subprocess.PIPE, text=True).stdout
+
+    return data, columns
 
 # Load credentials
 if "database_group" in snakemake.params.keys():
