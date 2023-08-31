@@ -67,7 +67,7 @@ rule sail_merge_benchmarks:
 # Search ancestors
 rule report_mgdb_unary_search_ancestors:
     input:
-        formated_data = "data/query/mgdb/{lat}/output_unary_search_ancestors_for_{pid}.txt"
+        formated_data = "data/query/mgdb/{lat}/output_unary_search_ancestors_for_{pid}.csv"
     params:
         query = "unary_search_ancestors",
         edge = [],
@@ -80,7 +80,7 @@ rule report_mgdb_unary_search_ancestors:
 
 rule report_mgdb_binary_search_ancestors:
     input:
-        formated_data = "data/query/mgdb/{lat}/output_binary_search_ancestors_for_{pid}.txt"
+        formated_data = "data/query/mgdb/{lat}/output_binary_search_ancestors_for_{pid}.csv"
     params:
         query = "binary_search_ancestors",
         edge = [["student_name", "advisor_name"]],
@@ -94,7 +94,7 @@ rule report_mgdb_binary_search_ancestors:
 # Search descendants
 rule report_mgdb_unary_search_descendants:
     input:
-        formated_data = "data/query/mgdb/{lat}/output_unary_search_descendants_for_{pid}.txt"
+        formated_data = "data/query/mgdb/{lat}/output_unary_search_descendants_for_{pid}.csv"
     params:
         query = "unary_search_descendants",
         edge = [],
@@ -107,7 +107,7 @@ rule report_mgdb_unary_search_descendants:
 
 rule report_mgdb_binary_search_descendants:
     input:
-        formated_data = "data/query/mgdb/{lat}/output_binary_search_descendants_for_{pid}.txt"
+        formated_data = "data/query/mgdb/{lat}/output_binary_search_descendants_for_{pid}.csv"
     params:
         query = "binary_search_descendants",
         edge = [["student_name", "advisor_name"]],
@@ -121,7 +121,7 @@ rule report_mgdb_binary_search_descendants:
 # Lowest common ancestors
 rule report_mgdb_lowest_common_ancestors:
     input:
-        formated_data = "data/query/mgdb/{lat}/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+        formated_data = "data/query/mgdb/{lat}/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.csv"
     params:
         query = "lowest_common_ancestors",
         edge = [],
@@ -134,7 +134,7 @@ rule report_mgdb_lowest_common_ancestors:
 
 rule report_fish_lowest_common_ancestors:
     input:
-        formated_data = "data/query/fish/{max_hamming_number}/{lat}/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+        formated_data = "data/query/fish/{max_hamming_number}/{lat}/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.csv"
     params:
         query = "lowest_common_ancestors",
         edge = [],
@@ -147,7 +147,7 @@ rule report_fish_lowest_common_ancestors:
 
 rule report_sail_lowest_common_ancestors:
     input:
-        formated_data = "data/query/sail/{max_hamming_number}/{lat}/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.txt"
+        formated_data = "data/query/sail/{max_hamming_number}/{lat}/output_lowest_common_ancestors_of_{pid1}_and_{pid2}.csv"
     params:
         query = "lowest_common_ancestors",
         edge = [],
@@ -161,7 +161,7 @@ rule report_sail_lowest_common_ancestors:
 # Lowest common ancestors path
 rule report_mgdb_lowest_common_ancestors_path:
     input:
-        formated_data = "data/query/mgdb/{lat}/output_lowest_common_ancestors_path_of_{pid1}_and_{pid2}.txt"
+        formated_data = "data/query/mgdb/{lat}/output_lowest_common_ancestors_path_of_{pid1}_and_{pid2}.csv"
     params:
         query = "lowest_common_ancestors_path",
         edge = [["student_name", "advisor_name"]],

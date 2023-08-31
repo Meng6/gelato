@@ -1,7 +1,11 @@
+import sys
+sys.path.append('..')
+from tools.template import timeit
 import pandas as pd
 
 # Modules to be loaded to mgdb_entry.py script
-def unary_search_ancestors(params, neo4j_driver):
+@timeit
+def unary_search_ancestors(params, neo4j_driver, **kwargs):
 
     pid = params["pid"]
 
@@ -25,7 +29,8 @@ def unary_search_ancestors(params, neo4j_driver):
 
     return ancestors
 
-def binary_search_ancestors(params, neo4j_driver):
+@timeit
+def binary_search_ancestors(params, neo4j_driver, **kwargs):
 
     # Ref: https://stackoverflow.com/questions/16611723/using-multiple-match-clauses-doesnt-return-any-result-in-neo4j-cypher-query
 
@@ -43,7 +48,8 @@ def binary_search_ancestors(params, neo4j_driver):
 
     return ancestors
 
-def unary_search_descendants(params, neo4j_driver):
+@timeit
+def unary_search_descendants(params, neo4j_driver, **kwargs):
 
     pid = params["pid"]
 
@@ -59,7 +65,8 @@ def unary_search_descendants(params, neo4j_driver):
 
     return descendants
 
-def binary_search_descendants(params, neo4j_driver):
+@timeit
+def binary_search_descendants(params, neo4j_driver, **kwargs):
 
     pid = params["pid"]
 
@@ -76,7 +83,8 @@ def binary_search_descendants(params, neo4j_driver):
 
     return descendants
 
-def lowest_common_ancestors(params, neo4j_driver):
+@timeit
+def lowest_common_ancestors(params, neo4j_driver, **kwargs):
 
     pid1, pid2 = str(params["pid1"]), str(params["pid2"])
 
@@ -98,7 +106,8 @@ def lowest_common_ancestors(params, neo4j_driver):
 
     return lowest_common_ancestors
 
-def lowest_common_ancestors_path(params, neo4j_driver):
+@timeit
+def lowest_common_ancestors_path(params, neo4j_driver, **kwargs):
 
     pid1, pid2 = str(params["pid1"]), str(params["pid2"])
 

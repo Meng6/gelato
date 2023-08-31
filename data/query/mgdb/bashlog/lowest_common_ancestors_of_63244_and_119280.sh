@@ -5,8 +5,8 @@
 ###############################################################
 
 export LC_ALL=C
-mkdir -p data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504
-rm -f data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/*
+mkdir -p data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088
+rm -f data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/*
 if type mawk > /dev/null; then awk="mawk"; else awk="awk"; fi
 sort="sort "
 check() { grep -- $1 <(sort --help) > /dev/null; }
@@ -18,27 +18,27 @@ conv_ntriples() { $awk -F$'\t' '{ print $1 " " $2 " " $3 " ." }'; }
 
 
 
-mkfifo data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/lock_mat0; ( $sort -t $'\t' -k 1 \
+mkfifo data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/lock_mat0; ( $sort -t $'\t' -k 1 \
     <($awk -v FS=$'\t' ' 
           BEGIN { 
            out0c2_cond1["<advised_by>"] = "1"; 
           }
         
          (($2) in out0c2_cond1){ print $1 FS $3 } 
-          ' ./data/raw/mgdb/bashlog/advised.tsv) > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat0; mv data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/lock_mat0 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/done_mat0; cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/done_mat0 > /dev/null & exec 3> data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/done_mat0; exec 3>&-; ) & 
+          ' ./data/raw/mgdb/bashlog/advised.tsv) > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat0; mv data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/lock_mat0 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/done_mat0; cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/done_mat0 > /dev/null & exec 3> data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/done_mat0; exec 3>&-; ) & 
 
 # plan
-touch data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat2 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat3
-$awk -v FS=$'\t' ' ($3 == "63244" && $2 == "<author>") { print $1 >> "data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat1" } 
- ($3 == "119280" && $2 == "<author>") { print $1 >> "data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat2" } 
- ($2 == "<author>") { print $1 FS $3 >> "data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat3" } 
+touch data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat2 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat3
+$awk -v FS=$'\t' ' ($3 == "63244" && $2 == "<author>") { print $1 >> "data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat1" } 
+ ($3 == "119280" && $2 == "<author>") { print $1 >> "data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat2" } 
+ ($2 == "<author>") { print $1 FS $3 >> "data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat3" } 
   ' ./data/raw/mgdb/bashlog/dissertation.tsv 
 
 
-mkfifo data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/lock_mat4; ( $sort -t $'\t' -k 1 \
-    <(cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/lock_mat0 1>&2 2>/dev/null ;  \
+mkfifo data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/lock_mat4; ( $sort -t $'\t' -k 1 \
+    <(cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/lock_mat0 1>&2 2>/dev/null ;  \
         join -t $'\t' -1 1 -2 1 -o 1.2,2.2 \
-        <($sort -t $'\t' -k 1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat3) data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat0) > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat4; mv data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/lock_mat4 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/done_mat4; cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/done_mat4 > /dev/null & exec 3> data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/done_mat4; exec 3>&-; ) & 
+        <($sort -t $'\t' -k 1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat3) data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat0) > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat4; mv data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/lock_mat4 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/done_mat4; cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/done_mat4 > /dev/null & exec 3> data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/done_mat4; exec 3>&-; ) & 
 
 # plan
 $sort -t $'\t' -k 1 -k 2 -u \
@@ -51,58 +51,58 @@ $sort -t $'\t' -k 1 -k 2 -u \
                     <($sort -t $'\t' -k 1 -k 2 -u \
                             <($awk -v FS=$'\t' '  { print $2 FS "63244"} 
                                   ' \
-                                <(cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/lock_mat0 1>&2 2>/dev/null ;  \
-                                    join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat0 \
-                                    <($sort -t $'\t' -k 1 -u data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat1))) \
-                             | tee data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/full5 > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta5
+                                <(cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/lock_mat0 1>&2 2>/dev/null ;  \
+                                    join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat0 \
+                                    <($sort -t $'\t' -k 1 -u data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat1))) \
+                             | tee data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/full5 > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta5
                         while 
                         
                         $sort -t $'\t' -k 1 -k 2 -u \
                             <($awk -v FS=$'\t' '  { print $2 FS "63244"} 
                                   ' \
-                                <(cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/lock_mat4 1>&2 2>/dev/null ;  \
-                                    join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat4 \
+                                <(cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/lock_mat4 1>&2 2>/dev/null ;  \
+                                    join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat4 \
                                     <($sort -t $'\t' -k 1 -u \
                                         <($awk -v FS=$'\t' '  { print $1} 
-                                              ' data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta5)))) \
-                             | comm -23 - data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/full5 > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/new5;
+                                              ' data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta5)))) \
+                             | comm -23 - data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/full5 > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/new5;
                         
-                        mv data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/new5 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta5 ; 
-                        $sort -u --merge -o data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/full5 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/full5 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta5 ; 
-                        [ -s data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta5 ]; 
+                        mv data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/new5 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta5 ; 
+                        $sort -u --merge -o data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/full5 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/full5 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta5 ; 
+                        [ -s data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta5 ]; 
                         do continue; done
                         
-                        rm data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta5
-                        cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/full5))) \
+                        rm data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta5
+                        cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/full5))) \
             <($sort -t $'\t' -k 1 -u \
                 <($awk -v FS=$'\t' '  { print $1} 
                       ' \
                     <($sort -t $'\t' -k 1 -k 2 -u \
                             <($awk -v FS=$'\t' '  { print $2 FS "119280"} 
                                   ' \
-                                <(cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/lock_mat0 1>&2 2>/dev/null ;  \
-                                    join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat0 \
-                                    <($sort -t $'\t' -k 1 -u data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat2))) \
-                             | tee data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/full6 > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta6
+                                <(cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/lock_mat0 1>&2 2>/dev/null ;  \
+                                    join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat0 \
+                                    <($sort -t $'\t' -k 1 -u data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat2))) \
+                             | tee data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/full6 > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta6
                         while 
                         
                         $sort -t $'\t' -k 1 -k 2 -u \
                             <($awk -v FS=$'\t' '  { print $2 FS "119280"} 
                                   ' \
-                                <(cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/lock_mat4 1>&2 2>/dev/null ;  \
-                                    join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/mat4 \
+                                <(cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/lock_mat4 1>&2 2>/dev/null ;  \
+                                    join -t $'\t' -1 1 -2 1 -o 1.1,1.2,2.1 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/mat4 \
                                     <($sort -t $'\t' -k 1 -u \
                                         <($awk -v FS=$'\t' '  { print $1} 
-                                              ' data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta6)))) \
-                             | comm -23 - data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/full6 > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/new6;
+                                              ' data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta6)))) \
+                             | comm -23 - data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/full6 > data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/new6;
                         
-                        mv data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/new6 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta6 ; 
-                        $sort -u --merge -o data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/full6 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/full6 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta6 ; 
-                        [ -s data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta6 ]; 
+                        mv data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/new6 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta6 ; 
+                        $sort -u --merge -o data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/full6 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/full6 data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta6 ; 
+                        [ -s data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta6 ]; 
                         do continue; done
                         
-                        rm data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/delta6
-                        cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504/full6))))) \
+                        rm data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/delta6
+                        cat data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088/full6))))) \
     <($sort -t $'\t' -k 1 \
         <($awk -v FS=$'\t' ' 
               BEGIN { 
@@ -112,4 +112,4 @@ $sort -t $'\t' -k 1 -k 2 -u \
              (($2) in out0c2_cond1){ print $1 FS $3 } 
               ' ./data/raw/mgdb/bashlog/person.tsv)))
 
-rm -rf data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8675365504
+rm -rf data/query/mgdb/bashlog/lowest_common_ancestors_of_63244_and_119280_tmp8610153088

@@ -1,3 +1,7 @@
+import sys
+sys.path.append('..')
+from tools.template import timeit
+
 def on_model_ancestors(m):
     return m.__str__().split("ancestors_of_pid_with_name")[1:]
 
@@ -11,7 +15,8 @@ def on_model_lowest_common_ancestors_path(m):
     return m.__str__().split("path_lca")[1:]
 
 # Modules to be loaded to mgdb_entry.py script
-def unary_search_ancestors(params, ctl):
+@timeit
+def unary_search_ancestors(params, ctl, **kwargs):
     
     pid = params["pid"]
 
@@ -36,7 +41,8 @@ def unary_search_ancestors(params, ctl):
 
     return ancestors, columns
 
-def binary_search_ancestors(params, ctl):
+@timeit
+def binary_search_ancestors(params, ctl, **kwargs):
 
     pid = params["pid"]
     
@@ -61,7 +67,8 @@ def binary_search_ancestors(params, ctl):
 
     return ancestors, columns
 
-def unary_search_descendants(params, ctl):
+@timeit
+def unary_search_descendants(params, ctl, **kwargs):
 
     pid = params["pid"]
 
@@ -86,7 +93,8 @@ def unary_search_descendants(params, ctl):
 
     return descendants, columns
 
-def binary_search_descendants(params, ctl):
+@timeit
+def binary_search_descendants(params, ctl, **kwargs):
 
     pid = params["pid"]
 
@@ -111,7 +119,8 @@ def binary_search_descendants(params, ctl):
 
     return descendants, columns
 
-def lowest_common_ancestors(params, ctl):
+@timeit
+def lowest_common_ancestors(params, ctl, **kwargs):
 
     pid1, pid2 = str(params["pid1"]), str(params["pid2"])
 
@@ -142,7 +151,8 @@ def lowest_common_ancestors(params, ctl):
 
     return lowest_common_ancestors, columns
 
-def lowest_common_ancestors_path(params, ctl):
+@timeit
+def lowest_common_ancestors_path(params, ctl, **kwargs):
 
     pid1, pid2 = str(params["pid1"]), str(params["pid2"])
     

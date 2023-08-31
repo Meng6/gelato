@@ -1,6 +1,21 @@
 import pandas as pd
 from io import StringIO
 from jinja2 import Template
+from functools import wraps
+from time import perf_counter
+
+def timeit(func):
+    @wraps(func)
+    def timeit_wrapper(*args, **kwargs):
+        start_time = perf_counter()
+        result = func(*args, **kwargs)
+        end_time = perf_counter()
+        total_time = end_time - start_time
+        # Save the execution time to a log file
+        if "log" in kwargs:
+            kwargs["log"].append(func.__name__ + ", " + str(total_time))
+        return result
+    return timeit_wrapper
 
 def format_output(data, columns, lat):
 

@@ -1,3 +1,6 @@
+import sys
+sys.path.append('..')
+from tools.template import timeit
 import pandas as pd
 
 def extract_ancestor_pids(pid, ancestor_pids, advised, dissertation):
@@ -64,27 +67,32 @@ def is_lowest_common_ancestor(pid, common_ancestors, advised, dissertation):
     return True
 
 # Modules to be loaded to mgdb_entry.py script
-def unary_search_ancestors(params, advised, dissertation, person):
+@timeit
+def unary_search_ancestors(params, advised, dissertation, person, **kwargs):
     ancestor_pids = extract_ancestor_pids(int(params["pid"]), set(), advised, dissertation)
     ancestors = person[person["pid"].isin(ancestor_pids)][["pid", "name"]]
     return ancestors
 
-def binary_search_ancestors(params, advised, dissertation, person):
+@timeit
+def binary_search_ancestors(params, advised, dissertation, person, **kwargs):
     ancestor_pid_pairs = extract_ancestor_pid_pairs(int(params["pid"]), set(), set(), advised, dissertation)
     ancestor_pairs = add_ancestor_names(ancestor_pid_pairs, person)
     return ancestor_pairs
 
-def unary_search_descendants(params, advised, dissertation, person):
+@timeit
+def unary_search_descendants(params, advised, dissertation, person, **kwargs):
     descendant_pids = extract_descendant_pids(int(params["pid"]), set(), advised, dissertation)
     descendants = person[person["pid"].isin(descendant_pids)][["pid", "name"]]
     return descendants
 
-def binary_search_descendants(params, advised, dissertation, person):
+@timeit
+def binary_search_descendants(params, advised, dissertation, person, **kwargs):
     descendant_pid_pairs = extract_descendant_pid_pairs(int(params["pid"]), set(), set(), advised, dissertation)
     descendant_pairs = add_descendant_names(descendant_pid_pairs, person)
     return descendant_pairs
 
-def lowest_common_ancestors(params, advised, dissertation, person):
+@timeit
+def lowest_common_ancestors(params, advised, dissertation, person, **kwargs):
     pid1, pid2 = int(params["pid1"]), int(params["pid2"])
     ancestors_of_pid1 = extract_ancestor_pids(pid1, set(), advised, dissertation)
     ancestors_of_pid2 = extract_ancestor_pids(pid2, set(), advised, dissertation)

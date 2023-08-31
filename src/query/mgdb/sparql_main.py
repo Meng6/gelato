@@ -1,7 +1,11 @@
+import sys
+sys.path.append('..')
+from tools.template import timeit
 from SPARQLWrapper import JSON
 
 # Modules to be loaded to mgdb_entry.py script
-def unary_search_ancestors(params, conn):
+@timeit
+def unary_search_ancestors(params, conn, **kwargs):
 
     pid = params["pid"]
 
@@ -25,7 +29,8 @@ def unary_search_ancestors(params, conn):
 
     return ancestors
 
-def binary_search_ancestors(params, conn):
+@timeit
+def binary_search_ancestors(params, conn, **kwargs):
 
     pid = params["pid"]
 
@@ -54,7 +59,8 @@ def binary_search_ancestors(params, conn):
 
     return ancestors
 
-def unary_search_descendants(params, conn):
+@timeit
+def unary_search_descendants(params, conn, **kwargs):
 
     pid = params["pid"]
 
@@ -78,7 +84,8 @@ def unary_search_descendants(params, conn):
     
     return descendants
 
-def binary_search_descendants(params, conn):
+@timeit
+def binary_search_descendants(params, conn, **kwargs):
 
     pid = params["pid"]
 
@@ -109,7 +116,8 @@ def binary_search_descendants(params, conn):
 
     return descendants
 
-def lowest_common_ancestors(params, conn):
+@timeit
+def lowest_common_ancestors(params, conn, **kwargs):
 
     pid1, pid2 = params["pid1"], params["pid2"]
 

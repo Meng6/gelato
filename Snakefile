@@ -36,10 +36,10 @@ for graph in config["GRAPHS"]:
         # Query
         for query in config[graph]["QUERIES"]["RUN"]:
             if query in ["UNARY_SEARCH_ANCESTORS", "BINARY_SEARCH_ANCESTORS", "UNARY_SEARCH_DESCENDANTS", "BINARY_SEARCH_DESCENDANTS"]:
-                files_to_compute.extend(expand("data/query/{graph}/{lat}/output_{query}_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid=config[graph]["QUERIES"][query]["PIDS"]))
+                files_to_compute.extend(expand("data/query/{graph}/{lat}/output_{query}_for_{pid}.csv", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid=config[graph]["QUERIES"][query]["PIDS"]))
                 files_to_compute.extend(expand("data/query/{graph}/{lat}/benchmark_{query}_for_{pid}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid=config[graph]["QUERIES"][query]["PIDS"]))
             if query in ["LOWEST_COMMON_ANCESTORS", "LOWEST_COMMON_ANCESTORS_PATH"]:
-                files_to_compute.extend(expand("data/query/{graph}/{lat}/output_{query}_of_{pid1}_and_{pid2}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
+                files_to_compute.extend(expand("data/query/{graph}/{lat}/output_{query}_of_{pid1}_and_{pid2}.csv", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
                 files_to_compute.extend(expand("data/query/{graph}/{lat}/benchmark_{query}_of_{pid1}_and_{pid2}.txt", graph=graph.lower(), lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
 
         # Report
@@ -66,7 +66,7 @@ for graph in config["GRAPHS"]:
         # Query
         for query in config[graph]["QUERIES"]["RUN"]:
             if query == "LOWEST_COMMON_ANCESTORS":
-                files_to_compute.extend(expand("data/query/{graph}/{max_hamming_number}/{lat}/output_{query}_of_{pid1}_and_{pid2}.txt", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
+                files_to_compute.extend(expand("data/query/{graph}/{max_hamming_number}/{lat}/output_{query}_of_{pid1}_and_{pid2}.csv", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
                 files_to_compute.extend(expand("data/query/{graph}/{max_hamming_number}/{lat}/benchmark_{query}_of_{pid1}_and_{pid2}.txt", graph=graph.lower(), max_hamming_number=config[graph]["DATA_SOURCE"]["MAX_HAMMING_NUMBER"], lat=map(str.lower, config[graph]["LANGUAGES_AND_TOOLS"]), query=query.lower(), pid1=config[graph]["QUERIES"][query]["PID1"], pid2=config[graph]["QUERIES"][query]["PID2"]))
 
         # Report

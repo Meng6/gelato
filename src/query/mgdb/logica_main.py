@@ -1,9 +1,14 @@
+import sys
+sys.path.append('..')
+from tools.template import timeit
+
 # Modules to be loaded to mgdb_entry.py script
-def unary_search_ancestors(params, database):
+@timeit
+def unary_search_ancestors(params, database, **kwargs):
     logica_query = """
     
     @Engine("sqlite");
-    @AttachDatabase("mgdb","mgdb.db");
+    @AttachDatabase("mgdb", "{database}");
     @Ground(Adv_Stu);
     Adv_Stu(advisor:, student:author) :- Advised(did:x, advisor:),Dissertation(did:y, author:), x=y;
 
@@ -16,7 +21,7 @@ def unary_search_ancestors(params, database):
     Anc_with_Name(ancestor_id:x,ancestor_name:n) :-Anc(ancestor:x, student:l), Person(pid:y,name:n),x=y;
         
     """.format(
-        pid=params["pid"]
+        database=database, pid=params["pid"]
     )
 
     output_name = "Anc_with_Name"
@@ -24,8 +29,8 @@ def unary_search_ancestors(params, database):
 
     return logica_query, output_name, columns
 
-
-def binary_search_ancestors(params, database):
+@timeit
+def binary_search_ancestors(params, database, **kwargs):
     logica_query = """
 
     @Engine("sqlite");
@@ -49,8 +54,8 @@ def binary_search_ancestors(params, database):
 
     return logica_query, output_name, columns
 
-
-def unary_search_descendants(params, database):
+@timeit
+def unary_search_descendants(params, database, **kwargs):
     logica_query = """
 
     @Engine("sqlite");
@@ -74,13 +79,13 @@ def unary_search_descendants(params, database):
 
     return logica_query, output_name, columns
 
-
-def binary_search_descendants(params, database):
+@timeit
+def binary_search_descendants(params, database, **kwargs):
     logica_query = """
 
     @Engine("sqlite");
 
-    @AttachDatabase("mgdb","{database}");
+    @AttachDatabase("mgdb", "{database}");
 
     @Ground(Adv_Stu);
     Adv_Stu(advisor:, student:author) :- Advised(did:x, advisor:),Dissertation(did:y, author:), x=y;
@@ -101,13 +106,13 @@ def binary_search_descendants(params, database):
 
     return logica_query, output_name, columns
 
-
-def lowest_common_ancestors(params, database):
+@timeit
+def lowest_common_ancestors(params, database, **kwargs):
     logica_query = """
 
     @Engine("sqlite");
 
-    @AttachDatabase("mgdb","{database}");
+    @AttachDatabase("mgdb", "{database}");
 
     @Ground(Adv_Stu);
     Adv_Stu(advisor:, student:author) :- Advised(did:x, advisor:),Dissertation(did:y, author:), x=y;

@@ -1,2 +1,2 @@
-language_or_tool,lowest_common_ancestors_of_216_and_240
-10**3,1.46(0.01)
+query,10**3
+total#lowest_common_ancestors_of_216_and_240,1.63(0.1)
