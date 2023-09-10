@@ -1,4 +1,4 @@
-import sys
+import sys, os
 sys.path.append('.')
 from tools.template import format_output, timeit
 import pandas as pd
@@ -64,7 +64,10 @@ def logica_execute_query(logica_script_path, output_name, **kwargs):
 
 def python_entry(*args, **kwargs):
 
-    from mgdb import python_main
+    if os.path.isfile("mgdb/app/python_main.py"):
+        from mgdb.app import python_main
+    else:
+        from mgdb import python_main
 
     log = []
 
@@ -79,7 +82,10 @@ def python_entry(*args, **kwargs):
 
 def sql_entry(*args, **kwargs):
 
-    from mgdb import sql_main
+    if os.path.isfile("mgdb/app/sql_main.py"):
+        from mgdb.app import sql_main
+    else:
+        from mgdb import sql_main
 
     log = []
 
@@ -97,7 +103,10 @@ def sql_entry(*args, **kwargs):
 
 def cypher_entry(credentials, database_group):
 
-    from mgdb import cypher_main
+    if os.path.isfile("mgdb/app/cypher_main.py"):
+        from mgdb.app import cypher_main
+    else:
+        from mgdb import cypher_main
 
     log = []
 
@@ -115,7 +124,10 @@ def cypher_entry(credentials, database_group):
 
 def sparql_entry(credentials, database_group):
 
-    from mgdb import sparql_main
+    if os.path.isfile("mgdb/app/sparql_main.py"):
+        from mgdb.app import sparql_main
+    else:
+        from mgdb import sparql_main
 
     log = []
 
@@ -130,7 +142,10 @@ def sparql_entry(credentials, database_group):
 
 def clingo_entry(*args, **kwargs):
 
-    from mgdb import clingo_main
+    if os.path.isfile("mgdb/app/clingo_main.py"):
+        from mgdb.app import clingo_main
+    else:
+        from mgdb import clingo_main
 
     log = []
 
@@ -147,7 +162,10 @@ def clingo_entry(*args, **kwargs):
 
 def bashlog_entry(*args, **kwargs):
 
-    from mgdb import bashlog_main
+    if os.path.isfile("mgdb/app/bashlog_main.py"):
+        from mgdb.app import bashlog_main
+    else:
+        from mgdb import bashlog_main
     import threading
 
     log = []
@@ -175,7 +193,10 @@ def bashlog_entry(*args, **kwargs):
 
 def logica_entry(*args, **kwargs):
 
-    from mgdb import logica_main
+    if os.path.isfile("mgdb/app/logica_main.py"):
+        from mgdb.app import logica_main
+    else:
+        from mgdb import logica_main
 
     log = []
 

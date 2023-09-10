@@ -69,30 +69,90 @@ def is_lowest_common_ancestor(pid, common_ancestors, advised, dissertation):
 # Modules to be loaded to mgdb_entry.py script
 @timeit
 def unary_search_ancestors(params, advised, dissertation, person, **kwargs):
+    """
+    Query unary_search_ancestors: extract ancestors of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - advised (Pandas data frame) : did, advisororder, advisor
+    - dissertation (Pandas data frame) : did, author, title, university, year
+    - person (Pandas data frame) : pid, name, country, onlinedescendants
+
+    Returns:
+    - Pandas data frame: pid, name
+    """
     ancestor_pids = extract_ancestor_pids(int(params["pid"]), set(), advised, dissertation)
     ancestors = person[person["pid"].isin(ancestor_pids)][["pid", "name"]]
     return ancestors
 
 @timeit
 def binary_search_ancestors(params, advised, dissertation, person, **kwargs):
+    """
+    Query binary_search_ancestors: extract ancestor pairs of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - advised (Pandas data frame) : did, advisororder, advisor
+    - dissertation (Pandas data frame) : did, author, title, university, year
+    - person (Pandas data frame) : pid, name, country, onlinedescendants
+
+    Returns:
+    - Pandas data frame: student_pid, student_name, advisor_pid, advisor_name
+    """
     ancestor_pid_pairs = extract_ancestor_pid_pairs(int(params["pid"]), set(), set(), advised, dissertation)
     ancestor_pairs = add_ancestor_names(ancestor_pid_pairs, person)
     return ancestor_pairs
 
 @timeit
 def unary_search_descendants(params, advised, dissertation, person, **kwargs):
+    """
+    Query unary_search_descendants: extract descendants of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - advised (Pandas data frame) : did, advisororder, advisor
+    - dissertation (Pandas data frame) : did, author, title, university, year
+    - person (Pandas data frame) : pid, name, country, onlinedescendants
+
+    Returns:
+    - Pandas data frame: pid, name
+    """
     descendant_pids = extract_descendant_pids(int(params["pid"]), set(), advised, dissertation)
     descendants = person[person["pid"].isin(descendant_pids)][["pid", "name"]]
     return descendants
 
 @timeit
 def binary_search_descendants(params, advised, dissertation, person, **kwargs):
+    """
+    Query binary_search_descendants: extract descendant pairs of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - advised (Pandas data frame) : did, advisororder, advisor
+    - dissertation (Pandas data frame) : did, author, title, university, year
+    - person (Pandas data frame) : pid, name, country, onlinedescendants
+
+    Returns:
+    - Pandas data frame: student_pid, student_name, advisor_pid, advisor_name
+    """
     descendant_pid_pairs = extract_descendant_pid_pairs(int(params["pid"]), set(), set(), advised, dissertation)
     descendant_pairs = add_descendant_names(descendant_pid_pairs, person)
     return descendant_pairs
 
 @timeit
 def lowest_common_ancestors(params, advised, dissertation, person, **kwargs):
+    """
+    Query lowest_common_ancestors: extract LCAs of a pair of researchers with the given PIDS, i.e., (PID1, PID2).
+    
+    Args:
+    - params (dict) : the (PID1, PID2) pair could be accessed via params["pid1"] and params["pid2"]
+    - advised (Pandas data frame) : did, advisororder, advisor
+    - dissertation (Pandas data frame) : did, author, title, university, year
+    - person (Pandas data frame) : pid, name, country, onlinedescendants
+
+    Returns:
+    - Pandas data frame: pid, name
+    """
     pid1, pid2 = int(params["pid1"]), int(params["pid2"])
     ancestors_of_pid1 = extract_ancestor_pids(pid1, set(), advised, dissertation)
     ancestors_of_pid2 = extract_ancestor_pids(pid2, set(), advised, dissertation)

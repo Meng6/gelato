@@ -6,6 +6,16 @@ import pandas as pd
 # Modules to be loaded to mgdb_entry.py script
 @timeit
 def unary_search_ancestors(params, neo4j_driver, **kwargs):
+    """
+    Query unary_search_ancestors: extract ancestors of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - neo4j_driver (Neo4j driver object) : driver to interact with a Neo4j database
+
+    Returns:
+    - Pandas data frame: pid, name
+    """
 
     pid = params["pid"]
 
@@ -31,6 +41,16 @@ def unary_search_ancestors(params, neo4j_driver, **kwargs):
 
 @timeit
 def binary_search_ancestors(params, neo4j_driver, **kwargs):
+    """
+    Query binary_search_ancestors: extract ancestor pairs of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - neo4j_driver (Neo4j driver object) : driver to interact with a Neo4j database
+
+    Returns:
+    - Pandas data frame: student_pid, student_name, advisor_pid, advisor_name
+    """
 
     # Ref: https://stackoverflow.com/questions/16611723/using-multiple-match-clauses-doesnt-return-any-result-in-neo4j-cypher-query
 
@@ -50,6 +70,16 @@ def binary_search_ancestors(params, neo4j_driver, **kwargs):
 
 @timeit
 def unary_search_descendants(params, neo4j_driver, **kwargs):
+    """
+    Query unary_search_descendants: extract descendants of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - neo4j_driver (Neo4j driver object) : driver to interact with a Neo4j database
+
+    Returns:
+    - Pandas data frame: pid, name
+    """
 
     pid = params["pid"]
 
@@ -67,6 +97,16 @@ def unary_search_descendants(params, neo4j_driver, **kwargs):
 
 @timeit
 def binary_search_descendants(params, neo4j_driver, **kwargs):
+    """
+    Query binary_search_descendants: extract descendant pairs of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - neo4j_driver (Neo4j driver object) : driver to interact with a Neo4j database
+
+    Returns:
+    - Pandas data frame: student_pid, student_name, advisor_pid, advisor_name
+    """
 
     pid = params["pid"]
 
@@ -85,6 +125,16 @@ def binary_search_descendants(params, neo4j_driver, **kwargs):
 
 @timeit
 def lowest_common_ancestors(params, neo4j_driver, **kwargs):
+    """
+     Query lowest_common_ancestors: extract LCAs of a pair of researchers with the given PIDS, i.e., (PID1, PID2).
+    
+    Args:
+    - params (dict) : the (PID1, PID2) pair could be accessed via params["pid1"] and params["pid2"]
+    - neo4j_driver (Neo4j driver object) : driver to interact with a Neo4j database
+
+    Returns:
+    - Pandas data frame: pid, name
+    """
 
     pid1, pid2 = str(params["pid1"]), str(params["pid2"])
 

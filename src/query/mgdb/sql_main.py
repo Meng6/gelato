@@ -5,6 +5,18 @@ from tools.template import timeit
 # Modules to be loaded to mgdb_entry.py script
 @timeit
 def unary_search_ancestors(params, conn, **kwargs):
+    """
+    Query unary_search_ancestors: extract ancestors of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - conn (SQLite connection object) : connection to the SQLite database
+
+    Returns:
+    - ancestors (list of tuples): result set, i.e., [(pid, name), (pid, name), ...]
+    - columns (list of strings): column names of the result set, i.e., pid, name
+    """
+
     pid = params["pid"]
     cursor = conn.cursor()
     
@@ -27,6 +39,18 @@ def unary_search_ancestors(params, conn, **kwargs):
 
 @timeit
 def binary_search_ancestors(params, conn, **kwargs):
+    """
+    Query binary_search_ancestors: extract ancestor pairs of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - conn (SQLite connection object) : connection to the SQLite database
+
+    Returns:
+    - ancestors (list of tuples): result set, i.e., [(student_pid, student_name, advisor_pid, advisor_name), ...]
+    - columns (list of strings): column names of the result set, i.e., student_pid, student_name, advisor_pid, advisor_name
+    """
+
     pid = params["pid"]
     cursor = conn.cursor()
     
@@ -53,6 +77,18 @@ def binary_search_ancestors(params, conn, **kwargs):
 
 @timeit
 def unary_search_descendants(params, conn, **kwargs):
+    """
+    Query unary_search_descendants: extract descendants of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - conn (SQLite connection object) : connection to the SQLite database
+
+    Returns:
+    - descendants (list of tuples): result set, i.e., [(pid, name), (pid, name), ...]
+    - columns (list of strings): column names of the result set, i.e., pid, name
+    """
+
     pid = params["pid"]
     cursor = conn.cursor()
     
@@ -75,6 +111,18 @@ def unary_search_descendants(params, conn, **kwargs):
 
 @timeit
 def binary_search_descendants(params, conn, **kwargs):
+    """
+    Query binary_search_descendants: extract descendant pairs of a researcher with the given PID.
+    
+    Args:
+    - params (dict) : PID could be accessed via params["pid"]
+    - conn (SQLite connection object) : connection to the SQLite database
+
+    Returns:
+    - descendants (list of tuples): result set, i.e., [(student_pid, student_name, advisor_pid, advisor_name), ...]
+    - columns (list of strings): column names of the result set, i.e., student_pid, student_name, advisor_pid, advisor_name
+    """
+
     pid = params["pid"]
     cursor = conn.cursor()
     
@@ -101,6 +149,18 @@ def binary_search_descendants(params, conn, **kwargs):
 
 @timeit
 def lowest_common_ancestors(params, conn, **kwargs):
+    """
+    Query lowest_common_ancestors: extract LCAs of a pair of researchers with the given PIDS, i.e., (PID1, PID2).
+    
+    Args:
+    - params (dict) : the (PID1, PID2) pair could be accessed via params["pid1"] and params["pid2"]
+    - conn (SQLite connection object) : connection to the SQLite database
+
+    Returns:
+    - lowest_common_ancestors (list of tuples): result set, i.e., [(pid, name), (pid, name), ...]
+    - columns (list of strings): column names of the result set, i.e., pid, name
+    """
+
     pid1 = params["pid1"]
     pid2 = params["pid2"]
     cursor = conn.cursor()
